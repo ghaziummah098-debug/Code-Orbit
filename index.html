@@ -2570,19 +2570,15 @@ savedScrollPosition = window.scrollY;
 
 function closeLesson(){
 
-  document
-    .getElementById("lessonScreen")
-    .classList.add("hidden");
+  document.getElementById("lessonScreen").classList.add("hidden");
 
-  document
-    .getElementById("home")
-    .classList.remove("hidden");
+  document.getElementById("home").classList.remove("hidden");
 
-  document
-    .querySelector("footer")
-    .classList.remove("hidden");
+  document.querySelector("footer").classList.remove("hidden");
 
   document.body.style.overflow = "";
+
+  window.scrollTo(0, savedScrollPosition);
 
 }
 
