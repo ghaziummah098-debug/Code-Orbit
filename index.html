@@ -1874,7 +1874,400 @@ ORDER BY total DESC;`,
     practice:
       "Write a query that selects all users whose age is at least 18."
 
-  }
+  },
+    Go:{
+    icon:"🐹",
+    description:
+      "A fast, simple and efficient programming language created by Google.",
+    definition:
+      "Go, also called Golang, is a statically typed compiled language designed for simplicity, concurrency and performance.",
+    why:
+      "Go is widely used for cloud services, backend systems, APIs, networking and DevOps tools.",
+    concepts:[
+      "Variables",
+      "Functions",
+      "Structs",
+      "Interfaces",
+      "Goroutines",
+      "Channels",
+      "Packages",
+      "Error Handling"
+    ],
+    syntax:
+`package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello World")
+}`,
+    example:
+`package main
+
+import "fmt"
+
+func main() {
+    a := 10
+    b := 20
+
+    fmt.Println(a + b)
+}`,
+    mistakes:[
+      "Ignoring error handling.",
+      "Confusing goroutines with normal functions.",
+      "Using unnecessary complexity."
+    ],
+    practice:
+      "Write a Go program that prints the sum of two numbers."
+  },
+
+  Rust:{
+    icon:"🦀",
+    description:
+      "A fast and memory-safe systems programming language.",
+    definition:
+      "Rust is a compiled programming language focused on performance, memory safety and reliability.",
+    why:
+      "Rust is useful for systems programming, WebAssembly, command-line tools and high-performance software.",
+    concepts:[
+      "Variables",
+      "Ownership",
+      "Borrowing",
+      "Structs",
+      "Enums",
+      "Traits",
+      "Pattern Matching",
+      "Error Handling"
+    ],
+    syntax:
+`fn main() {
+    let name = "Alex";
+    println!("{}", name);
+}`,
+    example:
+`fn main() {
+    let a = 10;
+    let b = 20;
+
+    println!("{}", a + b);
+}`,
+    mistakes:[
+      "Ignoring ownership rules.",
+      "Confusing references and values.",
+      "Using unnecessary cloning."
+    ],
+    practice:
+      "Write a Rust program that prints the sum of two numbers."
+  },
+
+  Kotlin:{
+    icon:"🟣",
+    description:
+      "A modern programming language widely used for Android and JVM applications.",
+    definition:
+      "Kotlin is a modern statically typed language designed to work seamlessly with Java.",
+    why:
+      "Kotlin is widely used for Android development, backend systems and JVM applications.",
+    concepts:[
+      "Variables",
+      "Functions",
+      "Classes",
+      "Objects",
+      "Null Safety",
+      "Collections",
+      "Coroutines",
+      "Generics"
+    ],
+    syntax:
+`fun main() {
+    val name = "Alex"
+    println(name)
+}`,
+    example:
+`fun main() {
+    val a = 10
+    val b = 20
+
+    println(a + b)
+}`,
+    mistakes:[
+      "Ignoring null safety.",
+      "Using mutable variables unnecessarily.",
+      "Confusing val and var."
+    ],
+    practice:
+      "Write a Kotlin program that prints your name."
+  },
+
+  Swift:{
+    icon:"🍎",
+    description:
+      "A powerful programming language designed by Apple.",
+    definition:
+      "Swift is a modern programming language used to build applications across Apple's platforms.",
+    why:
+      "Swift is mainly used for iOS, iPadOS, macOS, watchOS and tvOS development.",
+    concepts:[
+      "Variables",
+      "Constants",
+      "Functions",
+      "Classes",
+      "Structs",
+      "Optionals",
+      "Protocols",
+      "Closures"
+    ],
+    syntax:
+`import Foundation
+
+let name = "Alex"
+print(name)`,
+    example:
+`let a = 10
+let b = 20
+
+print(a + b)`,
+    mistakes:[
+      "Ignoring optionals.",
+      "Confusing let and var.",
+      "Using force unwrap unnecessarily."
+    ],
+    practice:
+      "Write a Swift program that prints the sum of two numbers."
+  },
+
+  TypeScript:{
+    icon:"🔷",
+    description:
+      "A strongly typed programming language built on top of JavaScript.",
+    definition:
+      "TypeScript is a superset of JavaScript that adds static typing and modern development features.",
+    why:
+      "TypeScript helps developers build large and maintainable web applications with fewer type-related errors.",
+    concepts:[
+      "Types",
+      "Interfaces",
+      "Functions",
+      "Classes",
+      "Generics",
+      "Enums",
+      "Modules",
+      "Type Inference"
+    ],
+    syntax:
+`let name: string = "Alex";
+let age: number = 20;
+
+console.log(name);
+console.log(age);`,
+    example:
+`function add(a: number, b: number): number {
+    return a + b;
+}
+
+console.log(add(10, 20));`,
+    mistakes:[
+      "Using any everywhere.",
+      "Ignoring strict type checking.",
+      "Confusing JavaScript and TypeScript compilation."
+    ],
+    practice:
+      "Create a TypeScript function that adds two numbers."
+  },
+
+  Dart:{
+    icon:"🎯",
+    description:
+      "A modern programming language commonly used with Flutter.",
+    definition:
+      "Dart is a client-optimized language designed for fast development across multiple platforms.",
+    why:
+      "Dart is especially useful for building cross-platform applications with Flutter.",
+    concepts:[
+      "Variables",
+      "Functions",
+      "Classes",
+      "Lists",
+      "Maps",
+      "Null Safety",
+      "Async",
+      "Futures"
+    ],
+    syntax:
+`void main() {
+  String name = "Alex";
+  print(name);
+}`,
+    example:
+`void main() {
+  int a = 10;
+  int b = 20;
+
+  print(a + b);
+}`,
+    mistakes:[
+      "Ignoring null safety.",
+      "Using incorrect variable types.",
+      "Forgetting async behavior."
+    ],
+    practice:
+      "Write a Dart program that prints the sum of two numbers."
+  },
+
+  Ruby:{
+    icon:"💎",
+    description:
+      "A dynamic programming language known for simple and readable syntax.",
+    definition:
+      "Ruby is a dynamic, object-oriented programming language designed with developer productivity in mind.",
+    why:
+      "Ruby is well known for web development, scripting and rapid application development.",
+    concepts:[
+      "Variables",
+      "Methods",
+      "Classes",
+      "Objects",
+      "Arrays",
+      "Hashes",
+      "Blocks",
+      "Modules"
+    ],
+    syntax:
+`name = "Alex"
+age = 20
+
+puts name
+puts age`,
+    example:
+`a = 10
+b = 20
+
+puts a + b`,
+    mistakes:[
+      "Confusing blocks and methods.",
+      "Using unnecessary syntax.",
+      "Ignoring Ruby's object-oriented nature."
+    ],
+    practice:
+      "Write a Ruby program that prints your name and age."
+  },
+
+  R:{
+    icon:"📊",
+    description:
+      "A programming language designed for statistics, data analysis and visualization.",
+    definition:
+      "R is a programming language and environment commonly used for statistical computing and graphics.",
+    why:
+      "R is useful for statistics, data science, research and data visualization.",
+    concepts:[
+      "Variables",
+      "Vectors",
+      "Data Frames",
+      "Functions",
+      "Factors",
+      "Statistics",
+      "Visualization",
+      "Packages"
+    ],
+    syntax:
+`name <- "Alex"
+age <- 20
+
+print(name)
+print(age)`,
+    example:
+`a <- 10
+b <- 20
+
+print(a + b)`,
+    mistakes:[
+      "Using incorrect assignment syntax.",
+      "Confusing vectors and individual values.",
+      "Ignoring data types."
+    ],
+    practice:
+      "Write an R program that calculates the sum of two numbers."
+  },
+
+  Bash:{
+    icon:"💻",
+    description:
+      "A command-line scripting language used for Linux and system automation.",
+    definition:
+      "Bash is a Unix shell and scripting language commonly used to automate command-line tasks.",
+    why:
+      "Bash is useful for Linux administration, automation, scripting and DevOps workflows.",
+    concepts:[
+      "Commands",
+      "Variables",
+      "Conditions",
+      "Loops",
+      "Functions",
+      "Pipes",
+      "Redirection",
+      "Shell Scripts"
+    ],
+    syntax:
+`#!/bin/bash
+
+name="Alex"
+
+echo "Hello $name"`,
+    example:
+`#!/bin/bash
+
+a=10
+b=20
+
+echo $((a + b))`,
+    mistakes:[
+      "Forgetting spaces in conditional syntax.",
+      "Using incorrect variable expansion.",
+      "Ignoring file permissions."
+    ],
+    practice:
+      "Write a Bash script that prints the sum of two numbers."
+  },
+
+  MATLAB:{
+    icon:"📐",
+    description:
+      "A programming language and environment used for numerical computing and engineering.",
+    definition:
+      "MATLAB is a high-level language and environment designed for numerical computation, visualization and engineering applications.",
+    why:
+      "MATLAB is widely used in engineering, mathematics, simulation, signal processing and scientific computing.",
+    concepts:[
+      "Variables",
+      "Matrices",
+      "Vectors",
+      "Functions",
+      "Plots",
+      "Scripts",
+      "Toolboxes",
+      "Numerical Computing"
+    ],
+    syntax:
+`name = "Alex";
+age = 20;
+
+disp(name);
+disp(age);`,
+    example:
+`a = 10;
+b = 20;
+
+result = a + b;
+disp(result);`,
+    mistakes:[
+      "Confusing matrix indexing.",
+      "Using incorrect dimensions.",
+      "Ignoring vectorized operations."
+    ],
+    practice:
+      "Write a MATLAB program that adds two numbers."
+  },
 
 };
 
