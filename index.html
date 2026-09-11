@@ -2277,6 +2277,7 @@ disp(result);`,
 ========================================================= */
 
 let currentLanguage = "";
+let savedScrollPosition = 0;
 let currentLesson = 0;
 let editorMode = "";
 let selectedChallenge = null;
@@ -2531,7 +2532,7 @@ function toggleMenu(){
 ========================================================= */
 
 function openLanguage(lang){
-
+savedScrollPosition = window.scrollY;
   currentLanguage = lang;
 
   currentLesson = 0;
