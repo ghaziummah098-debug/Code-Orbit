@@ -4022,7 +4022,42 @@ function runCode(){
       <style>
 
         ${code}
+.course-nav{
+  display:flex;
+  align-items:center;
+  gap:22px;
+  overflow-x:auto;
+  white-space:nowrap;
+  scrollbar-width:none;
+  padding:4px 10px;
+}
 
+.course-nav::-webkit-scrollbar{
+  display:none;
+}
+
+.course-nav a{
+  color:var(--muted);
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+  transition:.3s;
+}
+
+.course-nav a:hover{
+  color:#00e5ff;
+}
+
+@media(max-width:800px){
+  .course-nav{
+    gap:18px;
+    max-width:65vw;
+  }
+
+  .course-nav a{
+    font-size:13px;
+  }
+}
       </style>
 
 
