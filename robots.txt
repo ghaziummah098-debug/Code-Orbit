@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ghaziummah098-debug.github.io/Code-Orbit/sitemap.xml
