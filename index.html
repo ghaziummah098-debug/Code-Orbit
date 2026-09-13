@@ -4,1337 +4,800 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Code Orbit — Learn Programming, Coding & Web Development </title>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <meta name="google-site-verification" content="XNP-E9YtFgzqOy-euVo1A_nfRJQRqe7jXDEkuj5ugIU" />
-  
-  <meta name="description" content="Code Orbit is a free platform to learn programming, explore coding tutorials, practice challenges, and build your coding skills.">
+<title>Code Orbit — Learn Programming, Coding & Web Development</title>
 
-<meta name="keywords" content="Code Orbit, learn programming, coding tutorials, coding practice, programming languages, Python, C++, Java, JavaScript, HTML, CSS">
+<link rel="icon" type="image/png" href="favicon.png">
 
+<meta name="description" content="Code Orbit is a free platform to learn programming, coding tutorials, practice challenges and build coding skills.">
+<meta name="keywords" content="Code Orbit, learn programming, coding tutorials, Python, JavaScript, C++, Java, HTML, CSS, SQL, programming practice">
 <meta name="author" content="Code Orbit">
-  <link rel="canonical" href="https://ghaziummah098-debug.github.io/Code-Orbit/">
+<meta name="robots" content="index, follow">
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Code Orbit — Learn Programming & Practice Coding">
-<meta property="og:description" content="Learn Python, C++, JavaScript, Java, HTML, CSS and more with interactive lessons, coding examples, quizzes and practice challenges.">
+<meta property="og:title" content="Code Orbit — Learn Programming">
+<meta property="og:description" content="Learn programming with structured lessons, examples, quizzes and practice.">
 <meta property="og:url" content="https://ghaziummah098-debug.github.io/Code-Orbit/">
 <meta property="og:site_name" content="Code Orbit">
 
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Code Orbit — Learn Programming & Practice Coding">
-<meta name="twitter:description" content="Learn programming with interactive lessons, examples, quizzes and coding challenges.">
-
-<meta name="robots" content="index, follow">
-
 <style>
-:root{
-  --bg:#070b14;
-  --panel:#0d1322;
-  --panel2:#111a2d;
-  --border:#24304a;
-  --text:#f4f7ff;
-  --muted:#94a3b8;
-  --primary:#6c63ff;
-  --primary2:#8b5cf6;
-  --success:#22c55e;
-  --danger:#ef4444;
-  --warning:#f59e0b;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+html {
+    scroll-behavior: smooth;
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:Inter,Segoe UI,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #070b14;
+    color: #f5f7ff;
+    min-height: 100vh;
 }
 
 button,
 input,
-textarea{
-  font:inherit;
+textarea {
+    font-family: inherit;
 }
 
-button{
-  cursor:pointer;
-}
-
-.hidden{
-  display:none!important;
+button {
+    cursor: pointer;
 }
 
 /* ================= NAVBAR ================= */
 
-.navbar{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 5%;
-  background:rgba(7,11,20,.92);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid var(--border);
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(7, 11, 20, 0.96);
+    border-bottom: 1px solid #222c42;
+    backdrop-filter: blur(15px);
 }
 
-.logo{
-  font-size:23px;
-  font-weight:800;
+.nav-container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
-.logo span{
-  color:var(--primary);
+.logo {
+    font-size: 23px;
+    font-weight: 900;
+    white-space: nowrap;
 }
 
-.nav-links{
-  display:flex;
-  align-items:center;
-  gap:24px;
+.logo span {
+    color: #8b5cf6;
 }
 
-.nav-links a{
-  color:var(--muted);
-  text-decoration:none;
-  font-weight:600;
+.course-navigation {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    flex: 1;
+    scrollbar-width: none;
 }
 
-.nav-links a:hover{
-  color:white;
+.course-navigation::-webkit-scrollbar {
+    display: none;
 }
 
-.nav-btn{
-  background:linear-gradient(
-    135deg,
-    var(--primary),
-    var(--primary2)
-  );
-  padding:10px 16px;
-  border-radius:10px;
-  color:white!important;
+.course-btn {
+    background: #111a2d;
+    border: 1px solid #27334c;
+    color: #dce5f7;
+    padding: 9px 14px;
+    border-radius: 30px;
+    white-space: nowrap;
+    transition: 0.2s;
 }
 
-.menu-btn{
-  display:none;
-  border:0;
-  background:none;
-  color:white;
-  font-size:25px;
+.course-btn:hover,
+.course-btn.active {
+    background: linear-gradient(90deg, #7c3aed, #06b6d4);
+    border-color: transparent;
+    color: white;
 }
 
 /* ================= HERO ================= */
 
-.hero{
-  min-height:75vh;
-  display:grid;
-  place-items:center;
-  text-align:center;
-  padding:80px 6%;
-  background:
-    radial-gradient(
-      circle at 50% 0%,
-      rgba(108,99,255,.2),
-      transparent 48%
+.hero {
+    max-width: 1200px;
+    margin: auto;
+    padding: 80px 20px 55px;
+    text-align: center;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: #121b31;
+    border: 1px solid #2b3752;
+    color: #a78bfa;
+    padding: 8px 15px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(42px, 7vw, 78px);
+    line-height: 1;
+    margin-bottom: 20px;
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #a78bfa,
+        #22d3ee
     );
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
-.hero h1{
-  font-size:clamp(45px,7vw,80px);
-  line-height:1.05;
-  margin-bottom:20px;
+.hero p {
+    color: #aab6cc;
+    max-width: 720px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.7;
 }
 
-.gradient{
-  background:linear-gradient(
-    90deg,
-    #ffffff,
-    var(--primary2)
-  );
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
+.search-box {
+    width: min(700px, 100%);
+    margin-top: 30px;
+    padding: 16px 20px;
+    background: #0d1526;
+    border: 1px solid #2b3750;
+    border-radius: 14px;
+    color: white;
+    outline: none;
+    font-size: 16px;
 }
 
-.hero p{
-  max-width:780px;
-  margin:0 auto 30px;
-  color:var(--muted);
-  font-size:18px;
+.search-box:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
 }
 
-.hero-actions{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
+/* ================= MAIN ================= */
+
+.container {
+    max-width: 1300px;
+    margin: auto;
+    padding: 20px;
 }
 
-/* ================= BUTTONS ================= */
-
-.btn{
-  border:1px solid var(--border);
-  background:var(--panel2);
-  color:white;
-  padding:11px 17px;
-  border-radius:10px;
-  font-weight:700;
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0 20px;
 }
 
-.btn:hover{
-  transform:translateY(-1px);
+.section-header h2 {
+    font-size: 30px;
 }
 
-.btn.primary{
-  background:linear-gradient(
-    135deg,
-    var(--primary),
-    var(--primary2)
-  );
-  border:0;
-}
-
-.btn.success{
-  background:var(--success);
-  color:#06120a;
-  border:0;
-}
-
-.btn.danger{
-  background:var(--danger);
-  border:0;
-}
-
-.btn.small{
-  padding:7px 11px;
-  font-size:13px;
-}
-
-/* ================= GENERAL SECTIONS ================= */
-
-.section{
-  max-width:1400px;
-  margin:auto;
-  padding:75px 6%;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:35px;
-}
-
-.section-title h2{
-  font-size:36px;
-}
-
-.section-title p{
-  color:var(--muted);
-}
-
-.search{
-  width:100%;
-  max-width:650px;
-  display:block;
-  margin:0 auto 30px;
-  padding:15px 18px;
-  border-radius:12px;
-  border:1px solid var(--border);
-  outline:none;
-  background:var(--panel);
-  color:white;
+.course-count {
+    color: #8997b1;
 }
 
 /* ================= LANGUAGE CARDS ================= */
 
-.language-grid{
-  display:grid;
-  grid-template-columns:
-    repeat(auto-fit,minmax(220px,1fr));
-  gap:18px;
+.language-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
 }
 
-.language-card{
-  background:
-    linear-gradient(
-      145deg,
-      var(--panel),
-      #0a1020
+.language-card {
+    background: linear-gradient(
+        145deg,
+        #111a2c,
+        #0b1220
     );
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:22px;
-  cursor:pointer;
-  transition:.2s;
+    border: 1px solid #25314a;
+    border-radius: 18px;
+    padding: 22px;
+    transition: 0.25s;
 }
 
-.language-card:hover{
-  transform:translateY(-5px);
-  border-color:var(--primary);
+.language-card:hover {
+    transform: translateY(-6px);
+    border-color: #7c3aed;
+    box-shadow: 0 15px 40px rgba(0,0,0,.35);
 }
 
-.lang-icon{
-  font-size:35px;
-  margin-bottom:10px;
+.language-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
 }
 
-.language-card h3{
-  font-size:21px;
+.language-card h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
 }
 
-.language-card p{
-  color:var(--muted);
-  font-size:14px;
-  margin:7px 0 16px;
+.language-card p {
+    color: #929fb8;
+    line-height: 1.6;
+    min-height: 52px;
 }
 
-.card-link{
-  color:#aaa5ff;
-  font-weight:700;
+.card-button {
+    margin-top: 18px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    background: linear-gradient(
+        90deg,
+        #7c3aed,
+        #06b6d4
+    );
 }
 
 /* ================= PRACTICE ================= */
 
-.practice-section{
-  background:#090e19;
-  max-width:none;
+.practice-section {
+    margin-top: 70px;
+    padding-bottom: 70px;
 }
 
-.practice-section>*{
-  max-width:1400px;
-  margin-left:auto;
-  margin-right:auto;
+.practice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
 }
 
-.practice-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-  flex-wrap:wrap;
-  margin-bottom:22px;
+.practice-card {
+    background: #0d1526;
+    border: 1px solid #25314a;
+    padding: 22px;
+    border-radius: 16px;
 }
 
-.filters{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
+.practice-card h3 {
+    margin-bottom: 10px;
 }
 
-.filter-btn{
-  background:var(--panel);
-  color:var(--muted);
-  border:1px solid var(--border);
-  padding:9px 13px;
-  border-radius:9px;
+.practice-card p {
+    color: #9aa7bf;
+    line-height: 1.6;
 }
 
-.filter-btn.active{
-  color:white;
-  background:var(--primary);
-  border-color:var(--primary);
+.small-button {
+    margin-top: 16px;
+    padding: 10px 15px;
+    background: #151f34;
+    color: white;
+    border: 1px solid #303d58;
+    border-radius: 9px;
 }
 
-.xp-box{
-  background:var(--panel);
-  border:1px solid var(--border);
-  padding:10px 15px;
-  border-radius:10px;
-  font-weight:800;
+/* ================= LESSON ================= */
+
+.lesson-screen {
+    display: none;
+    min-height: 100vh;
 }
 
-.challenge-grid{
-  display:grid;
-  grid-template-columns:
-    repeat(auto-fit,minmax(260px,1fr));
-  gap:16px;
+.lesson-screen.active {
+    display: block;
 }
 
-.challenge-card{
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:20px;
+.lesson-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    background: #090f1d;
+    border-bottom: 1px solid #263149;
+    padding: 13px 18px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.challenge-card h3{
-  margin-bottom:7px;
+.back-button {
+    padding: 10px 16px;
+    border-radius: 9px;
+    background: #141e33;
+    color: white;
+    border: 1px solid #303d58;
 }
 
-.challenge-card p{
-  color:var(--muted);
-  font-size:14px;
-  margin-bottom:15px;
+.back-button:hover {
+    border-color: #8b5cf6;
 }
 
-.badge{
-  display:inline-block;
-  padding:4px 9px;
-  border-radius:50px;
-  background:#1b2740;
-  color:#c5cbff;
-  font-size:12px;
-  margin-bottom:12px;
+.lesson-title {
+    flex: 1;
+    font-weight: bold;
+    font-size: 18px;
 }
 
-.badge.easy{
-  color:#86efac;
-}
-
-.badge.medium{
-  color:#fde68a;
-}
-
-.badge.hard{
-  color:#fca5a5;
-}
-
-.empty{
-  text-align:center;
-  color:var(--muted);
-  padding:35px;
-}
-
-/* ================= LESSON SCREEN ================= */
-
-.lesson-screen{
-  position:fixed;
-  inset:0;
-  z-index:2000;
-  background:var(--bg);
-  overflow:auto;
-}
-
-.lesson-top{
-  position:sticky;
-  top:0;
-  z-index:20;
-  display:flex;
-  align-items:center;
-  gap:15px;
-  padding:12px 20px;
-  background:rgba(7,11,20,.96);
-  border-bottom:1px solid var(--border);
-}
-
-.back-btn{
-  background:var(--panel2);
-  color:white;
-  border:1px solid var(--border);
-  padding:9px 13px;
-  border-radius:9px;
-}
-
-.lesson-title{
-  flex:1;
-  font-weight:800;
-}
-
-.progress-wrap{
-  width:230px;
-}
-
-.progress-label{
-  display:flex;
-  justify-content:space-between;
-  color:var(--muted);
-  font-size:12px;
-}
-
-.progress{
-  height:7px;
-  background:#1b2438;
-  border-radius:20px;
-  overflow:hidden;
-}
-
-.progress span{
-  display:block;
-  height:100%;
-  background:
-    linear-gradient(
-      90deg,
-      var(--primary),
-      var(--primary2)
-    );
+.progress-text {
+    color: #8f9cb5;
 }
 
 /* ================= LESSON LAYOUT ================= */
 
-.lesson-layout{
-  display:grid;
-  grid-template-columns:260px 1fr;
-  min-height:calc(100vh - 65px);
+.lesson-layout {
+    max-width: 1400px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 280px 1fr;
 }
 
-.lesson-sidebar{
-  position:sticky;
-  top:65px;
-  height:calc(100vh - 65px);
-  overflow:auto;
-  padding:20px;
-  background:#090e19;
-  border-right:1px solid var(--border);
+.lesson-sidebar {
+    min-height: calc(100vh - 60px);
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+    position: sticky;
+    top: 60px;
+    padding: 20px;
+    border-right: 1px solid #222c42;
+    background: #080d18;
 }
 
-.lesson-sidebar h4{
-  margin-bottom:12px;
+.lesson-sidebar h3 {
+    margin-bottom: 15px;
+    color: #a78bfa;
 }
 
-.lesson-list{
-  display:grid;
-  gap:5px;
+.topic-button {
+    width: 100%;
+    text-align: left;
+    border: none;
+    background: transparent;
+    color: #9ba8bf;
+    padding: 11px;
+    border-radius: 8px;
+    margin-bottom: 4px;
 }
 
-.lesson-item{
-  border:0;
-  background:transparent;
-  color:var(--muted);
-  text-align:left;
-  padding:9px 10px;
-  border-radius:8px;
+.topic-button:hover {
+    background: #131e34;
+    color: white;
 }
 
-.lesson-item:hover{
-  background:#18213a;
-  color:white;
+.topic-button.active {
+    background: linear-gradient(
+        90deg,
+        rgba(124,58,237,.3),
+        rgba(6,182,212,.12)
+    );
+    color: white;
+    border-left: 3px solid #8b5cf6;
 }
 
-.lesson-item.active{
-  background:#18213a;
-  color:white;
+/* ================= LESSON CONTENT ================= */
+
+.lesson-content {
+    max-width: 950px;
+    padding: 35px;
 }
 
-.lesson-content{
-  width:100%;
-  max-width:1050px;
-  margin:auto;
-  padding:35px;
+.welcome-box {
+    position: relative;
+    overflow: hidden;
+    padding: 35px;
+    border-radius: 22px;
+    border: 1px solid #313d59;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(124,58,237,.25),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #151c38,
+            #091522
+        );
+    margin-bottom: 30px;
 }
 
-.lesson-content h1{
-  font-size:38px;
-  margin-bottom:10px;
+.welcome-box::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 1px solid rgba(34,211,238,.2);
+    right: -50px;
+    bottom: -70px;
+    animation: orbit 5s linear infinite;
 }
 
-.lesson-content h2{
-  font-size:24px;
-  margin:30px 0 12px;
+@keyframes orbit {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-.lesson-content h3{
-  margin:18px 0 8px;
+.welcome-small {
+    color: #22d3ee;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
 }
 
-.lead{
-  color:var(--muted);
-  font-size:17px;
+.welcome-box h1 {
+    font-size: clamp(30px, 5vw, 52px);
+    margin-bottom: 12px;
 }
 
-/* ================= INFO ================= */
-
-.info-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-  margin-top:20px;
+.welcome-box p {
+    color: #aab6cd;
+    line-height: 1.7;
 }
 
-.info-card{
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:13px;
-  padding:18px;
+.start-button {
+    margin-top: 20px;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    background: linear-gradient(
+        90deg,
+        #7c3aed,
+        #06b6d4
+    );
 }
 
-.info-card p,
-.info-card li{
-  color:var(--muted);
+.lesson-section {
+    margin: 35px 0;
 }
 
-.concept-list{
-  display:grid;
-  grid-template-columns:
-    repeat(auto-fit,minmax(190px,1fr));
-  gap:10px;
+.lesson-section h2 {
+    color: #c4b5fd;
+    margin-bottom: 14px;
 }
 
-.concept{
-  background:var(--panel2);
-  border:1px solid var(--border);
-  padding:12px;
-  border-radius:10px;
+.lesson-section p {
+    color: #bdc7d9;
+    line-height: 1.8;
+    margin-bottom: 12px;
 }
 
-/* ================= CODE ================= */
-
-.code-box{
-  background:#050810;
-  border:1px solid var(--border);
-  border-radius:12px;
-  overflow:hidden;
-  margin-top:12px;
+.code-box {
+    background: #050811;
+    border: 1px solid #29354d;
+    border-radius: 13px;
+    padding: 20px;
+    overflow-x: auto;
+    color: #dbe7ff;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    font-family: Consolas, monospace;
 }
 
-.code-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:9px 12px;
-  background:#0d1424;
-  border-bottom:1px solid var(--border);
-  color:var(--muted);
-  font-size:13px;
+.info-box {
+    padding: 17px;
+    border-left: 4px solid #22d3ee;
+    border-radius: 8px;
+    background: #0c1a2b;
+    color: #c7d1e2;
+    line-height: 1.7;
 }
 
-.code-box pre{
-  padding:18px;
-  overflow:auto;
-  color:#dbe7ff;
-  font-family:Consolas,monospace;
+.warning-box {
+    padding: 17px;
+    border-left: 4px solid #f59e0b;
+    border-radius: 8px;
+    background: #241b0b;
+    color: #d9c9a7;
+    line-height: 1.7;
 }
 
-/* ================= PLAYGROUND ================= */
-
-.playground{
-  margin-top:25px;
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:14px;
-  overflow:hidden;
-}
-
-.play-head{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  flex-wrap:wrap;
-  padding:12px 15px;
-  border-bottom:1px solid var(--border);
-}
-
-.play-head strong{
-  margin-right:auto;
-}
-
-.editor-area{
-  display:grid;
-  grid-template-columns:45px 1fr;
-  min-height:260px;
-  background:#050810;
-}
-
-.line-nos{
-  padding:14px 8px;
-  text-align:right;
-  color:#536078;
-  background:#080d18;
-  font:14px/1.5 Consolas,monospace;
-  white-space:pre;
-  user-select:none;
-  overflow:hidden;
-}
-
-.editor{
-  width:100%;
-  min-height:260px;
-  resize:vertical;
-  border:0;
-  outline:0;
-  padding:14px;
-  background:#050810;
-  color:#e6edff;
-  font:14px/1.5 Consolas,monospace;
-}
-
-.output-title{
-  padding:9px 14px;
-  background:#0d1424;
-  border-top:1px solid var(--border);
-  color:var(--muted);
-}
-
-.output{
-  min-height:80px;
-  padding:14px;
-  white-space:pre-wrap;
-  font-family:Consolas,monospace;
-  color:#dbe7ff;
-}
-
-/* ================= MISTAKES / CHALLENGE ================= */
-
-.mistakes{
-  border-left:4px solid var(--danger);
-  background:#17101a;
-  padding:15px;
-  border-radius:8px;
-  color:#e8cbd4;
-}
-
-.challenge-box{
-  background:#111a2d;
-  border:1px solid var(--border);
-  padding:18px;
-  border-radius:12px;
-}
-
-.challenge-box p{
-  color:var(--muted);
+.mistakes-list {
+    padding-left: 20px;
+    color: #b9c4d8;
+    line-height: 2;
 }
 
 /* ================= QUIZ ================= */
 
-.quiz{
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:18px;
+.quiz-box {
+    background: #0d1526;
+    border: 1px solid #2a3650;
+    border-radius: 15px;
+    padding: 22px;
 }
 
-.quiz label{
-  display:block;
-  padding:10px;
-  margin:7px 0;
-  background:#111a2d;
-  border-radius:8px;
-  cursor:pointer;
+.quiz-option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+    padding: 13px;
+    border-radius: 9px;
+    border: 1px solid #2a3650;
+    background: #141e32;
+    color: white;
 }
 
-/* ================= LESSON NAV ================= */
-
-.lesson-nav{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  margin-top:35px;
-  padding-top:20px;
-  border-top:1px solid var(--border);
+.quiz-option:hover {
+    border-color: #8b5cf6;
 }
 
-/* ================= MODAL ================= */
-
-.modal{
-  position:fixed;
-  inset:0;
-  z-index:3000;
-  display:grid;
-  place-items:center;
-  padding:20px;
-  background:rgba(0,0,0,.75);
+.quiz-result {
+    margin-top: 15px;
+    font-weight: bold;
 }
 
-.modal-card{
-  width:min(850px,100%);
-  max-height:90vh;
-  overflow:auto;
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:24px;
-}
+/* ================= NEXT ================= */
 
-.modal-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-}
-
-.close{
-  background:none;
-  border:0;
-  color:white;
-  font-size:28px;
-}
-
-.challenge-editor{
-  width:100%;
-  min-height:230px;
-  margin-top:15px;
-  padding:15px;
-  background:#050810;
-  color:white;
-  border:1px solid var(--border);
-  border-radius:10px;
-  font:14px/1.5 Consolas,monospace;
-  resize:vertical;
-}
-
-.modal-actions{
-  display:flex;
-  gap:8px;
-  margin-top:12px;
-  flex-wrap:wrap;
-}
-
-.result{
-  margin-top:12px;
-  padding:12px;
-  border-radius:9px;
-  background:#101827;
-  color:var(--muted);
-}
-
-.result.ok{
-  color:#86efac;
-}
-
-.result.bad{
-  color:#fca5a5;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-  padding:30px 6%;
-  text-align:center;
-  color:var(--muted);
-  border-top:1px solid var(--border);
+.next-button {
+    padding: 13px 20px;
+    background: linear-gradient(
+        90deg,
+        #7c3aed,
+        #06b6d4
+    );
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
 /* ================= MOBILE ================= */
 
-@media(max-width:800px){
+@media(max-width: 800px) {
 
-  .nav-links{
-    display:none;
-  }
+    .nav-container {
+        flex-wrap: wrap;
+    }
 
-  .menu-btn{
-    display:block;
-  }
+    .logo {
+        width: 100%;
+    }
 
-  .lesson-layout{
-    grid-template-columns:1fr;
-  }
+    .hero {
+        padding-top: 50px;
+    }
 
-  .lesson-sidebar{
-    position:relative;
-    top:0;
-    height:auto;
-    border-right:0;
-    border-bottom:1px solid var(--border);
-  }
+    .lesson-layout {
+        grid-template-columns: 1fr;
+    }
 
-  .lesson-content{
-    padding:22px;
-  }
+    .lesson-sidebar {
+        position: relative;
+        top: 0;
+        min-height: auto;
+        max-height: 280px;
+        border-right: none;
+        border-bottom: 1px solid #222c42;
+    }
 
-  .info-grid{
-    grid-template-columns:1fr;
-  }
+    .lesson-content {
+        padding: 22px 17px 60px;
+    }
 
-  .progress-wrap{
-    width:140px;
-  }
+    .lesson-topbar {
+        padding: 10px;
+    }
 
-  .lesson-title{
-    font-size:14px;
-  }
+    .lesson-title {
+        font-size: 14px;
+    }
+
+    .progress-text {
+        display: none;
+    }
+
+    .section-header h2 {
+        font-size: 24px;
+    }
 }
-
-/* ============ CODE ORBIT PRO UPGRADE ============ */
-.lesson-welcome{position:fixed;inset:0;z-index:99999;display:none;place-items:center;
-background:radial-gradient(circle at center,rgba(124,92,255,.28),transparent 35%),linear-gradient(135deg,#050814,#0b1020 55%,#120d2b);
-overflow:hidden}
-.lesson-welcome.show{display:grid}
-.lesson-welcome::before,.lesson-welcome::after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;border:1px solid rgba(124,92,255,.22);animation:orbitPulse 4s infinite}
-.lesson-welcome::after{width:620px;height:620px;border-color:rgba(34,211,238,.14);animation-delay:1s}
-@keyframes orbitPulse{0%,100%{transform:scale(.7);opacity:.2}50%{transform:scale(1.15);opacity:.8}}
-.welcome-card{position:relative;z-index:2;width:min(760px,92vw);text-align:center;padding:48px 25px;animation:welcomeCard .7s both}
-@keyframes welcomeCard{from{opacity:0;transform:translateY(28px) scale(.96)}to{opacity:1;transform:none}}
-.welcome-kicker{letter-spacing:4px;color:#22d3ee;font-weight:800;font-size:12px;margin-bottom:16px}
-.welcome-card h1{font-size:clamp(38px,7vw,78px);line-height:1.05;margin:0 0 15px;background:linear-gradient(90deg,#fff,#22d3ee,#8b5cf6);-webkit-background-clip:text;background-clip:text;color:transparent}
-.welcome-card p{color:#cbd5e1;font-size:18px;max-width:650px;margin:0 auto 28px}
-.welcome-features{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0 30px}
-.welcome-features span{padding:8px 12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);border-radius:999px;color:#e2e8f0}
-.reveal-lesson{animation:lessonReveal .55s both}
-@keyframes lessonReveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.lesson-item.active{box-shadow:inset 3px 0 0 #7c5cff}
-.co-dashboard{display:none;position:fixed;right:18px;top:70px;z-index:900;width:min(330px,92vw);background:#0d1422;border:1px solid #2b3a55;border-radius:16px;padding:18px;box-shadow:0 25px 70px rgba(0,0,0,.45)}
-.co-dashboard.show{display:block;animation:welcomeCard .25s both}
-.co-dashboard h3{margin-top:0}.co-dashboard p{color:#a8b3c7}
-.co-status{font-size:12px;padding:8px 10px;border-radius:8px;background:#111c2e;margin-top:10px;color:#cbd5e1}
-@media(max-width:700px){.welcome-card{padding:35px 15px}.welcome-card p{font-size:16px}}
-
-</style>
-
-<style id="code-orbit-upgrade">
-:root{--bg:#f7f9fb;--panel:#fff;--panel2:#f1f5f9;--border:#d9e1ea;--text:#172033;--muted:#5d6b7a;--primary:#04aa6d;--primary2:#059669;--success:#16a34a;--danger:#dc2626;--warning:#d97706;--shadow:0 8px 28px rgba(15,23,42,.08)}
-body{background:var(--bg);color:var(--text)}
-.navbar{background:#fff;border-bottom:1px solid var(--border);box-shadow:0 2px 10px rgba(0,0,0,.06)}
-.logo span,.gradient{color:var(--primary)}
-.nav-links a{color:#334155}.nav-links a:hover{color:var(--primary)}
-.btn{background:#fff;color:#172033;border:1px solid var(--border);border-radius:8px}.btn.primary,.nav-btn{background:var(--primary)!important;color:#fff!important;border-color:var(--primary)!important}.btn.success{background:#16a34a;color:#fff;border-color:#16a34a}
-.section,.hero{background:transparent}.language-card,.modal-card,.playground,.code-box,.practice-section .challenge-card{background:#fff!important;border-color:var(--border)!important;box-shadow:var(--shadow)}
-.search,input,textarea{background:#fff!important;color:#172033!important;border-color:#cbd5e1!important}
-footer{background:#fff;border-top:1px solid var(--border)}
-.co-extra{max-width:1200px;margin:0 auto;padding:50px 5%}.co-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}.co-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px;box-shadow:var(--shadow)}.co-card h3{margin-bottom:8px}.co-card p{color:var(--muted)}
-.co-pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}.co-price{position:relative;background:#fff;border:1px solid var(--border);border-radius:18px;padding:26px;box-shadow:var(--shadow)}.co-price.featured{border:2px solid var(--primary);transform:translateY(-4px)}.co-badge{display:inline-block;background:#dcfce7;color:#166534;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:800;margin-bottom:12px}.co-old{text-decoration:line-through;color:#94a3b8;font-size:18px}.co-new{font-size:34px;font-weight:900;margin:5px 0}.co-price ul{padding-left:20px;color:var(--muted);line-height:2}.co-price button{width:100%;margin-top:16px}
-.co-ai{position:fixed;right:22px;bottom:22px;z-index:1500}.co-ai-fab{border:0;background:#111827;color:#fff;border-radius:999px;padding:14px 18px;font-weight:800;box-shadow:0 12px 30px rgba(0,0,0,.18)}.co-ai-panel{display:none;width:min(380px,calc(100vw - 30px));height:520px;background:#fff;border:1px solid var(--border);border-radius:18px;box-shadow:0 18px 50px rgba(0,0,0,.18);overflow:hidden}.co-ai-panel.open{display:flex;flex-direction:column}.co-ai-head{background:#111827;color:#fff;padding:15px;display:flex;justify-content:space-between}.co-ai-msgs{flex:1;padding:14px;overflow:auto;background:#f8fafc}.co-msg{padding:10px 12px;border-radius:12px;margin:7px 0;max-width:90%;white-space:pre-wrap}.co-msg.ai{background:#e2e8f0}.co-msg.user{background:#dcfce7;margin-left:auto}.co-ai-form{display:flex;padding:10px;gap:8px;border-top:1px solid var(--border)}.co-ai-form input{flex:1;padding:10px;border:1px solid #cbd5e1;border-radius:9px}.co-ai-form button{border:0;background:var(--primary);color:#fff;border-radius:9px;padding:10px 14px}
-.co-modal{position:fixed;inset:0;background:rgba(15,23,42,.5);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px}.co-modal.open{display:flex}.co-box{background:#fff;width:min(520px,100%);border-radius:18px;padding:26px;box-shadow:0 20px 60px rgba(0,0,0,.25)}.co-box h2{margin-bottom:10px}.co-form{display:grid;gap:12px}.co-form input{padding:12px;border:1px solid #cbd5e1;border-radius:9px}.co-form button{padding:12px;border:0;border-radius:9px;background:var(--primary);color:#fff;font-weight:800}.co-close{float:right;border:0;background:none;font-size:24px}.co-pay-methods{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:15px 0}.co-pay{border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center;background:#f8fafc}.co-note{font-size:13px;color:var(--muted);margin-top:12px}.co-user{display:flex;gap:8px;align-items:center}.co-user button{border:1px solid var(--border);background:#fff;border-radius:8px;padding:8px 12px}.co-mobile{display:none}
-@media(max-width:800px){.co-mobile{display:block}.co-pricing{grid-template-columns:1fr}.co-ai{right:12px;bottom:12px}.nav-links{flex-wrap:wrap}.nav-links.co-show{display:flex!important}}
 </style>
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- =========================================================
+     MAIN NAVIGATION
+========================================================= -->
 
-<nav class="navbar">
+<header class="navbar">
 
-  <div class="logo">
-    Code <span>Orbit</span>
-  </div>
+    <div class="nav-container">
 
-  <div class="nav-links">
+        <div class="logo">
+            🚀 Code <span>Orbit</span>
+        </div>
 
-    <a href="#home">Home</a>
-
-    <a href="#languages">
-      Languages
-    </a>
-
-    <a href="#practice">
-      Practice
-    </a>
-
-    <a href="#languages" class="nav-btn">
-      Start Learning
-    </a>
-
-  </div>
-
-  <button class="menu-btn" onclick="toggleMenu()">
-    ☰
-  </button>
-
-</nav>
-
-
-<!-- ================= MAIN ================= -->
-
-<main id="home">
-
-  <!-- HERO -->
-
-  <section class="hero">
-
-    <div>
-
-      <h1>
-        Learn.
-        <span class="gradient">
-          Code.
-        </span>
-        Build.
-      </h1>
-
-      <p>
-        Master programming languages with clear lessons,
-        practical examples, interactive coding,
-        challenges, quizzes and projects.
-      </p>
-
-      <div class="hero-actions">
-
-        <button
-          class="btn primary"
-          onclick="document.getElementById('languages').scrollIntoView()"
-        >
-          Start Learning
-        </button>
-
-        <button
-          class="btn"
-          onclick="document.getElementById('practice').scrollIntoView()"
-        >
-          Practice Challenges
-        </button>
-
-      </div>
+        <div class="course-navigation" id="courseNavigation">
+        </div>
 
     </div>
 
-  </section>
+</header>
 
 
-  <!-- LANGUAGES -->
+<!-- =========================================================
+     HOME
+========================================================= -->
 
-  <section
-    class="section"
-    id="languages"
-  >
+<main id="homeScreen">
 
-    <div class="section-title">
+    <section class="hero">
 
-      <h2>
-        Programming Languages
-      </h2>
+        <div class="hero-badge">
+            🚀 Free Programming Learning Platform
+        </div>
 
-      <p>
-        Choose a language and open its complete learning interface.
-      </p>
+        <h1>
+            Learn. Code. Build.
+        </h1>
 
-    </div>
+        <p>
+            Learn programming languages step by step with
+            structured lessons, syntax, examples, quizzes,
+            practice and projects.
+        </p>
 
-
-    <input
-      id="languageSearch"
-      class="search"
-      placeholder="Search a language..."
-      oninput="filterLanguages()"
-    >
-
-
-    <div
-      id="languageGrid"
-      class="language-grid"
-    ></div>
-
-  </section>
-
-
-  <!-- PRACTICE -->
-
-  <section
-    class="section practice-section"
-    id="practice"
-  >
-
-    <div class="section-title">
-
-      <h2>
-        Practice & Challenges
-      </h2>
-
-      <p>
-        Build your skills by solving coding challenges and earning XP.
-      </p>
-
-    </div>
-
-
-    <div class="practice-top">
-
-      <div class="filters">
-
-        <button
-          class="filter-btn active"
-          onclick="filterChallenges('All',this)"
+        <input
+            id="searchInput"
+            class="search-box"
+            type="text"
+            placeholder="Search Python, JavaScript, HTML, C++..."
         >
-          All
-        </button>
 
-        <button
-          class="filter-btn"
-          onclick="filterChallenges('Easy',this)"
-        >
-          Easy
-        </button>
-
-        <button
-          class="filter-btn"
-          onclick="filterChallenges('Medium',this)"
-        >
-          Medium
-        </button>
-
-        <button
-          class="filter-btn"
-          onclick="filterChallenges('Hard',this)"
-        >
-          Hard
-        </button>
-
-      </div>
+    </section>
 
 
-      <div class="xp-box">
+    <section class="container">
 
-        XP:
-        <span id="xpValue">
-          0
-        </span>
+        <div class="section-header">
 
-      </div>
+            <h2>
+                Programming Courses
+            </h2>
 
-    </div>
+            <span
+                class="course-count"
+                id="courseCount">
+            </span>
+
+        </div>
+
+        <div
+            class="language-grid"
+            id="languageGrid">
+        </div>
 
 
-    <div
-      id="challengeGrid"
-      class="challenge-grid"
-    ></div>
+        <!-- PRACTICE -->
 
-  </section>
-<section class="section" id="about-code-orbit">
-  <div class="section-title">
-    <h2>Learn Programming Online with Code Orbit</h2>
-    <p>
-      Learn Python, JavaScript, C++, Java, HTML, CSS and other programming
-      languages with simple lessons, coding examples, quizzes and practice challenges.
-    </p>
-  </div>
-</section>
+        <section class="practice-section">
 
-<section class="co-extra" id="computer-skills">
-  <div class="section-title"><h2>Learn Modern Computer Skills</h2><p>Programming se lekar AI, Cyber Security, Cloud, Data aur freelancing tak.</p></div>
-  <div class="co-grid">
-    <div class="co-card"><h3>💻 Programming</h3><p>Python, C/C++, Java, JavaScript, C#, PHP, Go, Rust aur more.</p></div>
-    <div class="co-card"><h3>🌐 Web Development</h3><p>HTML, CSS, JavaScript, React, Node.js, APIs aur full-stack concepts.</p></div>
-    <div class="co-card"><h3>🛡️ Cyber Security</h3><p>Networking, web security, ethical security concepts, SOC aur incident response.</p></div>
-    <div class="co-card"><h3>🤖 AI & Data</h3><p>AI, Machine Learning, Data Science, GenAI, NLP aur prompt engineering.</p></div>
-    <div class="co-card"><h3>☁️ Cloud & DevOps</h3><p>Linux, Git, Docker, Kubernetes, CI/CD aur cloud fundamentals.</p></div>
-    <div class="co-card"><h3>💼 Careers</h3><p>Freelancing, remote work, software development aur digital career paths.</p></div>
-  </div>
-</section>
-<section class="co-extra" id="plus">
-  <div class="section-title"><h2>Code Orbit PLUS</h2><p>Free learning se start karein. Upgrade karne par paid lessons aur premium features unlock honge.</p></div>
-  <div class="co-pricing">
-    <div class="co-price"><span class="co-badge">STARTER</span><h3>Lessons Plus</h3><div class="co-old">$3.98 / month</div><div class="co-new">$1.99 <small>/ month</small></div><ul><li>Paid lessons unlocked</li><li>Course progress</li><li>Practice & quizzes</li></ul><button class="btn primary" onclick="startCheckout('Lessons Plus','$1.99 / month')">Choose $1.99</button></div>
-    <div class="co-price featured"><span class="co-badge">POPULAR</span><h3>Ad-Free Plus</h3><div class="co-old">$7.98 / month</div><div class="co-new">$3.99 <small>/ month</small></div><ul><li>Everything in Starter</li><li>Ads-free learning</li><li>Premium lessons</li></ul><button class="btn primary" onclick="startCheckout('Ad-Free Plus','$3.99 / month')">Choose $3.99</button></div>
-    <div class="co-price"><span class="co-badge">MAX ACCESS</span><h3>6 Months</h3><div class="co-old">$29.98 / 6 months</div><div class="co-new">$14.99</div><ul><li>Full course access</li><li>Projects & certificates</li><li>Premium learning tools</li></ul><button class="btn primary" onclick="startCheckout('Max 6 Months','$14.99 / 6 months')">Choose $14.99</button></div>
-    <div class="co-price"><span class="co-badge">LIFETIME</span><h3>Max Lifetime</h3><div class="co-old">$898 lifetime</div><div class="co-new">$449</div><ul><li>Full access</li><li>All future courses</li><li>Premium features</li></ul><button class="btn primary" onclick="startCheckout('Max Lifetime','$449 lifetime')">Choose $449</button></div>
-  </div>
-</section>
+            <div class="section-header">
+                <h2>Practice & Challenges</h2>
+            </div>
+
+            <div class="practice-grid">
+
+                <div class="practice-card">
+                    <h3>🧠 Beginner Challenge</h3>
+                    <p>
+                        Learn variables and write your first
+                        programming statement.
+                    </p>
+
+                    <button
+                        class="small-button"
+                        onclick="openLesson('Python',4)">
+                        Start Challenge
+                    </button>
+                </div>
+
+
+                <div class="practice-card">
+                    <h3>⚡ JavaScript Challenge</h3>
+                    <p>
+                        Practice operators, conditions and
+                        JavaScript logic.
+                    </p>
+
+                    <button
+                        class="small-button"
+                        onclick="openLesson('JavaScript',9)">
+                        Start Challenge
+                    </button>
+                </div>
+
+
+                <div class="practice-card">
+                    <h3>🌐 Web Challenge</h3>
+                    <p>
+                        Learn HTML structure and create your
+                        first web page.
+                    </p>
+
+                    <button
+                        class="small-button"
+                        onclick="openLesson('HTML',2)">
+                        Start Challenge
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
 </main>
 
 
-
-<!-- ============ ANIMATED LESSON WELCOME ============ -->
-<div id="lessonWelcome" class="lesson-welcome" aria-hidden="true">
-  <div class="welcome-card">
-    <div class="welcome-kicker">WELCOME TO CODE ORBIT</div>
-    <h1 id="welcomeLessonName">Ready to Learn?</h1>
-    <p id="welcomeLessonDescription">Learn clearly, practice immediately, and build real skills step by step.</p>
-    <div class="welcome-features">
-      <span>📘 Complete Lesson</span><span>💻 Live Examples</span><span>🧩 Practice</span><span>📝 Quiz</span>
-    </div>
-    <button class="btn primary" onclick="enterWelcomeLesson()">Start This Lesson →</button>
-  </div>
-</div>
-
-<div id="coDashboard" class="co-dashboard">
-  <button class="close" onclick="toggleDashboard()">×</button>
-  <h3>🎯 Your Learning</h3>
-  <p id="dashCourse">No course selected</p>
-  <p id="dashProgress">Progress: 0%</p>
-  <div class="co-status">Progress is saved in this browser. Connect Firebase/Supabase for cross-device cloud sync.</div>
-</div>
-
-<!-- ================= LESSON SCREEN ================= -->
+<!-- =========================================================
+     LESSON SCREEN
+========================================================= -->
 
 <section
-  id="lessonScreen"
-  class="lesson-screen hidden"
->
+    id="lessonScreen"
+    class="lesson-screen">
 
-  <div class="lesson-top">
+    <div class="lesson-topbar">
 
-    <!-- FIXED BACK BUTTON -->
-
-    <button
-      class="back-btn"
-      onclick="closeLesson()"
-    >
-      ← Back
-    </button>
-
-
-    <div
-      class="lesson-title"
-      id="lessonTitleTop"
-    >
-      Course
-    </div>
-
-
-    <div class="progress-wrap">
-
-      <div class="progress-label">
-
-        <span id="progressText">
-          1 / 20
-        </span>
-
-        <span id="progressPercent">
-          5%
-        </span>
-
-      </div>
-
-      <div class="progress">
-
-        <span
-          id="progressBar"
-          style="width:5%"
-        ></span>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="lesson-layout">
-
-    <aside class="lesson-sidebar">
-
-      <h4 id="sidebarLanguage">
-        Lessons
-      </h4>
-
-      <div
-        id="lessonList"
-        class="lesson-list"
-      ></div>
-
-    </aside>
-
-
-    <article
-      id="lessonContent"
-      class="lesson-content"
-    ></article>
-
-  </div>
-
-</section>
-
-
-<!-- ================= CHALLENGE MODAL ================= -->
-
-<div
-  id="challengeModal"
-  class="modal hidden"
->
-
-  <div class="modal-card">
-
-    <div class="modal-head">
-
-      <div>
+        <button
+            class="back-button"
+            onclick="goBack()">
+            ← Back
+        </button>
 
         <div
-          id="challengeBadge"
-          class="badge"
-        >
-          Easy
+            class="lesson-title"
+            id="lessonTitle">
         </div>
 
-        <h2 id="challengeTitle">
-          Challenge
-        </h2>
-
-      </div>
-
-
-      <button
-        class="close"
-        onclick="closeChallenge()"
-      >
-        ×
-      </button>
+        <div
+            class="progress-text"
+            id="progressText">
+        </div>
 
     </div>
 
 
-    <p
-      id="challengeDescription"
-      class="lead"
-    ></p>
+    <div class="lesson-layout">
+
+        <!-- SIDEBAR -->
+
+        <aside class="lesson-sidebar">
+
+            <h3 id="sidebarTitle">
+                Course
+            </h3>
+
+            <div id="topicList">
+            </div>
+
+        </aside>
 
 
-    <div class="code-box">
+        <!-- CONTENT -->
 
-      <div class="code-head">
-
-        <span>
-          Starter Code
-        </span>
-
-      </div>
-
-      <pre id="challengeStarter"></pre>
-
-    </div>
-
-
-    <textarea
-      id="challengeEditor"
-      class="challenge-editor"
-      spellcheck="false"
-    ></textarea>
-
-
-    <div class="modal-actions">
-
-      <button
-        class="btn success"
-        onclick="runChallenge()"
-      >
-        Run
-      </button>
-
-      <button
-        class="btn primary"
-        onclick="submitChallenge()"
-      >
-        Submit
-      </button>
-
-      <button
-        class="btn"
-        onclick="resetChallenge()"
-      >
-        Reset
-      </button>
+        <article
+            class="lesson-content"
+            id="lessonContent">
+        </article>
 
     </div>
 
-
-    <div
-      id="challengeResult"
-      class="result"
-    >
-      Run or submit your solution.
-    </div>
-
-  </div>
-
-</div>
-
-
-<!-- ================= FOOTER ================= -->
-
-
-<div class="co-modal" id="authModal"><div class="co-box"><button class="co-close" onclick="closeModal('authModal')">×</button><h2 id="authTitle">Create your Code Orbit account</h2><p class="co-note">Account data is stored locally in this static version. Connect Supabase/Firebase for production authentication.</p><form class="co-form" onsubmit="handleAuth(event)"><input id="authName" placeholder="Full name"><input id="authEmail" type="email" placeholder="Email" required><input id="authPassword" type="password" placeholder="Password" required minlength="6"><button id="authSubmit">Create account</button></form><button class="btn" style="width:100%;margin-top:10px" onclick="toggleAuthMode()">Switch Login / Sign up</button></div></div>
-<div class="co-modal" id="payModal"><div class="co-box"><button class="co-close" onclick="closeModal('payModal')">×</button><h2 id="payTitle">Secure Checkout</h2><p id="payPlan"></p><div class="co-pay-methods"><div class="co-pay">💳 Visa / Mastercard</div><div class="co-pay">📱 Easypaisa</div><div class="co-pay">📱 JazzCash</div><div class="co-pay">🏦 Bank Transfer</div></div><button class="btn primary" style="width:100%" onclick="paymentSetupNotice()">Continue to payment</button><p class="co-note">Live payment requires an approved merchant account and server-side payment verification. Never put secret gateway keys in this HTML file.</p></div></div>
-<div class="co-ai"><div class="co-ai-panel" id="aiPanel"><div class="co-ai-head"><strong>🤖 Code Orbit AI</strong><button class="co-close" style="color:#fff" onclick="toggleAI()">×</button></div><div class="co-ai-msgs" id="aiMsgs"><div class="co-msg ai">Assalam-o-alaikum! Main Code Orbit AI hoon. Programming question poochain.</div></div><form class="co-ai-form" onsubmit="askLocalAI(event)"><input id="aiInput" placeholder="Ask about coding..."><button>Send</button></form></div><button class="co-ai-fab" onclick="toggleAI()">🤖 AI MODE</button></div>
-<footer>
-  <p>
-  Code Orbit is a free programming learning platform with tutorials,
-  coding examples, practice challenges, quizzes and interactive coding tools.
-</p>
-
-  <div class="footer-links">
-    <a href="about.html">About</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="contact.html">Contact</a>
-    <a href="terms.html">Terms & Conditions</a>
-  </div>
-</footer>
+</section>
 
 
 <script>
@@ -1343,1162 +806,397 @@ footer{background:#fff;border-top:1px solid var(--border)}
    COURSE DATA
 ========================================================= */
 
-const lessonNames = [
+const courses = {
 
-  "Introduction",
-  "Syntax",
-  "Variables",
-  "Data Types",
-  "Operators",
-  "Conditions",
-  "Loops",
-  "Functions",
-  "Arrays & Lists",
-  "Classes",
-  "Objects",
-  "Inheritance",
-  "Polymorphism",
-  "Encapsulation",
-  "Modules & Libraries",
-  "File Handling",
-  "Exceptions",
-  "Practice",
-  "Quiz",
-  "Projects"
+    Python: {
+        icon: "🐍",
+        topics: [
+            "Introduction",
+            "Installation & Setup",
+            "Syntax",
+            "Comments",
+            "Variables",
+            "Data Types",
+            "Numbers",
+            "Strings",
+            "Boolean",
+            "Operators",
+            "Lists",
+            "Tuples",
+            "Sets",
+            "Dictionaries",
+            "Conditions",
+            "Loops",
+            "Functions",
+            "Classes & Objects",
+            "Inheritance",
+            "Modules & Libraries"
+        ]
+    },
 
-];
+    HTML: {
+        icon: "🌐",
+        topics: [
+            "Introduction",
+            "Editors & Setup",
+            "Basic Structure",
+            "Headings",
+            "Paragraphs",
+            "Links",
+            "Images",
+            "Lists",
+            "Tables",
+            "Forms",
+            "Input Types",
+            "Buttons",
+            "Semantic HTML",
+            "Audio & Video",
+            "Iframes",
+            "Classes & IDs",
+            "Attributes",
+            "Meta Tags",
+            "Accessibility",
+            "HTML Projects"
+        ]
+    },
 
+    CSS: {
+        icon: "🎨",
+        topics: [
+            "Introduction",
+            "Syntax",
+            "Selectors",
+            "Colors",
+            "Backgrounds",
+            "Borders",
+            "Margins",
+            "Padding",
+            "Box Model",
+            "Width & Height",
+            "Text",
+            "Fonts",
+            "Links",
+            "Lists",
+            "Display",
+            "Position",
+            "Flexbox",
+            "Grid",
+            "Responsive Design",
+            "CSS Projects"
+        ]
+    },
 
-const languageData = {
+    JavaScript: {
+        icon: "⚡",
+        topics: [
+            "Introduction",
+            "Setup",
+            "Syntax",
+            "Comments",
+            "Variables",
+            "Data Types",
+            "Strings",
+            "Numbers",
+            "Boolean",
+            "Operators",
+            "Conditions",
+            "Loops",
+            "Functions",
+            "Arrays",
+            "Objects",
+            "DOM",
+            "Events",
+            "Classes",
+            "Async JavaScript",
+            "Projects"
+        ]
+    },
 
-  Python:{
+    "C++": {
+        icon: "⚙️",
+        topics: [
+            "Introduction",
+            "Installation & Setup",
+            "Syntax",
+            "Comments",
+            "Variables",
+            "Data Types",
+            "Operators",
+            "Strings",
+            "Conditions",
+            "Loops",
+            "Functions",
+            "Arrays",
+            "Pointers",
+            "References",
+            "Structures",
+            "Classes",
+            "Objects",
+            "Inheritance",
+            "Polymorphism",
+            "STL"
+        ]
+    },
 
-    icon:"🐍",
+    Java: {
+        icon: "☕",
+        topics: [
+            "Introduction",
+            "Installation & Setup",
+            "Syntax",
+            "Variables",
+            "Data Types",
+            "Operators",
+            "Strings",
+            "Conditions",
+            "Loops",
+            "Methods",
+            "Arrays",
+            "Classes",
+            "Objects",
+            "Constructors",
+            "Inheritance",
+            "Polymorphism",
+            "Interfaces",
+            "Exceptions",
+            "Collections",
+            "Packages"
+        ]
+    },
 
-    description:
-      "A beginner-friendly general-purpose language used for web development, automation, data science and AI.",
+    "C#": {
+        icon: "🔷",
+        topics: [
+            "Introduction",
+            "Setup",
+            "Syntax",
+            "Variables",
+            "Data Types",
+            "Operators",
+            "Strings",
+            "Conditions",
+            "Loops",
+            "Methods",
+            "Arrays",
+            "Classes",
+            "Objects",
+            "Inheritance",
+            "Interfaces",
+            "Exceptions",
+            "Generics",
+            "LINQ",
+            "Collections",
+            "Projects"
+        ]
+    },
 
-    definition:
-      "Python is a high-level, interpreted programming language known for readable syntax and a large ecosystem of libraries.",
+    PHP: {
+        icon: "🐘",
+        topics: [
+            "Introduction",
+            "Setup",
+            "Syntax",
+            "Variables",
+            "Data Types",
+            "Strings",
+            "Operators",
+            "Conditions",
+            "Loops",
+            "Functions",
+            "Arrays",
+            "Associative Arrays",
+            "Forms",
+            "Sessions",
+            "Cookies",
+            "Classes",
+            "OOP",
+            "MySQL",
+            "Security",
+            "Projects"
+        ]
+    },
 
-    why:
-      "Python is useful because beginners can learn its syntax quickly while professionals can use it for automation, backend development, data science, machine learning and AI.",
+    SQL: {
+        icon: "🗄️",
+        topics: [
+            "Introduction",
+            "Databases",
+            "SELECT",
+            "WHERE",
+            "ORDER BY",
+            "INSERT",
+            "UPDATE",
+            "DELETE",
+            "CREATE TABLE",
+            "ALTER TABLE",
+            "Constraints",
+            "Primary Keys",
+            "Foreign Keys",
+            "JOIN",
+            "GROUP BY",
+            "HAVING",
+            "Subqueries",
+            "Functions",
+            "Indexes",
+            "SQL Projects"
+        ]
+    },
 
-    concepts:[
-      "Readable Syntax",
-      "Variables",
-      "Functions",
-      "Lists",
-      "Dictionaries",
-      "Classes",
-      "Modules",
-      "Exceptions"
-    ],
+    React: {
+        icon: "⚛️",
+        topics: [
+            "Introduction",
+            "Setup",
+            "Components",
+            "JSX",
+            "Props",
+            "State",
+            "Events",
+            "Conditional Rendering",
+            "Lists",
+            "Forms",
+            "Hooks",
+            "useState",
+            "useEffect",
+            "Context",
+            "Refs",
+            "Routing",
+            "API Calls",
+            "Performance",
+            "Patterns",
+            "Projects"
+        ]
+    },
 
-    syntax:
-`name = "Alex"
-age = 20
+    "Node.js": {
+        icon: "🟢",
+        topics: [
+            "Introduction",
+            "Installation",
+            "Modules",
+            "NPM",
+            "File System",
+            "HTTP",
+            "Events",
+            "Streams",
+            "Express",
+            "Routes",
+            "Middleware",
+            "REST APIs",
+            "JSON",
+            "Databases",
+            "Authentication",
+            "Validation",
+            "Error Handling",
+            "Security",
+            "Deployment",
+            "Projects"
+        ]
+    },
 
-print(name)
-print(age)`,
+    Go: {
+        icon: "🐹",
+        topics: [
+            "Introduction",
+            "Installation",
+            "Syntax",
+            "Variables",
+            "Data Types",
+            "Operators",
+            "Strings",
+            "Conditions",
+            "Loops",
+            "Functions",
+            "Arrays",
+            "Slices",
+            "Maps",
+            "Structs",
+            "Pointers",
+            "Interfaces",
+            "Goroutines",
+            "Channels",
+            "Packages",
+            "Projects"
+        ]
+    },
 
-    example:
-`name = "Alex"
-age = 20
+    Rust: {
+        icon: "🦀",
+        topics: [
+            "Introduction",
+            "Installation",
+            "Syntax",
+            "Variables",
+            "Data Types",
+            "Ownership",
+            "Borrowing",
+            "References",
+            "Structs",
+            "Enums",
+            "Pattern Matching",
+            "Collections",
+            "Functions",
+            "Traits",
+            "Generics",
+            "Error Handling",
+            "Modules",
+            "Iterators",
+            "Concurrency",
+            "Projects"
+        ]
+    },
 
-if age >= 18:
-    print(name + " is an adult.")
-else:
-    print(name + " is under 18.")`,
+    Kotlin: {
+        icon: "🟣",
+        topics: [
+            "Introduction",
+            "Setup",
+            "Syntax",
+            "Variables",
+            "Data Types",
+            "Operators",
+            "Strings",
+            "Conditions",
+            "Loops",
+            "Functions",
+            "Arrays",
+            "Collections",
+            "Classes",
+            "Objects",
+            "Inheritance",
+            "Interfaces",
+            "Null Safety",
+            "Coroutines",
+            "Generics",
+            "Projects"
+        ]
+    },
 
-    mistakes:[
-      "Forgetting indentation after a colon.",
-      "Mixing strings and numbers without conversion.",
-      "Using a variable before assigning a value."
-    ],
-
-    practice:
-      "Create a program that stores your name and age, then prints both values."
-
-  },
-
-
-  JavaScript:{
-
-    icon:"🟨",
-
-    description:
-      "The language of the web used to create interactive websites and modern applications.",
-
-    definition:
-      "JavaScript is a high-level programming language that runs in web browsers and many server-side environments.",
-
-    why:
-      "JavaScript powers interactive web pages, browser applications, APIs, servers and many cross-platform applications.",
-
-    concepts:[
-      "Variables",
-      "Functions",
-      "Arrays",
-      "Objects",
-      "DOM",
-      "Events",
-      "Promises",
-      "Modules"
-    ],
-
-    syntax:
-`const name = "Alex";
-let age = 20;
-
-console.log(name);
-console.log(age);`,
-
-    example:
-`const age = 20;
-
-if (age >= 18) {
-  console.log("Adult");
-} else {
-  console.log("Under 18");
-}`,
-
-    mistakes:[
-      "Using == when === is more appropriate.",
-      "Forgetting braces in complex blocks.",
-      "Trying to access an undefined variable."
-    ],
-
-    practice:
-      "Create a variable named score and print whether the score is passing."
-
-  },
-
-
-  HTML:{
-
-    icon:"🌐",
-
-    description:
-      "The standard markup language used to structure web pages.",
-
-    definition:
-      "HTML (HyperText Markup Language) defines the structure and meaning of content on a web page.",
-
-    why:
-      "HTML is the foundation of every normal web page. CSS styles it and JavaScript adds behavior.",
-
-    concepts:[
-      "Elements",
-      "Tags",
-      "Attributes",
-      "Headings",
-      "Links",
-      "Images",
-      "Forms",
-      "Semantic HTML"
-    ],
-
-    syntax:
-`<!DOCTYPE html>
-<html>
-
-<head>
-  <title>My Page</title>
-</head>
-
-<body>
-
-  <h1>Hello</h1>
-
-
-<script>
-/* =========================================================
-   CODE ORBIT PRO NAVIGATION + PERSISTENCE UPGRADE
-   Keeps the user at the exact home-page position after Back.
-   Saves course/lesson progress in localStorage.
-========================================================= */
-(function(){
-  const originalOpenLanguage = window.openLanguage;
-  const originalLoadLesson = window.loadLesson;
-  const originalCloseLesson = window.closeLesson;
-  let pendingLesson = null;
-
-  function saveState(){
-    try{
-      localStorage.setItem('coLastScroll', String(window.scrollY));
-      localStorage.setItem('coCurrentLanguage', window.currentLanguage || '');
-      localStorage.setItem('coCurrentLesson', String(window.currentLesson || 0));
-    }catch(e){}
-  }
-
-  window.openLanguage = function(lang){
-    saveState();
-    originalOpenLanguage(lang);
-    // original function requests lesson 0; our loadLesson wrapper opens welcome first.
-  };
-
-  window.loadLesson = function(index, skipWelcome){
-    if(!skipWelcome){
-      pendingLesson=index;
-      const lang=window.currentLanguage || 'Code Orbit';
-      const names=window.lessonNames || [];
-      const topic=names[index] || 'Lesson';
-      const title=document.getElementById('welcomeLessonName');
-      const desc=document.getElementById('welcomeLessonDescription');
-      if(title) title.textContent='Welcome to '+lang+' — '+topic;
-      if(desc) desc.textContent='You are about to begin '+topic+'. Explore the explanation, syntax, examples, common mistakes and practice before moving forward.';
-      document.getElementById('lessonWelcome').classList.add('show');
-      return;
+    Swift: {
+        icon: "🍎",
+        topics: [
+            "Introduction",
+            "Setup",
+            "Syntax",
+            "Variables",
+            "Data Types",
+            "Strings",
+            "Conditions",
+            "Loops",
+            "Functions",
+            "Arrays",
+            "Dictionaries",
+            "Optionals",
+            "Structs",
+            "Classes",
+            "Protocols",
+            "Extensions",
+            "Closures",
+            "Error Handling",
+            "Concurrency",
+            "Projects"
+        ]
     }
-    originalLoadLesson(index);
-    const c=document.getElementById('lessonContent');
-    if(c){c.classList.remove('reveal-lesson');requestAnimationFrame(()=>c.classList.add('reveal-lesson'));}
-    try{
-      localStorage.setItem('coCurrentLanguage',window.currentLanguage||'');
-      localStorage.setItem('coCurrentLesson',String(index));
-      localStorage.setItem('coCourseProgress:'+window.currentLanguage,String(index));
-    }catch(e){}
-  };
-
-  window.enterWelcomeLesson=function(){
-    document.getElementById('lessonWelcome').classList.remove('show');
-    window.loadLesson(pendingLesson==null?0:pendingLesson,true);
-    pendingLesson=null;
-    window.scrollTo({top:0,behavior:'smooth'});
-  };
-
-  window.closeLesson=function(){
-    saveState();
-    originalCloseLesson();
-    const y=Number(sessionStorage.getItem('coHomeScroll') || localStorage.getItem('coLastScroll') || window.savedScrollPosition || 0);
-    setTimeout(()=>window.scrollTo({top:y,behavior:'auto'}),30);
-  };
-
-  document.addEventListener('click',function(e){
-    const b=e.target.closest('.language-card,.language-card button,.card button');
-    if(b) sessionStorage.setItem('coHomeScroll',String(window.scrollY));
-  },true);
-
-  window.addEventListener('scroll',()=>{
-    const lesson=document.getElementById('lessonScreen');
-    if(lesson && lesson.classList.contains('hidden')) sessionStorage.setItem('coHomeScroll',String(window.scrollY));
-  },{passive:true});
-
-  window.toggleDashboard=function(){
-    document.getElementById('coDashboard').classList.toggle('show');
-    const lang=localStorage.getItem('coCurrentLanguage')||'No course selected';
-    const lesson=Number(localStorage.getItem('coCurrentLesson')||0);
-    const total=(window.lessonNames||[]).length||20;
-    document.getElementById('dashCourse').textContent='Course: '+lang;
-    document.getElementById('dashProgress').textContent='Progress: '+Math.round(((lesson+1)/total)*100)+'%';
-  };
-
-  // Add a small dashboard button next to login when navbar exists.
-  setTimeout(()=>{
-    const nav=document.querySelector('.navbar .nav-actions, .nav-actions, .navbar');
-    if(nav && !document.getElementById('dashboardButton')){
-      const b=document.createElement('button');
-      b.id='dashboardButton'; b.className='btn'; b.textContent='My Learning';
-      b.onclick=window.toggleDashboard; nav.appendChild(b);
-    }
-  },200);
-})();
-</script>
-
-<script>
-/* =========================================================
-   PRODUCTION INTEGRATION HOOKS
-   These hooks intentionally contain NO secret keys.
-   Configure real services outside this public HTML file.
-========================================================= */
-window.CODE_ORBIT_CONFIG={
-  authProvider:"firebase-or-supabase",
-  aiEndpoint:"YOUR_SECURE_SERVER_AI_ENDPOINT",
-  checkoutUrls:{
-    lessonsPlus:"YOUR_HOSTED_CHECKOUT_URL",
-    adFreePlus:"YOUR_HOSTED_CHECKOUT_URL",
-    max6Months:"YOUR_HOSTED_CHECKOUT_URL",
-    lifetime:"YOUR_HOSTED_CHECKOUT_URL"
-  }
-};
-</script>
-
-</body>
-
-</html>`,
-
-    example:
-`<!DOCTYPE html>
-<html>
-
-<body>
-
-  <h1>Code Orbit</h1>
-
-  <p>Learn HTML step by step.</p>
-
-  <a href="https://example.com">
-    Visit Example
-  </a>
-
-</body>
-
-</html>`,
-
-    mistakes:[
-      "Forgetting to close elements.",
-      "Putting visible content inside the head.",
-      "Using HTML only for visual styling instead of structure."
-    ],
-
-    practice:
-      "Create a page with one heading, one paragraph and one link."
-
-  },
-
-
-  CSS:{
-
-    icon:"🎨",
-
-    description:
-      "The styling language used to control the appearance and layout of web pages.",
-
-    definition:
-      "CSS (Cascading Style Sheets) describes how HTML elements should look and be arranged.",
-
-    why:
-      "CSS lets you create responsive, attractive and accessible interfaces without changing the document structure.",
-
-    concepts:[
-      "Selectors",
-      "Properties",
-      "Box Model",
-      "Flexbox",
-      "Grid",
-      "Responsive Design",
-      "Pseudo-classes",
-      "Variables"
-    ],
-
-    syntax:
-`body {
-
-  background:#070b14;
-  color:white;
-
-}
-
-h1 {
-
-  font-size:40px;
-
-}`,
-
-    example:
-`<!DOCTYPE html>
-
-<html>
-
-<head>
-
-<style>
-
-.card {
-
-  padding:20px;
-
-  border:1px solid #333;
-
-  border-radius:12px;
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="card">
-
-Styled Card
-
-</div>
-
-</body>
-
-</html>`,
-
-    mistakes:[
-      "Forgetting semicolons in declarations.",
-      "Using overly specific selectors.",
-      "Ignoring responsive layouts."
-    ],
-
-    practice:
-      "Create a heading and make its font size 40px."
-
-  },
-
-
-  C:{
-
-    icon:"©️",
-
-    description:
-      "A powerful compiled language widely used for systems and performance-focused software.",
-
-    definition:
-      "C is a general-purpose compiled programming language that provides low-level memory access and efficient execution.",
-
-    why:
-      "C is important for operating systems, embedded systems, drivers, compilers and understanding how computers work.",
-
-    concepts:[
-      "Variables",
-      "Pointers",
-      "Arrays",
-      "Functions",
-      "Structs",
-      "Memory",
-      "Preprocessor",
-      "Compilation"
-    ],
-
-    syntax:
-`#include <stdio.h>
-
-int main() {
-
-    printf("Hello World");
-
-    return 0;
-}`,
-
-    example:
-`#include <stdio.h>
-
-int main() {
-
-    int a = 10;
-    int b = 20;
-
-    printf("%d", a + b);
-
-    return 0;
-}`,
-
-    mistakes:[
-      "Forgetting semicolons.",
-      "Using incorrect format specifiers.",
-      "Accessing memory incorrectly."
-    ],
-
-    practice:
-      "Write a C program that prints the sum of two integers."
-
-  },
-
-
-  "C++":{
-
-    icon:"⚙️",
-
-    description:
-      "A powerful compiled language supporting procedural, object-oriented and generic programming.",
-
-    definition:
-      "C++ is a compiled general-purpose language that extends C with features such as classes, templates and the standard library.",
-
-    why:
-      "C++ is widely used for game engines, desktop software, high-performance applications and systems programming.",
-
-    concepts:[
-      "Variables",
-      "Functions",
-      "Classes",
-      "Objects",
-      "Inheritance",
-      "Templates",
-      "STL",
-      "Pointers"
-    ],
-
-    syntax:
-`#include <iostream>
-
-using namespace std;
-
-int main() {
-
-    cout << "Hello World";
-
-    return 0;
-
-}`,
-
-    example:
-`#include <iostream>
-
-using namespace std;
-
-int main() {
-
-    int a = 10;
-    int b = 20;
-
-    cout << a + b;
-
-    return 0;
-
-}`,
-
-    mistakes:[
-      "Forgetting headers.",
-      "Mixing pointer and reference concepts.",
-      "Ignoring object lifetime and memory ownership."
-    ],
-
-    practice:
-      "Write a C++ program that prints the sum of two numbers."
-
-  },
-
-
-  Java:{
-
-    icon:"☕",
-
-    description:
-      "A popular object-oriented language used for enterprise software, Android development and backend systems.",
-
-    definition:
-      "Java is a strongly typed, object-oriented language designed to run on many platforms through the Java Virtual Machine.",
-
-    why:
-      "Java is widely used for enterprise applications, backend systems, Android development and large software projects.",
-
-    concepts:[
-      "Classes",
-      "Objects",
-      "Methods",
-      "Inheritance",
-      "Interfaces",
-      "Exceptions",
-      "Collections",
-      "JVM"
-    ],
-
-    syntax:
-`public class Main {
-
-    public static void main(String[] args) {
-
-        System.out.println("Hello World");
-
-    }
-
-}`,
-
-    example:
-`public class Main {
-
-    public static void main(String[] args) {
-
-        int a = 10;
-        int b = 20;
-
-        System.out.println(a + b);
-
-    }
-
-}`,
-
-    mistakes:[
-      "Class and file naming mismatches.",
-      "Forgetting the main method signature.",
-      "Ignoring checked exceptions."
-    ],
-
-    practice:
-      "Create a Java program that prints your name."
-
-  },
-
-
-  "C#":{
-
-    icon:"🔷",
-
-    description:
-      "A modern language used for .NET applications, games with Unity, desktop software and web backends.",
-
-    definition:
-      "C# is a modern, strongly typed, object-oriented language in the .NET ecosystem.",
-
-    why:
-      "C# is useful for web applications, APIs, desktop software, cloud services and Unity game development.",
-
-    concepts:[
-      "Types",
-      "Classes",
-      "Objects",
-      "LINQ",
-      "Interfaces",
-      "Exceptions",
-      "Generics",
-      "Async"
-    ],
-
-    syntax:
-`using System;
-
-class Program {
-
-    static void Main() {
-
-        Console.WriteLine("Hello World");
-
-    }
-
-}`,
-
-    example:
-`using System;
-
-class Program {
-
-    static void Main() {
-
-        int a = 10;
-        int b = 20;
-
-        Console.WriteLine(a + b);
-
-    }
-
-}`,
-
-    mistakes:[
-      "Incorrect namespace or class structure.",
-      "Ignoring nullable reference behavior.",
-      "Confusing value and reference types."
-    ],
-
-    practice:
-      "Write a C# program that prints a greeting."
-
-  },
-
-
-  PHP:{
-
-    icon:"🐘",
-
-    description:
-      "A server-side scripting language widely used for dynamic websites and web backends.",
-
-    definition:
-      "PHP is a server-side scripting language designed primarily for web development.",
-
-    why:
-      "PHP is useful for server-rendered websites, APIs and content-management systems.",
-
-    concepts:[
-      "Variables",
-      "Functions",
-      "Arrays",
-      "Forms",
-      "Sessions",
-      "Classes",
-      "Database Access",
-      "APIs"
-    ],
-
-    syntax:
-`<?php
-
-$name = "Alex";
-
-echo $name;
-
-?>`,
-
-    example:
-`<?php
-
-$age = 20;
-
-if ($age >= 18) {
-
-    echo "Adult";
-
-} else {
-
-    echo "Under 18";
-
-}
-
-?>`,
-
-    mistakes:[
-      "Forgetting the dollar sign on variables.",
-      "Mixing client-side and server-side execution.",
-      "Ignoring input validation."
-    ],
-
-    practice:
-      "Create a PHP variable containing your name and print it."
-
-  },
-
-
-  SQL:{
-
-    icon:"🗄️",
-
-    description:
-      "A language for storing, querying and managing data in relational databases.",
-
-    definition:
-      "SQL (Structured Query Language) is used to communicate with relational database systems.",
-
-    why:
-      "SQL is essential for applications that store structured data such as users, products, orders and analytics.",
-
-    concepts:[
-      "SELECT",
-      "WHERE",
-      "INSERT",
-      "UPDATE",
-      "DELETE",
-      "JOIN",
-      "GROUP BY",
-      "Indexes"
-    ],
-
-    syntax:
-`SELECT name, age
-
-FROM users
-
-WHERE age >= 18;`,
-
-    example:
-`SELECT department,
-       COUNT(*) AS total
-
-FROM employees
-
-GROUP BY department
-
-ORDER BY total DESC;`,
-
-    mistakes:[
-      "Forgetting WHERE in UPDATE or DELETE.",
-      "Using SELECT * unnecessarily.",
-      "Ignoring indexes on frequently queried columns."
-    ],
-
-    practice:
-      "Write a query that selects all users whose age is at least 18."
-
-  },
-    Go:{
-    icon:"🐹",
-    description:
-      "A fast, simple and efficient programming language created by Google.",
-    definition:
-      "Go, also called Golang, is a statically typed compiled language designed for simplicity, concurrency and performance.",
-    why:
-      "Go is widely used for cloud services, backend systems, APIs, networking and DevOps tools.",
-    concepts:[
-      "Variables",
-      "Functions",
-      "Structs",
-      "Interfaces",
-      "Goroutines",
-      "Channels",
-      "Packages",
-      "Error Handling"
-    ],
-    syntax:
-`package main
-
-import "fmt"
-
-func main() {
-    fmt.Println("Hello World")
-}`,
-    example:
-`package main
-
-import "fmt"
-
-func main() {
-    a := 10
-    b := 20
-
-    fmt.Println(a + b)
-}`,
-    mistakes:[
-      "Ignoring error handling.",
-      "Confusing goroutines with normal functions.",
-      "Using unnecessary complexity."
-    ],
-    practice:
-      "Write a Go program that prints the sum of two numbers."
-  },
-
-  Rust:{
-    icon:"🦀",
-    description:
-      "A fast and memory-safe systems programming language.",
-    definition:
-      "Rust is a compiled programming language focused on performance, memory safety and reliability.",
-    why:
-      "Rust is useful for systems programming, WebAssembly, command-line tools and high-performance software.",
-    concepts:[
-      "Variables",
-      "Ownership",
-      "Borrowing",
-      "Structs",
-      "Enums",
-      "Traits",
-      "Pattern Matching",
-      "Error Handling"
-    ],
-    syntax:
-`fn main() {
-    let name = "Alex";
-    println!("{}", name);
-}`,
-    example:
-`fn main() {
-    let a = 10;
-    let b = 20;
-
-    println!("{}", a + b);
-}`,
-    mistakes:[
-      "Ignoring ownership rules.",
-      "Confusing references and values.",
-      "Using unnecessary cloning."
-    ],
-    practice:
-      "Write a Rust program that prints the sum of two numbers."
-  },
-
-  Kotlin:{
-    icon:"🟣",
-    description:
-      "A modern programming language widely used for Android and JVM applications.",
-    definition:
-      "Kotlin is a modern statically typed language designed to work seamlessly with Java.",
-    why:
-      "Kotlin is widely used for Android development, backend systems and JVM applications.",
-    concepts:[
-      "Variables",
-      "Functions",
-      "Classes",
-      "Objects",
-      "Null Safety",
-      "Collections",
-      "Coroutines",
-      "Generics"
-    ],
-    syntax:
-`fun main() {
-    val name = "Alex"
-    println(name)
-}`,
-    example:
-`fun main() {
-    val a = 10
-    val b = 20
-
-    println(a + b)
-}`,
-    mistakes:[
-      "Ignoring null safety.",
-      "Using mutable variables unnecessarily.",
-      "Confusing val and var."
-    ],
-    practice:
-      "Write a Kotlin program that prints your name."
-  },
-
-  Swift:{
-    icon:"🍎",
-    description:
-      "A powerful programming language designed by Apple.",
-    definition:
-      "Swift is a modern programming language used to build applications across Apple's platforms.",
-    why:
-      "Swift is mainly used for iOS, iPadOS, macOS, watchOS and tvOS development.",
-    concepts:[
-      "Variables",
-      "Constants",
-      "Functions",
-      "Classes",
-      "Structs",
-      "Optionals",
-      "Protocols",
-      "Closures"
-    ],
-    syntax:
-`import Foundation
-
-let name = "Alex"
-print(name)`,
-    example:
-`let a = 10
-let b = 20
-
-print(a + b)`,
-    mistakes:[
-      "Ignoring optionals.",
-      "Confusing let and var.",
-      "Using force unwrap unnecessarily."
-    ],
-    practice:
-      "Write a Swift program that prints the sum of two numbers."
-  },
-
-  TypeScript:{
-    icon:"🔷",
-    description:
-      "A strongly typed programming language built on top of JavaScript.",
-    definition:
-      "TypeScript is a superset of JavaScript that adds static typing and modern development features.",
-    why:
-      "TypeScript helps developers build large and maintainable web applications with fewer type-related errors.",
-    concepts:[
-      "Types",
-      "Interfaces",
-      "Functions",
-      "Classes",
-      "Generics",
-      "Enums",
-      "Modules",
-      "Type Inference"
-    ],
-    syntax:
-`let name: string = "Alex";
-let age: number = 20;
-
-console.log(name);
-console.log(age);`,
-    example:
-`function add(a: number, b: number): number {
-    return a + b;
-}
-
-console.log(add(10, 20));`,
-    mistakes:[
-      "Using any everywhere.",
-      "Ignoring strict type checking.",
-      "Confusing JavaScript and TypeScript compilation."
-    ],
-    practice:
-      "Create a TypeScript function that adds two numbers."
-  },
-
-  Dart:{
-    icon:"🎯",
-    description:
-      "A modern programming language commonly used with Flutter.",
-    definition:
-      "Dart is a client-optimized language designed for fast development across multiple platforms.",
-    why:
-      "Dart is especially useful for building cross-platform applications with Flutter.",
-    concepts:[
-      "Variables",
-      "Functions",
-      "Classes",
-      "Lists",
-      "Maps",
-      "Null Safety",
-      "Async",
-      "Futures"
-    ],
-    syntax:
-`void main() {
-  String name = "Alex";
-  print(name);
-}`,
-    example:
-`void main() {
-  int a = 10;
-  int b = 20;
-
-  print(a + b);
-}`,
-    mistakes:[
-      "Ignoring null safety.",
-      "Using incorrect variable types.",
-      "Forgetting async behavior."
-    ],
-    practice:
-      "Write a Dart program that prints the sum of two numbers."
-  },
-
-  Ruby:{
-    icon:"💎",
-    description:
-      "A dynamic programming language known for simple and readable syntax.",
-    definition:
-      "Ruby is a dynamic, object-oriented programming language designed with developer productivity in mind.",
-    why:
-      "Ruby is well known for web development, scripting and rapid application development.",
-    concepts:[
-      "Variables",
-      "Methods",
-      "Classes",
-      "Objects",
-      "Arrays",
-      "Hashes",
-      "Blocks",
-      "Modules"
-    ],
-    syntax:
-`name = "Alex"
-age = 20
-
-puts name
-puts age`,
-    example:
-`a = 10
-b = 20
-
-puts a + b`,
-    mistakes:[
-      "Confusing blocks and methods.",
-      "Using unnecessary syntax.",
-      "Ignoring Ruby's object-oriented nature."
-    ],
-    practice:
-      "Write a Ruby program that prints your name and age."
-  },
-
-  R:{
-    icon:"📊",
-    description:
-      "A programming language designed for statistics, data analysis and visualization.",
-    definition:
-      "R is a programming language and environment commonly used for statistical computing and graphics.",
-    why:
-      "R is useful for statistics, data science, research and data visualization.",
-    concepts:[
-      "Variables",
-      "Vectors",
-      "Data Frames",
-      "Functions",
-      "Factors",
-      "Statistics",
-      "Visualization",
-      "Packages"
-    ],
-    syntax:
-`name <- "Alex"
-age <- 20
-
-print(name)
-print(age)`,
-    example:
-`a <- 10
-b <- 20
-
-print(a + b)`,
-    mistakes:[
-      "Using incorrect assignment syntax.",
-      "Confusing vectors and individual values.",
-      "Ignoring data types."
-    ],
-    practice:
-      "Write an R program that calculates the sum of two numbers."
-  },
-
-  Bash:{
-    icon:"💻",
-    description:
-      "A command-line scripting language used for Linux and system automation.",
-    definition:
-      "Bash is a Unix shell and scripting language commonly used to automate command-line tasks.",
-    why:
-      "Bash is useful for Linux administration, automation, scripting and DevOps workflows.",
-    concepts:[
-      "Commands",
-      "Variables",
-      "Conditions",
-      "Loops",
-      "Functions",
-      "Pipes",
-      "Redirection",
-      "Shell Scripts"
-    ],
-    syntax:
-`#!/bin/bash
-
-name="Alex"
-
-echo "Hello $name"`,
-    example:
-`#!/bin/bash
-
-a=10
-b=20
-
-echo $((a + b))`,
-    mistakes:[
-      "Forgetting spaces in conditional syntax.",
-      "Using incorrect variable expansion.",
-      "Ignoring file permissions."
-    ],
-    practice:
-      "Write a Bash script that prints the sum of two numbers."
-  },
-
-  MATLAB:{
-    icon:"📐",
-    description:
-      "A programming language and environment used for numerical computing and engineering.",
-    definition:
-      "MATLAB is a high-level language and environment designed for numerical computation, visualization and engineering applications.",
-    why:
-      "MATLAB is widely used in engineering, mathematics, simulation, signal processing and scientific computing.",
-    concepts:[
-      "Variables",
-      "Matrices",
-      "Vectors",
-      "Functions",
-      "Plots",
-      "Scripts",
-      "Toolboxes",
-      "Numerical Computing"
-    ],
-    syntax:
-`name = "Alex";
-age = 20;
-
-disp(name);
-disp(age);`,
-    example:
-`a = 10;
-b = 20;
-
-result = a + b;
-disp(result);`,
-    mistakes:[
-      "Confusing matrix indexing.",
-      "Using incorrect dimensions.",
-      "Ignoring vectorized operations."
-    ],
-    practice:
-      "Write a MATLAB program that adds two numbers."
-  },
 
 };
 
@@ -2507,1896 +1205,737 @@ disp(result);`,
    STATE
 ========================================================= */
 
-let currentLanguage = "";
-let savedScrollPosition = 0;
-let currentLesson = 0;
-let editorMode = "";
-let selectedChallenge = null;
-
-let activeFilter = "All";
-
-
-/* =========================================================
-   PRACTICE CHALLENGES
-========================================================= */
-
-const challenges = [
-
-  {
-    id:1,
-    language:"Python",
-    difficulty:"Easy",
-    xp:10,
-    title:"Print Your Name",
-    description:"Print your name using Python.",
-    starter:
-`name = ""
-
-# Write your solution here`,
-    answer:"print(name)"
-  },
-
-  {
-    id:2,
-    language:"Python",
-    difficulty:"Easy",
-    xp:10,
-    title:"Add Two Numbers",
-    description:"Create two numbers and print their sum.",
-    starter:
-`a = 10
-b = 20
-
-# Write your solution here`,
-    answer:"print(a + b)"
-  },
-
-  {
-    id:3,
-    language:"Python",
-    difficulty:"Medium",
-    xp:20,
-    title:"Check Even Number",
-    description:"Print Even if the number is even, otherwise print Odd.",
-    starter:
-`number = 8
-
-# Write your solution here`,
-    answer:"number % 2"
-  },
-
-  {
-    id:4,
-    language:"Python",
-    difficulty:"Medium",
-    xp:20,
-    title:"Calculate Sum",
-    description:"Calculate the sum of numbers from 1 to 10.",
-    starter:
-`# Write your solution here`,
-    answer:"sum(range(1, 11))"
-  },
-
-  {
-    id:5,
-    language:"JavaScript",
-    difficulty:"Easy",
-    xp:10,
-    title:"Create a Message",
-    description:"Create a variable named message and print it with console.log.",
-    starter:
-`const message = "Hello Code Orbit";
-
-// Write your solution here`,
-    answer:"console.log(message)"
-  },
-
-  {
-    id:6,
-    language:"JavaScript",
-    difficulty:"Medium",
-    xp:20,
-    title:"Check Age",
-    description:"Print Adult when age is 18 or more, otherwise print Minor.",
-    starter:
-`const age = 20;
-
-// Write your solution here`,
-    answer:"age >= 18"
-  },
-
-  {
-    id:7,
-    language:"C++",
-    difficulty:"Easy",
-    xp:10,
-    title:"Print a Message",
-    description:"Write a C++ program that prints Hello Code Orbit.",
-    starter:
-`#include <iostream>
-
-using namespace std;
-
-int main() {
-
-    // Write your solution here
-
-    return 0;
-}`,
-    answer:"cout"
-  },
-
-  {
-    id:8,
-    language:"C++",
-    difficulty:"Hard",
-    xp:30,
-    title:"Find the Largest Number",
-    description:"Find and print the largest of three integers.",
-    starter:
-`#include <iostream>
-
-using namespace std;
-
-int main() {
-
-    int a = 10;
-    int b = 25;
-    int c = 15;
-
-    // Write your solution here
-
-    return 0;
-}`,
-    answer:"max"
-  },
-
-  {
-    id:9,
-    language:"HTML",
-    difficulty:"Easy",
-    xp:10,
-    title:"Create a Heading",
-    description:"Create an h1 heading containing Code Orbit.",
-    starter:
-`<!-- Write your solution here -->`,
-    answer:"<h1>Code Orbit</h1>"
-  },
-
-  {
-    id:10,
-    language:"CSS",
-    difficulty:"Medium",
-    xp:20,
-    title:"Style a Heading",
-    description:"Make an h1 heading have a 40px font size.",
-    starter:
-`h1 {
-
-  /* Write your solution here */
-
-}`,
-    answer:"font-size:40px"
-  }
-
-];
-
-
-/* =========================================================
-   LANGUAGE UI
-========================================================= */
-
-function renderLanguages(list = Object.keys(languageData)){
-
-  const grid =
-    document.getElementById("languageGrid");
-
-  grid.innerHTML = list.map(lang => {
-
-    return `
-
-      <div
-        class="language-card"
-        onclick="openLanguage('${escapeAttr(lang)}')"
-      >
-
-        <div class="lang-icon">
-          ${languageData[lang].icon}
-        </div>
-
-        <h3>
-          ${lang}
-        </h3>
-
-        <p>
-          ${languageData[lang].description}
-        </p>
-
-        <div class="card-link">
-          Open Course →
-        </div>
-
-      </div>
-
-    `;
-
-  }).join("");
-
-}
-
-
-function filterLanguages(){
-
-  const value =
-    document
-      .getElementById("languageSearch")
-      .value
-      .toLowerCase()
-      .trim();
-
-  const filtered =
-    Object.keys(languageData)
-      .filter(lang =>
-        lang.toLowerCase().includes(value)
-      );
-
-  renderLanguages(filtered);
-
-}
-
-
-function toggleMenu(){
-
-  const links =
-    document.querySelector(".nav-links");
-
-  links.style.display =
-    links.style.display === "flex"
-      ? ""
-      : "flex";
-
-}
-
-
-/* =========================================================
-   LESSON SYSTEM
-========================================================= */
-
-function openLanguage(lang){
-savedScrollPosition = window.scrollY;
-  currentLanguage = lang;
-
-  currentLesson = 0;
-
-  document
-    .getElementById("home")
-    .classList.add("hidden");
-
-  document
-    .querySelector("footer")
-    .classList.add("hidden");
-
-  document
-    .getElementById("lessonScreen")
-    .classList.remove("hidden");
-
-  document.body.style.overflow = "hidden";
-
-  document
-    .getElementById("lessonTitleTop")
-    .textContent =
-      lang + " Course";
-
-  document
-    .getElementById("sidebarLanguage")
-    .textContent =
-      lang + " Lessons";
-
-  buildSidebar();
-
-  loadLesson(0);
-
-}
-
-
-function closeLesson(){
-
-  document.getElementById("lessonScreen").classList.add("hidden");
-
-  document.getElementById("home").classList.remove("hidden");
-
-  document.querySelector("footer").classList.remove("hidden");
-
-  document.body.style.overflow = "";
-
-  window.scrollTo(0, savedScrollPosition);
-
-}
-
-
-function buildSidebar(){
-
-  const list =
-    document.getElementById("lessonList");
-
-  list.innerHTML =
-    lessonNames.map((name,index)=>{
-
-      return `
-
-        <button
-          class="lesson-item"
-          id="lessonItem${index}"
-          onclick="loadLesson(${index})"
-        >
-
-          ${index + 1}. ${name}
-
-        </button>
-
-      `;
-
-    }).join("");
-
-}
-
-
-function loadLesson(index){
-
-  currentLesson =
-    Math.max(
-      0,
-      Math.min(
-        index,
-        lessonNames.length - 1
-      )
-    );
-
-  const name =
-    lessonNames[currentLesson];
-
-  const data =
-    languageData[currentLanguage];
-
-  document
-    .querySelectorAll(".lesson-item")
-    .forEach(item =>
-      item.classList.remove("active")
-    );
-
-  const active =
-    document.getElementById(
-      "lessonItem" + currentLesson
-    );
-
-  if(active){
-    active.classList.add("active");
-  }
-
-  const percent =
-    Math.round(
-      ((currentLesson + 1) /
-      lessonNames.length) * 100
-    );
-
-  document
-    .getElementById("progressText")
-    .textContent =
-      `${currentLesson + 1} / ${lessonNames.length}`;
-
-  document
-    .getElementById("progressPercent")
-    .textContent =
-      percent + "%";
-
-  document
-    .getElementById("progressBar")
-    .style.width =
-      percent + "%";
-
-
-  document
-    .getElementById("lessonContent")
-    .innerHTML =
-      renderLesson(
-        name,
-        data,
-        currentLesson
-      );
-
-
-  if(currentLesson <= 16){
-
-    setEditorMode(
-      currentLanguage
-    );
-
-  }
-
-  updateLineNumbers();
-
-}
-
-
-function renderLesson(
-  name,
-  data,
-  index
-){
-
-  if(index === 0){
-
-    return baseLesson(
-      "Introduction",
-
-      `
-
-      <p class="lead">
-
-        Start your journey with
-        ${currentLanguage}.
-
-        This lesson explains what the
-        language is, where it is used and
-        the ideas you need before writing
-        larger programs.
-
-      </p>
-
-
-      <div class="info-grid">
-
-        <div class="info-card">
-
-          <h3>
-            Definition
-          </h3>
-
-          <p>
-            ${data.definition}
-          </p>
-
-        </div>
-
-
-        <div class="info-card">
-
-          <h3>
-            Why It Matters
-          </h3>
-
-          <p>
-            ${data.why}
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <h2>
-        Key Concepts
-      </h2>
-
-
-      <div class="concept-list">
-
-        ${data.concepts.map(
-          item =>
-          `<div class="concept">
-            ${item}
-          </div>`
-        ).join("")}
-
-      </div>
-
-
-      <h2>
-        First Example
-      </h2>
-
-      ${codeBlock(
-        data.example,
-        "Example"
-      )}
-
-      ${playground(
-        data.example
-      )}
-
-      `
-    );
-
-  }
-
-
-  if(index === 1){
-
-    return baseLesson(
-      "Syntax",
-
-      `
-
-      <p class="lead">
-
-        Syntax is the set of rules that
-        determines how valid ${currentLanguage}
-        code is written.
-
-      </p>
-
-
-      <h2>
-        Basic Syntax
-      </h2>
-
-      ${codeBlock(
-        data.syntax,
-        "Syntax"
-      )}
-
-
-      <div class="info-grid">
-
-        <div class="info-card">
-
-          <h3>
-            Rules
-          </h3>
-
-          <ul>
-
-            <li>
-              Use the correct keywords
-              and punctuation.
-            </li>
-
-            <li>
-              Keep code consistently
-              formatted.
-            </li>
-
-            <li>
-              Read error messages carefully.
-            </li>
-
-          </ul>
-
-        </div>
-
-
-        <div class="info-card">
-
-          <h3>
-            Good Practice
-          </h3>
-
-          <p>
-
-            Write small pieces of code,
-            run them, then improve them
-            step by step.
-
-          </p>
-
-        </div>
-
-      </div>
-
-
-      ${playground(
-        data.syntax
-      )}
-
-      `
-    );
-
-  }
-
-
-  if(index >= 2 && index <= 16){
-
-    return baseLesson(
-      name,
-      topicContent(
-        name,
-        data
-      )
-    );
-
-  }
-
-
-  if(index === 17){
-
-    return baseLesson(
-      "Practice",
-
-      `
-
-      <p class="lead">
-
-        Practice turns knowledge into
-        programming skill.
-
-        Use the challenge center to solve
-        problems at different difficulty
-        levels.
-
-      </p>
-
-
-      <div class="challenge-box">
-
-        <h3>
-          Practice Goal
-        </h3>
-
-        <p>
-
-          Choose a challenge, write a
-          solution, run it when supported,
-          and submit your answer.
-
-        </p>
-
-        <br>
-
-        <button
-          class="btn primary"
-          onclick="
-            closeLesson();
-            document
-              .getElementById('practice')
-              .scrollIntoView();
-          "
-        >
-          Open Practice Center
-        </button>
-
-      </div>
-
-      `
-    );
-
-  }
-
-
-  if(index === 18){
-
-    return baseLesson(
-      "Quiz",
-
-      `
-
-      <p class="lead">
-
-        Test your understanding of
-        ${currentLanguage}.
-
-      </p>
-
-
-      <div class="quiz">
-
-        <h3>
-          Quick Quiz
-        </h3>
-
-        <p>
-          Which statement best describes
-          ${currentLanguage}?
-        </p>
-
-
-        <label>
-
-          <input
-            type="radio"
-            name="lessonQuiz"
-            value="wrong"
-          >
-
-          It can only be used for styling.
-
-        </label>
-
-
-        <label>
-
-          <input
-            type="radio"
-            name="lessonQuiz"
-            value="correct"
-          >
-
-          It is a language with a specific
-          purpose and syntax.
-
-        </label>
-
-
-        <label>
-
-          <input
-            type="radio"
-            name="lessonQuiz"
-            value="wrong"
-          >
-
-          It is only a database table.
-
-        </label>
-
-
-        <button
-          class="btn primary"
-          onclick="checkQuiz()"
-        >
-          Check Answer
-        </button>
-
-
-        <div
-          id="quizResult"
-          class="result"
-        >
-          Choose an answer.
-        </div>
-
-      </div>
-
-      `
-    );
-
-  }
-
-
-  return baseLesson(
-    "Projects",
-
-    `
-
-    <p class="lead">
-
-      Projects combine multiple concepts
-      into something useful.
-
-    </p>
-
-
-    <div class="challenge-box">
-
-      <h3>
-        Project Roadmap
-      </h3>
-
-      <ol>
-
-        <li>
-          Choose a simple problem.
-        </li>
-
-        <li>
-          Plan the input and output.
-        </li>
-
-        <li>
-          Build the smallest working version.
-        </li>
-
-        <li>
-          Test edge cases.
-        </li>
-
-        <li>
-          Improve the code quality.
-        </li>
-
-      </ol>
-
-    </div>
-
-
-    <h2>
-      Suggested Project
-    </h2>
-
-    <p class="lead">
-
-      Build a beginner-friendly
-      ${currentLanguage}
-      project that uses variables,
-      conditions, functions and
-      collections where appropriate.
-
-    </p>
-
-    `
-  );
-
-}
-
-
-function baseLesson(
-  title,
-  body
-){
-
-  return `
-
-    <h1>
-      ${title}
-    </h1>
-
-    ${body}
-
-
-    <div class="lesson-nav">
-
-      <button
-        class="btn"
-        onclick="previousLesson()"
-        ${currentLesson === 0
-          ? "disabled"
-          : ""}
-      >
-        ← Previous
-      </button>
-
-
-      <button
-        class="btn primary"
-        onclick="nextLesson()"
-      >
-
-        ${
-          currentLesson ===
-          lessonNames.length - 1
-          ? "Finish Course"
-          : "Next Lesson →"
-        }
-
-      </button>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =========================================================
-   TOPIC CONTENT
-========================================================= */
-
-function topicContent(
-  name,
-  data
-){
-
-  const descriptions = {
-
-    "Variables":
-      "Variables store values that a program can use and change.",
-
-    "Data Types":
-      "Data types describe the kind of value a variable contains.",
-
-    "Operators":
-      "Operators perform calculations, comparisons and logical operations.",
-
-    "Conditions":
-      "Conditions let a program choose different actions based on rules.",
-
-    "Loops":
-      "Loops repeat code while a condition is true or for each item in a collection.",
-
-    "Functions":
-      "Functions group reusable logic into a named block.",
-
-    "Arrays & Lists":
-      "Collections store multiple values so programs can process related data.",
-
-    "Classes":
-      "Classes define a reusable structure for creating objects.",
-
-    "Objects":
-      "Objects represent data and behavior together.",
-
-    "Inheritance":
-      "Inheritance allows one class to reuse or extend another class.",
-
-    "Polymorphism":
-      "Polymorphism allows the same interface or operation to behave differently for different objects.",
-
-    "Encapsulation":
-      "Encapsulation keeps internal implementation details controlled behind a public interface.",
-
-    "Modules & Libraries":
-      "Modules and libraries provide reusable code so you do not have to build everything from scratch.",
-
-    "File Handling":
-      "File handling lets programs read and write persistent data.",
-
-    "Exceptions":
-      "Exceptions provide a structured way to handle errors and unexpected situations."
-
-  };
-
-
-  const description =
-    descriptions[name] ||
-    `Learn the core ideas behind ${name} in ${currentLanguage}.`;
-
-
-  const code =
-    getLessonCode(
-      name,
-      currentLanguage
-    );
-
-
-  return `
-
-    <p class="lead">
-      ${description}
-    </p>
-
-
-    <div class="info-grid">
-
-      <div class="info-card">
-
-        <h3>
-          Definition
-        </h3>
-
-        <p>
-          ${description}
-        </p>
-
-      </div>
-
-
-      <div class="info-card">
-
-        <h3>
-          Why It Matters
-        </h3>
-
-        <p>
-
-          This concept appears frequently
-          in real programs and helps you
-          write clearer and more reliable
-          code.
-
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <h2>
-      Core Ideas
-    </h2>
-
-
-    <div class="concept-list">
-
-      ${data.concepts
-        .slice(0,6)
-        .map(item =>
-          `<div class="concept">
-            ${item}
-          </div>`
-        )
-        .join("")}
-
-    </div>
-
-
-    <h2>
-      Example
-    </h2>
-
-
-    ${codeBlock(
-      code,
-      name
-    )}
-
-
-    ${playground(code)}
-
-
-    <h2>
-      Common Mistakes
-    </h2>
-
-
-    <div class="mistakes">
-
-      <ul>
-
-        ${data.mistakes.map(
-          item =>
-          `<li>
-            ${item}
-          </li>`
-        ).join("")}
-
-      </ul>
-
-    </div>
-
-
-    <h2>
-      Practice Challenge
-    </h2>
-
-
-    <div class="challenge-box">
-
-      <p>
-        ${data.practice}
-      </p>
-
-      <br>
-
-      <button
-        class="btn primary"
-        onclick="
-          openPracticeForLanguage(
-            '${escapeAttr(currentLanguage)}'
-          )
-        "
-      >
-        Practice This Topic
-      </button>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =========================================================
-   LESSON CODE
-========================================================= */
-
-function getLessonCode(
-  topic,
-  lang
-){
-
-  if(lang === "Python"){
-
-    const code = {
-
-      "Variables":
-`name = "Alex"
-age = 20
-
-print(name, age)`,
-
-      "Data Types":
-`name = "Alex"
-age = 20
-height = 1.75
-active = True
-
-print(type(name))`,
-
-      "Operators":
-`a = 10
-b = 3
-
-print(a + b)
-print(a * b)
-print(a > b)`,
-
-      "Conditions":
-`score = 75
-
-if score >= 50:
-    print("Pass")
-else:
-    print("Fail")`,
-
-      "Loops":
-`for number in range(1, 6):
-    print(number)`,
-
-      "Functions":
-`def greet(name):
-    return "Hello " + name
-
-print(greet("Alex"))`,
-
-      "Arrays & Lists":
-`numbers = [10, 20, 30]
-
-numbers.append(40)
-
-print(numbers)`,
-
-      "Classes":
-`class Student:
-
-    def __init__(self, name):
-        self.name = name`,
-
-      "Objects":
-`class Dog:
-
-    def bark(self):
-        print("Woof")
-
-dog = Dog()
-
-dog.bark()`,
-
-      "Inheritance":
-`class Animal:
-
-    def speak(self):
-        print("Sound")
-
-
-class Dog(Animal):
-
-    pass`,
-
-      "Polymorphism":
-`class Cat:
-
-    def speak(self):
-        print("Meow")
-
-
-class Dog:
-
-    def speak(self):
-        print("Woof")
-
-
-for animal in [Cat(), Dog()]:
-    animal.speak()`,
-
-      "Encapsulation":
-`class Account:
-
-    def __init__(self):
-        self._balance = 0`,
-
-      "Modules & Libraries":
-`import math
-
-print(math.sqrt(25))`,
-
-      "File Handling":
-`with open("data.txt", "w") as file:
-    file.write("Hello")`,
-
-      "Exceptions":
-`try:
-
-    value = int("abc")
-
-except ValueError:
-
-    print("Invalid number")`
-
-    };
-
-    return code[topic] ||
-      languageData[lang].example;
-
-  }
-
-
-  if(lang === "JavaScript"){
-
-    const code = {
-
-      "Variables":
-`const name = "Alex";
-let age = 20;
-
-console.log(name, age);`,
-
-      "Data Types":
-`const name = "Alex";
-const age = 20;
-const active = true;
-
-console.log(typeof name);`,
-
-      "Operators":
-`const a = 10;
-const b = 3;
-
-console.log(a + b);
-console.log(a > b);`,
-
-      "Conditions":
-`const score = 75;
-
-if (score >= 50) {
-
-  console.log("Pass");
-
-} else {
-
-  console.log("Fail");
-
-}`,
-
-      "Loops":
-`for (let i = 1; i <= 5; i++) {
-
-  console.log(i);
-
-}`,
-
-      "Functions":
-`function greet(name) {
-
-  return "Hello " + name;
-
-}
-
-console.log(
-  greet("Alex")
-);`,
-
-      "Arrays & Lists":
-`const numbers = [
-  10,
-  20,
-  30
-];
-
-numbers.push(40);
-
-console.log(numbers);`,
-
-      "Classes":
-`class Student {
-
-  constructor(name) {
-
-    this.name = name;
-
-  }
-
-}`,
-
-      "Objects":
-`const user = {
-
-  name:"Alex",
-  age:20
-
-};
-
-console.log(user.name);`,
-
-      "Inheritance":
-`class Animal {
-
-  speak(){
-
-    console.log("Sound");
-
-  }
-
-}
-
-class Dog extends Animal {}`,
-
-      "Polymorphism":
-`class Cat {
-
-  speak(){
-
-    console.log("Meow");
-
-  }
-
-}
-
-class Dog {
-
-  speak(){
-
-    console.log("Woof");
-
-  }
-
-}`,
-
-      "Encapsulation":
-`class Account {
-
-  #balance = 0;
-
-  getBalance(){
-
-    return this.#balance;
-
-  }
-
-}`,
-
-      "Modules & Libraries":
-`const numbers = [1,2,3];
-
-console.log(
-  numbers.map(x => x * 2)
-);`,
-
-      "File Handling":
-`// File APIs depend on the environment.
-
-console.log(
-  "Use the appropriate file API."
-);`,
-
-      "Exceptions":
-`try {
-
-  throw new Error("Example error");
-
-} catch(error) {
-
-  console.log(error.message);
-
-}`
-
-    };
-
-    return code[topic] ||
-      languageData[lang].example;
-
-  }
-
-
-  if(lang === "HTML"){
-
-    return `<!DOCTYPE html>
-
-<html>
-
-<body>
-
-  <h1>
-    ${topic}
-  </h1>
-
-  <p>
-    Learn ${topic} with Code Orbit.
-  </p>
-
-</body>
-
-</html>`;
-
-  }
-
-
-  if(lang === "CSS"){
-
-    return `<style>
-
-h1 {
-
-  font-size:40px;
-
-}
-
-</style>
-
-<h1>
-  ${topic}
-</h1>`;
-
-  }
-
-
-  return languageData[lang].example;
-
-}
-
-
-/* =========================================================
-   CODE BLOCK
-========================================================= */
-
-function codeBlock(
-  code,
-  label
-){
-
-  return `
-
-    <div class="code-box">
-
-      <div class="code-head">
-
-        <span>
-          ${label}
-        </span>
-
-        <button
-          class="btn small"
-          onclick="
-            copyText(
-              this
-              .parentElement
-              .nextElementSibling
-              .textContent
-            )
-          "
-        >
-          Copy
-        </button>
-
-      </div>
-
-
-      <pre>
-${escapeHtml(code)}
-      </pre>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =========================================================
-   PLAYGROUND
-========================================================= */
-
-function playground(code){
-
-  return `
-
-    <div class="playground">
-
-      <div class="play-head">
-
-        <strong>
-          Interactive Playground
-        </strong>
-
-
-        <button
-          class="btn small success"
-          onclick="runCode()"
-        >
-          Run
-        </button>
-
-
-        <button
-          class="btn small"
-          onclick="copyEditor()"
-        >
-          Copy
-        </button>
-
-
-        <button
-          class="btn small"
-          onclick="resetEditor()"
-        >
-          Reset
-        </button>
-
-
-        <button
-          class="btn small"
-          onclick="clearEditor()"
-        >
-          Clear
-        </button>
-
-      </div>
-
-
-      <div class="editor-area">
-
-        <div
-          id="lineNumbers"
-          class="line-nos"
-        >
-          1
-        </div>
-
-
-        <textarea
-          id="editor"
-          class="editor"
-          spellcheck="false"
-          oninput="updateLineNumbers()"
-          onscroll="syncScroll()"
-        >${escapeHtml(code)}</textarea>
-
-      </div>
-
-
-      <div class="output-title">
-        Output
-      </div>
-
-
-      <div
-        id="output"
-        class="output"
-      >
-        Click Run to execute supported code.
-      </div>
-
-    </div>
-
-  `;
-
-}
-
-
-function setEditorMode(lang){
-
-  editorMode = lang;
-
-}
-
-
-function runCode(){
-
-  const editor =
-    document.getElementById("editor");
-
-  const output =
-    document.getElementById("output");
-
-  if(!editor || !output){
-    return;
-  }
-
-  const code =
-    editor.value;
-
-
-  /* JAVASCRIPT */
-
-  if(editorMode === "JavaScript"){
-
-    const frame =
-      document.createElement("iframe");
-
-    frame.style.display = "none";
-
-    frame.sandbox =
-      "allow-scripts";
-
-    document.body.appendChild(frame);
-
-
-    const safeCode =
-      code.replace(
-        /<\/script/gi,
-        "<\\/script"
-      );
-
-
-    frame.srcdoc = `
-
-      <script>
-
-        const send =
-          value => {
-
-            parent.postMessage(
-              {
-                type:"codeOrbitOutput",
-                value:String(value)
-              },
-              "*"
-            );
-
-          };
-
-
-        console.log =
-          (...args) =>
-          send(args.join(" "));
-
-
-        try{
-
-          ${safeCode}
-
-        }
-
-        catch(error){
-
-          send(
-            "Error: " +
-            error.message
-          );
-
-        }
-
-      <\/script>
-
-    `;
-
-
-    const handler =
-      event => {
-
-        if(
-          event.data &&
-          event.data.type ===
-          "codeOrbitOutput"
-        ){
-
-          output.textContent =
-            event.data.value;
-
-          window.removeEventListener(
-            "message",
-            handler
-          );
-
-          frame.remove();
-
-        }
-
-      };
-
-
-    window.addEventListener(
-      "message",
-      handler
-    );
-
-
-    setTimeout(()=>{
-
-      if(frame.isConnected){
-
-        output.textContent =
-          "Execution finished.";
-
-        frame.remove();
-
-      }
-
-    },2000);
-
-
-    return;
-  }
-
-
-  /* HTML */
-
-  if(editorMode === "HTML"){
-
-    const frame =
-      document.createElement("iframe");
-
-    frame.style.width = "100%";
-    frame.style.height = "240px";
-    frame.style.border = "0";
-    frame.style.background = "white";
-
-    output.innerHTML = "";
-
-    output.appendChild(frame);
-
-    frame.srcdoc = code;
-
-    return;
-
-  }
-
-
-  /* CSS */
-
-  if(editorMode === "CSS"){
-
-    const frame =
-      document.createElement("iframe");
-
-    frame.style.width = "100%";
-    frame.style.height = "240px";
-    frame.style.border = "0";
-    frame.style.background = "white";
-
-    output.innerHTML = "";
-
-    output.appendChild(frame);
-
-
-    frame.srcdoc = `
-
-      <style>
-
-        ${code}
-
-      </style>
-
-
-      <h1>
-        CSS Preview
-      </h1>
-
-
-      <p>
-        This preview shows your CSS.
-      </p>
-
-    `;
-
-    return;
-
-  }
-
-
-  /* OTHER LANGUAGES */
-
-  output.textContent =
-    `${editorMode} execution requires a compiler backend.
-
-The editor and course system are working correctly.
-
-A real server-side compiler can be connected later.`;
-
-}
-
-
-function updateLineNumbers(){
-
-  const editor =
-    document.getElementById("editor");
-
-  const numbers =
-    document.getElementById("lineNumbers");
-
-  if(!editor || !numbers){
-    return;
-  }
-
-  const count =
-    editor.value.split("\n").length;
-
-  numbers.textContent =
-    Array
-      .from(
-        {length:count},
-        (_,index)=>index + 1
-      )
-      .join("\n");
-
-}
-
-
-function syncScroll(){
-
-  const editor =
-    document.getElementById("editor");
-
-  const numbers =
-    document.getElementById("lineNumbers");
-
-  if(editor && numbers){
-
-    numbers.scrollTop =
-      editor.scrollTop;
-
-  }
-
-}
-
-
-function copyEditor(){
-
-  const editor =
-    document.getElementById("editor");
-
-  if(editor){
-
-    copyText(
-      editor.value
-    );
-
-  }
-
-}
-
-
-function resetEditor(){
-
-  const editor =
-    document.getElementById("editor");
-
-  if(!editor){
-    return;
-  }
-
-  editor.value =
-    getLessonCode(
-      lessonNames[currentLesson],
-      currentLanguage
-    );
-
-  updateLineNumbers();
-
-}
-
-
-function clearEditor(){
-
-  const editor =
-    document.getElementById("editor");
-
-  if(editor){
-
-    editor.value = "";
-
-    updateLineNumbers();
-
-  }
-
-}
+let currentCourse = "";
+let currentTopic = 0;
+let previousScroll = 0;
 
 
 /* =========================================================
    NAVIGATION
 ========================================================= */
 
-function previousLesson(){
+function createNavigation() {
 
-  if(currentLesson > 0){
+    const nav = document.getElementById("courseNavigation");
 
-    loadLesson(
-      currentLesson - 1
-    );
+    nav.innerHTML = "";
 
-  }
+    Object.keys(courses).forEach(course => {
+
+        const button = document.createElement("button");
+
+        button.className = "course-btn";
+
+        button.textContent =
+            courses[course].icon + " " + course;
+
+        button.onclick = function() {
+            openLesson(course, 0);
+        };
+
+        nav.appendChild(button);
+
+    });
 
 }
 
 
-function nextLesson(){
+/* =========================================================
+   COURSE CARDS
+========================================================= */
 
-  if(
-    currentLesson <
-    lessonNames.length - 1
-  ){
+function createCourseCards(search = "") {
 
-    loadLesson(
-      currentLesson + 1
+    const grid =
+        document.getElementById("languageGrid");
+
+    grid.innerHTML = "";
+
+    const filtered =
+        Object.keys(courses).filter(course =>
+            course.toLowerCase().includes(
+                search.toLowerCase()
+            )
+        );
+
+    document.getElementById("courseCount")
+        .textContent =
+        filtered.length + " courses";
+
+    if (filtered.length === 0) {
+
+        grid.innerHTML = `
+            <div style="
+                grid-column:1/-1;
+                text-align:center;
+                padding:50px;
+                color:#8997b1;">
+                No course found.
+            </div>
+        `;
+
+        return;
+    }
+
+    filtered.forEach(course => {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "language-card";
+
+        card.innerHTML = `
+
+            <div class="language-icon">
+                ${courses[course].icon}
+            </div>
+
+            <h3>${course}</h3>
+
+            <p>
+                ${courses[course].topics.length}
+                structured topics with explanations,
+                examples, practice and quizzes.
+            </p>
+
+            <button
+                class="card-button"
+                onclick="openLesson('${course}', 0)">
+                Start Learning →
+            </button>
+
+        `;
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+
+/* =========================================================
+   OPEN LESSON
+========================================================= */
+
+function openLesson(course, topicIndex = 0) {
+
+    previousScroll = window.scrollY;
+
+    currentCourse = course;
+    currentTopic = topicIndex;
+
+    document
+        .getElementById("homeScreen")
+        .style.display = "none";
+
+    document
+        .getElementById("lessonScreen")
+        .classList.add("active");
+
+    renderTopics();
+    renderLesson();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =========================================================
+   TOPIC SIDEBAR
+========================================================= */
+
+function renderTopics() {
+
+    const list =
+        document.getElementById("topicList");
+
+    document.getElementById("sidebarTitle")
+        .textContent =
+        currentCourse + " Course";
+
+    list.innerHTML = "";
+
+    courses[currentCourse].topics.forEach(
+        (topic, index) => {
+
+            const button =
+                document.createElement("button");
+
+            button.className =
+                "topic-button" +
+                (index === currentTopic
+                    ? " active"
+                    : "");
+
+            button.textContent =
+                (index + 1) + ". " + topic;
+
+            button.onclick = function() {
+
+                currentTopic = index;
+
+                renderTopics();
+                renderLesson();
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            };
+
+            list.appendChild(button);
+
+        }
     );
 
-  }
+}
 
-  else{
 
-    alert(
-      "Course completed. Great work!"
+/* =========================================================
+   CODE EXAMPLES
+========================================================= */
+
+function getExample(course, topic) {
+
+    const examples = {
+
+        Python: `
+name = "Code Orbit"
+age = 18
+
+print(name)
+print(age)
+`,
+
+        HTML: `
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Code Orbit</title>
+</head>
+
+<body>
+
+    <h1>Welcome to Code Orbit</h1>
+    <p>Learn HTML step by step.</p>
+
+</body>
+</html>
+`,
+
+        CSS: `
+body {
+    background: #070b14;
+    color: white;
+}
+
+h1 {
+    color: #8b5cf6;
+}
+`,
+
+        JavaScript: `
+const name = "Code Orbit";
+
+console.log(name);
+
+let age = 18;
+
+console.log(age);
+`,
+
+        "C++": `
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+    cout << "Hello Code Orbit";
+
+    return 0;
+}
+`,
+
+        Java: `
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("Hello Code Orbit");
+
+    }
+}
+`,
+
+        "C#": `
+using System;
+
+class Program {
+
+    static void Main() {
+
+        Console.WriteLine("Hello Code Orbit");
+
+    }
+}
+`,
+
+        PHP: `
+<?php
+
+echo "Hello Code Orbit";
+
+?>
+`,
+
+        SQL: `
+SELECT *
+FROM students
+WHERE age >= 18;
+`,
+
+        React: `
+function App() {
+
+    return (
+        <h1>
+            Hello Code Orbit
+        </h1>
     );
 
-  }
+}
+`,
+
+        "Node.js": `
+const http = require("http");
+
+const server =
+    http.createServer((req, res) => {
+
+        res.end("Hello Code Orbit");
+
+    });
+
+server.listen(3000);
+`,
+
+        Go: `
+package main
+
+import "fmt"
+
+func main() {
+
+    fmt.Println("Hello Code Orbit")
+
+}
+`,
+
+        Rust: `
+fn main() {
+
+    println!("Hello Code Orbit");
+
+}
+`,
+
+        Kotlin: `
+fun main() {
+
+    println("Hello Code Orbit")
+
+}
+`,
+
+        Swift: `
+import Foundation
+
+print("Hello Code Orbit")
+`
+
+    };
+
+    return examples[course] ||
+`// ${course} example
+
+// Topic: ${topic}
+
+// Write your code here`;
+
+}
+
+
+/* =========================================================
+   LESSON CONTENT
+========================================================= */
+
+function renderLesson() {
+
+    const topics =
+        courses[currentCourse].topics;
+
+    const topic =
+        topics[currentTopic];
+
+    const nextTopic =
+        topics[
+            (currentTopic + 1) %
+            topics.length
+        ];
+
+    document.getElementById("lessonTitle")
+        .textContent =
+        currentCourse + " — " + topic;
+
+    document.getElementById("progressText")
+        .textContent =
+        "Topic " +
+        (currentTopic + 1) +
+        " of " +
+        topics.length;
+
+
+    const example =
+        getExample(currentCourse, topic);
+
+
+    document.getElementById("lessonContent")
+        .innerHTML = `
+
+        <!-- WELCOME -->
+
+        <div class="welcome-box">
+
+            <div class="welcome-small">
+                WELCOME TO CODE ORBIT
+            </div>
+
+            <h1>
+                Welcome to ${currentCourse}
+                — ${topic}
+            </h1>
+
+            <p>
+                Learn → Practice → Build
+            </p>
+
+            <button
+                class="start-button"
+                onclick="
+                    document
+                    .getElementById('introSection')
+                    .scrollIntoView({
+                        behavior:'smooth'
+                    })
+                ">
+                Start Learning
+            </button>
+
+        </div>
+
+
+        <!-- INTRODUCTION -->
+
+        <section
+            class="lesson-section"
+            id="introSection">
+
+            <h2>
+                1. Introduction
+            </h2>
+
+            <p>
+                In this lesson you will learn
+                <strong>${topic}</strong>
+                in ${currentCourse}.
+            </p>
+
+            <p>
+                We will first understand the
+                concept, then study its syntax,
+                examine practical examples,
+                identify common mistakes and
+                finally complete a practice
+                exercise and quiz.
+            </p>
+
+        </section>
+
+
+        <!-- SYNTAX -->
+
+        <section class="lesson-section">
+
+            <h2>
+                2. Syntax
+            </h2>
+
+            <pre class="code-box">${escapeHTML(example)}</pre>
+
+        </section>
+
+
+        <!-- SYNTAX EXPLANATION -->
+
+        <section class="lesson-section">
+
+            <h2>
+                3. Syntax Explanation
+            </h2>
+
+            <p>
+                Programming syntax is the set
+                of rules used to write valid
+                code. Every programming language
+                has its own keywords, symbols,
+                structures and conventions.
+            </p>
+
+            <div class="info-box">
+
+                <strong>Remember:</strong>
+
+                Read the example from top to
+                bottom. Identify the keywords,
+                values, functions, variables,
+                brackets and punctuation before
+                changing the code.
+
+            </div>
+
+        </section>
+
+
+        <!-- EXAMPLE 1 -->
+
+        <section class="lesson-section">
+
+            <h2>
+                4. Example 1
+            </h2>
+
+            <pre class="code-box">${escapeHTML(example)}</pre>
+
+            <p>
+                This example demonstrates a basic
+                ${currentCourse} pattern. Try
+                changing one value and predict
+                what the output will be before
+                running the program.
+            </p>
+
+        </section>
+
+
+        <!-- EXAMPLE 2 -->
+
+        <section class="lesson-section">
+
+            <h2>
+                5. Example 2
+            </h2>
+
+            <pre class="code-box">
+${escapeHTML(
+`// Practice example
+
+// Change the values
+// and test your own version
+
+// Topic: ${topic}`
+)}
+            </pre>
+
+            <p>
+                Experiment with the code.
+                Change names, numbers, text or
+                other values and observe the
+                result.
+            </p>
+
+        </section>
+
+
+        <!-- IMPORTANT NOTES -->
+
+        <section class="lesson-section">
+
+            <h2>
+                6. Important Notes
+            </h2>
+
+            <div class="info-box">
+
+                <strong>Code Orbit Tip:</strong>
+
+                Do not only read code. Type it,
+                run it, change it and break it.
+                Debugging your own mistakes is an
+                important part of becoming a
+                programmer.
+
+            </div>
+
+        </section>
+
+
+        <!-- COMMON MISTAKES -->
+
+        <section class="lesson-section">
+
+            <h2>
+                7. Common Mistakes
+            </h2>
+
+            <ul class="mistakes-list">
+
+                <li>
+                    Missing brackets, quotes or
+                    punctuation.
+                </li>
+
+                <li>
+                    Spelling keywords incorrectly.
+                </li>
+
+                <li>
+                    Using the wrong capitalization.
+                </li>
+
+                <li>
+                    Copying code without
+                    understanding it.
+                </li>
+
+                <li>
+                    Changing too many lines at
+                    the same time when debugging.
+                </li>
+
+            </ul>
+
+        </section>
+
+
+        <!-- PRACTICE -->
+
+        <section class="lesson-section">
+
+            <h2>
+                8. Practice Exercise
+            </h2>
+
+            <p>
+                Create your own small
+                ${currentCourse} program using
+                the concept
+                <strong>${topic}</strong>.
+            </p>
+
+            <div class="warning-box">
+
+                <strong>Challenge:</strong>
+
+                Change at least two values from
+                the example and predict the result
+                before testing it.
+
+            </div>
+
+            <button
+                class="start-button"
+                onclick="
+                    alert(
+                    'Great! Now write your own solution and test it.'
+                    )
+                ">
+
+                I'm Ready to Practice
+
+            </button>
+
+        </section>
+
+
+        <!-- QUIZ -->
+
+        <section class="lesson-section">
+
+            <h2>
+                9. Quick Quiz
+            </h2>
+
+            <div class="quiz-box">
+
+                <p>
+                    <strong>
+                        What is the best way to
+                        learn ${topic}?
+                    </strong>
+                </p>
+
+                <button
+                    class="quiz-option"
+                    onclick="checkQuiz(this,false)">
+                    A. Memorize everything without
+                    writing code
+                </button>
+
+                <button
+                    class="quiz-option"
+                    onclick="checkQuiz(this,true)">
+                    B. Understand the concept,
+                    write code and practice it
+                </button>
+
+                <button
+                    class="quiz-option"
+                    onclick="checkQuiz(this,false)">
+                    C. Never test your code
+                </button>
+
+                <div
+                    id="quizResult"
+                    class="quiz-result">
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- NEXT -->
+
+        <section class="lesson-section">
+
+            <h2>
+                10. Continue Learning
+            </h2>
+
+            <p>
+                Your next topic is:
+                <strong>${nextTopic}</strong>
+            </p>
+
+            <button
+                class="next-button"
+                onclick="
+                    nextLesson()
+                ">
+
+                Next Topic →
+
+            </button>
+
+        </section>
+
+        `;
 
 }
 
@@ -4405,890 +1944,136 @@ function nextLesson(){
    QUIZ
 ========================================================= */
 
-function checkQuiz(){
+function checkQuiz(button, correct) {
 
-  const chosen =
-    document.querySelector(
-      'input[name="lessonQuiz"]:checked'
-    );
+    const result =
+        document.getElementById(
+            "quizResult"
+        );
 
-  const result =
-    document.getElementById(
-      "quizResult"
-    );
+    if (correct) {
 
-  if(!chosen){
+        button.style.borderColor =
+            "#22c55e";
 
-    result.textContent =
-      "Please select an answer.";
+        result.style.color =
+            "#22c55e";
 
-    result.className =
-      "result";
+        result.textContent =
+            "✓ Correct! Excellent work.";
 
-    return;
+    } else {
 
-  }
+        button.style.borderColor =
+            "#ef4444";
 
+        result.style.color =
+            "#ef4444";
 
-  if(chosen.value === "correct"){
+        result.textContent =
+            "✕ Not quite. Try again.";
 
-    result.textContent =
-      "Correct! Great job.";
-
-    result.className =
-      "result ok";
-
-  }
-
-  else{
-
-    result.textContent =
-      "Not quite. Review the lesson and try again.";
-
-    result.className =
-      "result bad";
-
-  }
+    }
 
 }
 
 
 /* =========================================================
-   PRACTICE SYSTEM
+   NEXT LESSON
 ========================================================= */
 
-function getXP(){
+function nextLesson() {
 
-  return Number(
-    localStorage.getItem(
-      "codeOrbitXP"
-    ) || 0
-  );
+    if (
+        currentTopic <
+        courses[currentCourse].topics.length - 1
+    ) {
 
-}
+        currentTopic++;
 
+    } else {
 
-function getCompleted(){
+        currentTopic = 0;
 
-  try{
+    }
 
-    return JSON.parse(
-      localStorage.getItem(
-        "codeOrbitCompleted"
-      ) || "[]"
-    );
+    renderTopics();
+    renderLesson();
 
-  }
-
-  catch{
-
-    return [];
-
-  }
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
 }
 
 
-function updateXP(){
+/* =========================================================
+   BACK BUTTON
+========================================================= */
 
-  document
-    .getElementById("xpValue")
-    .textContent =
-      getXP();
+function goBack() {
 
-}
-
-
-function filterChallenges(
-  level,
-  button
-){
-
-  activeFilter =
-    level;
-
-
-  document
-    .querySelectorAll(".filter-btn")
-    .forEach(item =>
-      item.classList.remove("active")
-    );
-
-
-  if(button){
-
-    button.classList.add(
-      "active"
-    );
-
-  }
-
-
-  renderChallenges();
-
-}
-
-
-function renderChallenges(){
-
-  const grid =
-    document.getElementById(
-      "challengeGrid"
-    );
-
-  const completed =
-    getCompleted();
-
-
-  const list =
-    activeFilter === "All"
-      ? challenges
-      : challenges.filter(
-          item =>
-            item.difficulty ===
-            activeFilter
-        );
-
-
-  if(!list.length){
-
-    grid.innerHTML =
-      `<div class="empty">
-        No challenges found.
-      </div>`;
-
-    return;
-
-  }
-
-
-  grid.innerHTML =
-    list.map(challenge => {
-
-      const isCompleted =
-        completed.includes(
-          challenge.id
-        );
-
-
-      return `
-
-        <div class="challenge-card">
-
-          <span
-            class="
-              badge
-              ${challenge.difficulty.toLowerCase()}
-            "
-          >
-
-            ${challenge.difficulty}
-
-            ·
-
-            ${challenge.xp}
-
-            XP
-
-          </span>
-
-
-          <h3>
-            ${challenge.title}
-          </h3>
-
-
-          <p>
-
-            ${challenge.language}
-
-            —
-
-            ${challenge.description}
-
-          </p>
-
-
-          <button
-            class="btn primary"
-            onclick="
-              startChallenge(
-                ${challenge.id}
-              )
-            "
-          >
-
-            ${
-              isCompleted
-                ? "Completed ✓"
-                : "Start Challenge"
-            }
-
-          </button>
-
-        </div>
-
-      `;
-
-    }).join("");
-
-
-  updateXP();
-
-}
-
-
-function startChallenge(id){
-
-  selectedChallenge =
-    challenges.find(
-      item =>
-        item.id === id
-    );
-
-
-  if(!selectedChallenge){
-    return;
-  }
-
-
-  const badge =
-    document.getElementById(
-      "challengeBadge"
-    );
-
-
-  badge.textContent =
-    `${selectedChallenge.difficulty} · ${selectedChallenge.xp} XP`;
-
-
-  badge.className =
-    `badge ${selectedChallenge.difficulty.toLowerCase()}`;
-
-
-  document
-    .getElementById(
-      "challengeTitle"
-    )
-    .textContent =
-      selectedChallenge.title;
-
-
-  document
-    .getElementById(
-      "challengeDescription"
-    )
-    .textContent =
-      selectedChallenge.description;
-
-
-  document
-    .getElementById(
-      "challengeStarter"
-    )
-    .textContent =
-      selectedChallenge.starter;
-
-
-  document
-    .getElementById(
-      "challengeEditor"
-    )
-    .value =
-      selectedChallenge.starter;
-
-
-  document
-    .getElementById(
-      "challengeResult"
-    )
-    .textContent =
-      "Run or submit your solution.";
-
-
-  document
-    .getElementById(
-      "challengeResult"
-    )
-    .className =
-      "result";
-
-
-  document
-    .getElementById(
-      "challengeModal"
-    )
-    .classList.remove(
-      "hidden"
-    );
-
-}
-
-
-function closeChallenge(){
-
-  document
-    .getElementById(
-      "challengeModal"
-    )
-    .classList.add(
-      "hidden"
-    );
-
-  selectedChallenge =
-    null;
-
-}
-
-
-function resetChallenge(){
-
-  if(!selectedChallenge){
-    return;
-  }
-
-  document
-    .getElementById(
-      "challengeEditor"
-    )
-    .value =
-      selectedChallenge.starter;
-
-}
-
-
-function runChallenge(){
-
-  if(!selectedChallenge){
-    return;
-  }
-
-
-  const code =
     document
-      .getElementById(
-        "challengeEditor"
-      )
-      .value;
+        .getElementById("lessonScreen")
+        .classList.remove("active");
 
-
-  const result =
     document
-      .getElementById(
-        "challengeResult"
-      );
+        .getElementById("homeScreen")
+        .style.display = "block";
+
+    setTimeout(() => {
+
+        window.scrollTo({
+            top: previousScroll,
+            behavior: "smooth"
+        });
+
+    }, 100);
+
+}
 
 
-  if(
-    selectedChallenge.language ===
-    "JavaScript"
-  ){
+/* =========================================================
+   HTML ESCAPE
+========================================================= */
 
-    const frame =
-      document.createElement(
-        "iframe"
-      );
+function escapeHTML(text) {
 
-    frame.style.display =
-      "none";
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
 
-    frame.sandbox =
-      "allow-scripts";
-
-    document.body.appendChild(
-      frame
-    );
+}
 
 
-    const safeCode =
-      code.replace(
-        /<\/script/gi,
-        "<\\/script"
-      );
+/* =========================================================
+   SEARCH
+========================================================= */
 
+document
+    .getElementById("searchInput")
+    .addEventListener(
+        "input",
+        function() {
 
-    frame.srcdoc = `
-
-      <script>
-
-        try{
-
-          ${safeCode}
-
-          parent.postMessage(
-            {
-              type:"challengeRun",
-              ok:true
-            },
-            "*"
-          );
-
-        }
-
-        catch(error){
-
-          parent.postMessage(
-            {
-              type:"challengeRun",
-              ok:false,
-              message:error.message
-            },
-            "*"
-          );
-
-        }
-
-      <\/script>
-
-    `;
-
-
-    const handler =
-      event => {
-
-        if(
-          event.data &&
-          event.data.type ===
-          "challengeRun"
-        ){
-
-          result.textContent =
-            event.data.ok
-              ? "Code ran successfully."
-              : "Error: " +
-                event.data.message;
-
-          result.className =
-            "result " +
-            (
-              event.data.ok
-                ? "ok"
-                : "bad"
+            createCourseCards(
+                this.value
             );
 
-
-          window.removeEventListener(
-            "message",
-            handler
-          );
-
-
-          frame.remove();
-
         }
-
-      };
-
-
-    window.addEventListener(
-      "message",
-      handler
     );
-
-    return;
-
-  }
-
-
-  if(
-    selectedChallenge.language ===
-    "HTML" ||
-    selectedChallenge.language ===
-    "CSS"
-  ){
-
-    result.textContent =
-      "Preview-ready code. Use Submit to check the challenge.";
-
-    result.className =
-      "result";
-
-    return;
-
-  }
-
-
-  result.textContent =
-    `${selectedChallenge.language} execution requires a compiler backend. You can still submit the solution.`;
-
-  result.className =
-    "result";
-
-}
-
-
-function submitChallenge(){
-
-  if(!selectedChallenge){
-    return;
-  }
-
-
-  const code =
-    document
-      .getElementById(
-        "challengeEditor"
-      )
-      .value
-      .trim()
-      .toLowerCase();
-
-
-  const result =
-    document
-      .getElementById(
-        "challengeResult"
-      );
-
-
-  const completed =
-    getCompleted();
-
-
-  if(
-    completed.includes(
-      selectedChallenge.id
-    )
-  ){
-
-    result.textContent =
-      "You already completed this challenge.";
-
-    result.className =
-      "result ok";
-
-    return;
-
-  }
-
-
-  let passed = false;
-
-
-  if(
-    selectedChallenge.id === 1
-  ){
-
-    passed =
-      code.includes("print")
-      &&
-      code.includes("name");
-
-  }
-
-
-  else if(
-    selectedChallenge.id === 2
-  ){
-
-    passed =
-      code.includes("print")
-      &&
-      code.includes("a")
-      &&
-      code.includes("b");
-
-  }
-
-
-  else if(
-    selectedChallenge.id === 3
-  ){
-
-    passed =
-      code.includes(
-        "number % 2"
-      )
-      &&
-      code.includes(
-        "even"
-      );
-
-  }
-
-
-  else if(
-    selectedChallenge.id === 4
-  ){
-
-    passed =
-      code.includes(
-        "sum"
-      )
-      &&
-      code.includes(
-        "range"
-      );
-
-  }
-
-
-  else if(
-    selectedChallenge.id === 5
-  ){
-
-    passed =
-      code.includes(
-        "console.log"
-      )
-      &&
-      code.includes(
-        "message"
-      );
-
-  }
-
-
-  else if(
-    selectedChallenge.id === 6
-  ){
-
-    passed =
-      code.includes(
-        "age >= 18"
-      )
-      &&
-      code.includes(
-        "adult"
-      );
-
-  }
-
-
-  else if(
-    selectedChallenge.id === 7
-  ){
-
-    passed =
-      code.includes(
-        "cout"
-      )
-      &&
-      code.includes(
-        "hello code orbit"
-      );
-
-  }
-
-
-  else if(
-    selectedChallenge.id === 8
-  ){
-
-    passed =
-      code.includes(
-        "max"
-      )
-      ||
-      code.includes(
-        "largest"
-      );
-
-  }
-
-
-  else if(
-    selectedChallenge.id === 9
-  ){
-
-    passed =
-      code.includes(
-        "<h1>code orbit</h1>"
-      );
-
-  }
-
-
-  else if(
-    selectedChallenge.id === 10
-  ){
-
-    passed =
-      code.includes(
-        "font-size"
-      )
-      &&
-      code.includes(
-        "40px"
-      );
-
-  }
-
-
-  if(passed){
-
-    completed.push(
-      selectedChallenge.id
-    );
-
-
-    localStorage.setItem(
-      "codeOrbitCompleted",
-      JSON.stringify(
-        completed
-      )
-    );
-
-
-    localStorage.setItem(
-      "codeOrbitXP",
-      String(
-        getXP() +
-        selectedChallenge.xp
-      )
-    );
-
-
-    result.textContent =
-      `Correct! You earned ${selectedChallenge.xp} XP.`;
-
-
-    result.className =
-      "result ok";
-
-
-    renderChallenges();
-
-  }
-
-  else{
-
-    result.textContent =
-      "Not accepted yet. Check the requirements and try again.";
-
-    result.className =
-      "result bad";
-
-  }
-
-}
-
-
-function openPracticeForLanguage(
-  lang
-){
-
-  closeLesson();
-
-  document
-    .getElementById("practice")
-    .scrollIntoView();
-
-
-  const challenge =
-    challenges.find(
-      item =>
-        item.language === lang
-    );
-
-
-  if(challenge){
-
-    setTimeout(
-      () =>
-        startChallenge(
-          challenge.id
-        ),
-      300
-    );
-
-  }
-
-}
-
-
-/* =========================================================
-   HELPERS
-========================================================= */
-
-async function copyText(text){
-
-  try{
-
-    await navigator
-      .clipboard
-      .writeText(text);
-
-    alert(
-      "Copied to clipboard."
-    );
-
-  }
-
-  catch{
-
-    alert(
-      "Copy failed. Please copy the text manually."
-    );
-
-  }
-
-}
-
-
-function escapeHtml(value){
-
-  return String(value)
-    .replace(
-      /&/g,
-      "&amp;"
-    )
-    .replace(
-      /</g,
-      "&lt;"
-    )
-    .replace(
-      />/g,
-      "&gt;"
-    )
-    .replace(
-      /"/g,
-      "&quot;"
-    );
-
-}
-
-
-function escapeAttr(value){
-
-  return String(value)
-    .replace(
-      /\\/g,
-      "\\\\"
-    )
-    .replace(
-      /'/g,
-      "\\'"
-    );
-
-}
 
 
 /* =========================================================
    INITIALIZE
 ========================================================= */
 
-renderLanguages();
+createNavigation();
 
-renderChallenges();
+createCourseCards();
 
-updateXP();
-
-
-/* ===== Code Orbit Plus / Account / AI upgrade ===== */
-let authMode='signup';
-function openAuth(){document.getElementById('authModal').classList.add('open');renderAuthState();}
-function closeModal(id){document.getElementById(id).classList.remove('open');}
-function toggleAuthMode(){authMode=authMode==='signup'?'login':'signup';renderAuthState();}
-function renderAuthState(){document.getElementById('authTitle').textContent=authMode==='signup'?'Create your Code Orbit account':'Welcome back';document.getElementById('authName').style.display=authMode==='signup'?'block':'none';document.getElementById('authSubmit').textContent=authMode==='signup'?'Create account':'Login';}
-function handleAuth(e){e.preventDefault();const name=document.getElementById('authName').value.trim();const email=document.getElementById('authEmail').value.trim().toLowerCase();const password=document.getElementById('authPassword').value;let users=JSON.parse(localStorage.getItem('coUsers')||'[]');if(authMode==='signup'){if(users.some(u=>u.email===email)){alert('Account already exists. Please login.');return;}users.push({name:name||email.split('@')[0],email,password,createdAt:new Date().toISOString()});localStorage.setItem('coUsers',JSON.stringify(users));localStorage.setItem('coSession',JSON.stringify({name:name||email.split('@')[0],email}));alert('Account created and logged in.');}else{const u=users.find(x=>x.email===email&&x.password===password);if(!u){alert('Incorrect email or password.');return;}localStorage.setItem('coSession',JSON.stringify({name:u.name,email:u.email}));alert('Login successful.');}closeModal('authModal');updateAccountButton();}
-function updateAccountButton(){const s=JSON.parse(localStorage.getItem('coSession')||'null');const b=document.querySelector('.nav-links .btn');if(b){b.textContent=s?`Hi, ${s.name}`:'Login / Sign up';b.onclick=s?logoutCodeOrbit:openAuth;}}
-function logoutCodeOrbit(){localStorage.removeItem('coSession');alert('Logged out.');updateAccountButton();}
-function startCheckout(plan,price){const s=localStorage.getItem('coSession');if(!s){alert('Please create/login to your account first.');openAuth();return;}document.getElementById('payTitle').textContent='Checkout — '+plan;document.getElementById('payPlan').textContent='Selected plan: '+price;document.getElementById('payModal').classList.add('open');}
-function paymentSetupNotice(){alert('Payment gateway is not connected yet. For real payments, connect an approved Easypaisa/JazzCash/card gateway through a secure backend.');}
-function toggleAI(){document.getElementById('aiPanel').classList.toggle('open');if(document.getElementById('aiPanel').classList.contains('open'))document.getElementById('aiInput').focus();}
-function askLocalAI(e){e.preventDefault();const input=document.getElementById('aiInput');const q=input.value.trim();if(!q)return;const box=document.getElementById('aiMsgs');box.innerHTML+=`<div class="co-msg user">${escapeHtml(q)}</div>`;let a='';const l=q.toLowerCase();if(l.includes('python'))a='Python ek beginner-friendly language hai. Variables, conditions, loops aur functions se start karein.';else if(l.includes('html'))a='HTML webpage ka structure banata hai. CSS design aur JavaScript interactivity ke liye use hoti hai.';else if(l.includes('javascript'))a='JavaScript web pages ko interactive banata hai. Variables, functions, arrays aur DOM se start karein.';else if(l.includes('error')||l.includes('bug'))a='Error ko samajhne ke liye exact error message, related code aur expected output check karein.';else a='Main is static version mein basic coding guidance de sakta hoon. Production AI ke liye secure AI API backend connect karna hoga.';box.innerHTML+=`<div class="co-msg ai">${escapeHtml(a)}</div>`;box.scrollTop=box.scrollHeight;input.value='';}
-window.addEventListener('load',updateAccountButton);
 </script>
 
 </body>
