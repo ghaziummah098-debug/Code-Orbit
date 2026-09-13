@@ -4,602 +4,874 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Code Orbit — Learn Programming, Coding & Web Development</title>
+<title>Code Orbit — Learn Programming, AI, Technology & Digital Skills</title>
 
 <link rel="icon" type="image/png" href="favicon.png">
 
-<meta name="description" content="Code Orbit is a free platform to learn programming, coding tutorials, practice challenges and build coding skills.">
-<meta name="keywords" content="Code Orbit, learn programming, coding tutorials, Python, JavaScript, C++, Java, HTML, CSS, SQL, programming practice">
+<meta name="description" content="Code Orbit is a free online learning platform for programming, artificial intelligence, technology, design, business and digital skills. Learn, practice and build your future.">
+<meta name="keywords" content="Code Orbit, programming courses, AI courses, machine learning, Python, JavaScript, web development, cybersecurity, digital marketing, freelancing, online learning">
 <meta name="author" content="Code Orbit">
 <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ghaziummah098-debug.github.io/Code-Orbit/">
 
-<meta property="og:title" content="Code Orbit — Learn Programming">
-<meta property="og:description" content="Learn programming with structured lessons, examples, quizzes and practice.">
+<meta property="og:title" content="Code Orbit — Learn Programming, AI & Digital Skills">
+<meta property="og:description" content="Learn programming, AI, technology, design, business and digital skills for free.">
 <meta property="og:url" content="https://ghaziummah098-debug.github.io/Code-Orbit/">
 <meta property="og:site_name" content="Code Orbit">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Code Orbit — Learn, Practice, Build">
+<meta name="twitter:description" content="Free online learning platform for programming, AI and digital skills.">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root{
+    --bg:#060912;
+    --bg2:#0b1120;
+    --card:#101827;
+    --card2:#141e31;
+    --border:#243149;
+    --primary:#7c5cff;
+    --primary2:#9b7cff;
+    --cyan:#22d3ee;
+    --green:#22c55e;
+    --yellow:#facc15;
+    --red:#fb7185;
+    --text:#f8fafc;
+    --muted:#94a3b8;
+    --shadow:0 15px 40px rgba(0,0,0,.35);
 }
 
-html {
-    scroll-behavior: smooth;
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #070b14;
-    color: #f5f7ff;
-    min-height: 100vh;
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,Segoe UI,Arial,sans-serif;
+    background:
+        radial-gradient(circle at 20% 0%,rgba(124,92,255,.14),transparent 30%),
+        radial-gradient(circle at 90% 20%,rgba(34,211,238,.08),transparent 25%),
+        var(--bg);
+    color:var(--text);
+    min-height:100vh;
 }
 
 button,
-input,
-textarea {
-    font-family: inherit;
+input{
+    font:inherit;
 }
 
-button {
-    cursor: pointer;
+button{
+    cursor:pointer;
 }
 
-/* ================= NAVBAR ================= */
-
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: rgba(7, 11, 20, 0.96);
-    border-bottom: 1px solid #222c42;
-    backdrop-filter: blur(15px);
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
-.nav-container {
-    max-width: 1400px;
-    margin: auto;
-    padding: 14px 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
+/* NAVBAR */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(6,9,18,.92);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);
 }
 
-.logo {
-    font-size: 23px;
-    font-weight: 900;
-    white-space: nowrap;
+.nav-inner{
+    max-width:1450px;
+    margin:auto;
+    min-height:70px;
+    display:flex;
+    align-items:center;
+    gap:22px;
+    padding:0 22px;
 }
 
-.logo span {
-    color: #8b5cf6;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    min-width:max-content;
 }
 
-.course-navigation {
-    display: flex;
-    gap: 8px;
-    overflow-x: auto;
-    flex: 1;
-    scrollbar-width: none;
+.logo img{
+    width:40px;
+    height:40px;
+    border-radius:11px;
+    object-fit:cover;
 }
 
-.course-navigation::-webkit-scrollbar {
-    display: none;
+.logo-text{
+    font-size:21px;
+    font-weight:900;
+    letter-spacing:.3px;
 }
 
-.course-btn {
-    background: #111a2d;
-    border: 1px solid #27334c;
-    color: #dce5f7;
-    padding: 9px 14px;
-    border-radius: 30px;
-    white-space: nowrap;
-    transition: 0.2s;
+.logo-text span{
+    color:var(--primary2);
 }
 
-.course-btn:hover,
-.course-btn.active {
-    background: linear-gradient(90deg, #7c3aed, #06b6d4);
-    border-color: transparent;
-    color: white;
+.main-nav{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    overflow-x:auto;
+    scrollbar-width:none;
+    flex:1;
 }
 
-/* ================= HERO ================= */
-
-.hero {
-    max-width: 1200px;
-    margin: auto;
-    padding: 80px 20px 55px;
-    text-align: center;
+.main-nav::-webkit-scrollbar{
+    display:none;
 }
 
-.hero-badge {
-    display: inline-block;
-    background: #121b31;
-    border: 1px solid #2b3752;
-    color: #a78bfa;
-    padding: 8px 15px;
-    border-radius: 30px;
-    margin-bottom: 20px;
+.nav-btn{
+    border:1px solid transparent;
+    background:transparent;
+    color:var(--muted);
+    padding:10px 14px;
+    border-radius:10px;
+    white-space:nowrap;
+    transition:.2s;
 }
 
-.hero h1 {
-    font-size: clamp(42px, 7vw, 78px);
-    line-height: 1;
-    margin-bottom: 20px;
-    background: linear-gradient(
-        90deg,
-        #ffffff,
-        #a78bfa,
-        #22d3ee
-    );
-    -webkit-background-clip: text;
-    color: transparent;
+.nav-btn:hover,
+.nav-btn.active{
+    color:white;
+    background:rgba(124,92,255,.15);
+    border-color:rgba(124,92,255,.3);
 }
 
-.hero p {
-    color: #aab6cc;
-    max-width: 720px;
-    margin: auto;
-    font-size: 18px;
-    line-height: 1.7;
+.mobile-menu{
+    display:none;
 }
 
-.search-box {
-    width: min(700px, 100%);
-    margin-top: 30px;
-    padding: 16px 20px;
-    background: #0d1526;
-    border: 1px solid #2b3750;
-    border-radius: 14px;
-    color: white;
-    outline: none;
-    font-size: 16px;
+/* HOME */
+
+.home{
+    max-width:1450px;
+    margin:auto;
 }
 
-.search-box:focus {
-    border-color: #8b5cf6;
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+.hero{
+    min-height:470px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:70px 20px 55px;
 }
 
-/* ================= MAIN ================= */
-
-.container {
-    max-width: 1300px;
-    margin: auto;
-    padding: 20px;
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border:1px solid rgba(124,92,255,.35);
+    background:rgba(124,92,255,.1);
+    color:#c4b5fd;
+    border-radius:100px;
+    padding:8px 15px;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:22px;
 }
 
-.section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 30px 0 20px;
+.hero h1{
+    font-size:clamp(42px,7vw,82px);
+    line-height:1;
+    font-weight:950;
+    letter-spacing:-3px;
+    max-width:950px;
 }
 
-.section-header h2 {
-    font-size: 30px;
+.gradient{
+    background:linear-gradient(90deg,#a78bfa,#22d3ee);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
 }
 
-.course-count {
-    color: #8997b1;
+.hero p{
+    max-width:760px;
+    color:var(--muted);
+    font-size:18px;
+    line-height:1.8;
+    margin:24px 0 30px;
 }
 
-/* ================= LANGUAGE CARDS ================= */
-
-.language-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 18px;
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    justify-content:center;
 }
 
-.language-card {
-    background: linear-gradient(
-        145deg,
-        #111a2c,
-        #0b1220
-    );
-    border: 1px solid #25314a;
-    border-radius: 18px;
-    padding: 22px;
-    transition: 0.25s;
+.primary-btn,
+.secondary-btn{
+    border:none;
+    border-radius:12px;
+    padding:13px 22px;
+    font-weight:800;
+    transition:.2s;
 }
 
-.language-card:hover {
-    transform: translateY(-6px);
-    border-color: #7c3aed;
-    box-shadow: 0 15px 40px rgba(0,0,0,.35);
+.primary-btn{
+    color:white;
+    background:linear-gradient(135deg,var(--primary),#5b4be7);
+    box-shadow:0 8px 25px rgba(124,92,255,.3);
 }
 
-.language-icon {
-    font-size: 40px;
-    margin-bottom: 12px;
+.primary-btn:hover{
+    transform:translateY(-2px);
 }
 
-.language-card h3 {
-    font-size: 22px;
-    margin-bottom: 8px;
+.secondary-btn{
+    color:white;
+    background:#111b2c;
+    border:1px solid var(--border);
 }
 
-.language-card p {
-    color: #929fb8;
-    line-height: 1.6;
-    min-height: 52px;
+.secondary-btn:hover{
+    border-color:var(--primary);
 }
 
-.card-button {
-    margin-top: 18px;
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    font-weight: bold;
-    background: linear-gradient(
-        90deg,
-        #7c3aed,
-        #06b6d4
-    );
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    padding:0 22px 45px;
 }
 
-/* ================= PRACTICE ================= */
-
-.practice-section {
-    margin-top: 70px;
-    padding-bottom: 70px;
+.stat{
+    background:rgba(16,24,39,.8);
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:23px;
+    text-align:center;
 }
 
-.practice-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 18px;
+.stat strong{
+    display:block;
+    font-size:29px;
+    color:white;
 }
 
-.practice-card {
-    background: #0d1526;
-    border: 1px solid #25314a;
-    padding: 22px;
-    border-radius: 16px;
+.stat span{
+    color:var(--muted);
+    font-size:13px;
 }
 
-.practice-card h3 {
-    margin-bottom: 10px;
+/* CONTENT */
+
+.content{
+    padding:20px 22px 70px;
 }
 
-.practice-card p {
-    color: #9aa7bf;
-    line-height: 1.6;
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:20px;
+    margin-bottom:22px;
 }
 
-.small-button {
-    margin-top: 16px;
-    padding: 10px 15px;
-    background: #151f34;
-    color: white;
-    border: 1px solid #303d58;
-    border-radius: 9px;
+.section-head h2{
+    font-size:30px;
 }
 
-/* ================= LESSON ================= */
-
-.lesson-screen {
-    display: none;
-    min-height: 100vh;
+.section-head p{
+    color:var(--muted);
+    margin-top:7px;
 }
 
-.lesson-screen.active {
-    display: block;
+/* SEARCH */
+
+.search-box{
+    position:relative;
+    margin-bottom:25px;
 }
 
-.lesson-topbar {
-    position: sticky;
-    top: 0;
-    z-index: 900;
-    background: #090f1d;
-    border-bottom: 1px solid #263149;
-    padding: 13px 18px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.search-box input{
+    width:100%;
+    padding:16px 18px 16px 48px;
+    background:#0d1524;
+    border:1px solid var(--border);
+    color:white;
+    border-radius:14px;
+    outline:none;
 }
 
-.back-button {
-    padding: 10px 16px;
-    border-radius: 9px;
-    background: #141e33;
-    color: white;
-    border: 1px solid #303d58;
+.search-box input:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 3px rgba(124,92,255,.12);
 }
 
-.back-button:hover {
-    border-color: #8b5cf6;
+.search-icon{
+    position:absolute;
+    left:17px;
+    top:50%;
+    transform:translateY(-50%);
+    color:var(--muted);
 }
 
-.lesson-title {
-    flex: 1;
-    font-weight: bold;
-    font-size: 18px;
+/* CATEGORY */
+
+.category-bar{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    scrollbar-width:none;
+    padding-bottom:10px;
+    margin-bottom:28px;
 }
 
-.progress-text {
-    color: #8f9cb5;
+.category-bar::-webkit-scrollbar{
+    display:none;
 }
 
-/* ================= LESSON LAYOUT ================= */
-
-.lesson-layout {
-    max-width: 1400px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 280px 1fr;
+.category-btn{
+    white-space:nowrap;
+    border:1px solid var(--border);
+    background:#0d1524;
+    color:var(--muted);
+    padding:10px 16px;
+    border-radius:100px;
 }
 
-.lesson-sidebar {
-    min-height: calc(100vh - 60px);
-    max-height: calc(100vh - 60px);
-    overflow-y: auto;
-    position: sticky;
-    top: 60px;
-    padding: 20px;
-    border-right: 1px solid #222c42;
-    background: #080d18;
+.category-btn:hover,
+.category-btn.active{
+    background:var(--primary);
+    color:white;
+    border-color:var(--primary);
 }
 
-.lesson-sidebar h3 {
-    margin-bottom: 15px;
-    color: #a78bfa;
+/* COURSES */
+
+.course-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:17px;
 }
 
-.topic-button {
-    width: 100%;
-    text-align: left;
-    border: none;
-    background: transparent;
-    color: #9ba8bf;
-    padding: 11px;
-    border-radius: 8px;
-    margin-bottom: 4px;
+.course-card{
+    position:relative;
+    background:linear-gradient(145deg,#101827,#0d1422);
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:20px;
+    min-height:230px;
+    transition:.25s;
+    overflow:hidden;
 }
 
-.topic-button:hover {
-    background: #131e34;
-    color: white;
+.course-card::before{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:rgba(124,92,255,.08);
+    right:-35px;
+    top:-35px;
 }
 
-.topic-button.active {
-    background: linear-gradient(
-        90deg,
-        rgba(124,58,237,.3),
-        rgba(6,182,212,.12)
-    );
-    color: white;
-    border-left: 3px solid #8b5cf6;
+.course-card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(124,92,255,.6);
+    box-shadow:var(--shadow);
 }
 
-/* ================= LESSON CONTENT ================= */
-
-.lesson-content {
-    max-width: 950px;
-    padding: 35px;
+.course-icon{
+    width:52px;
+    height:52px;
+    border-radius:14px;
+    background:rgba(124,92,255,.13);
+    border:1px solid rgba(124,92,255,.25);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:27px;
+    margin-bottom:16px;
 }
 
-.welcome-box {
-    position: relative;
-    overflow: hidden;
-    padding: 35px;
-    border-radius: 22px;
-    border: 1px solid #313d59;
+.course-card h3{
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.course-card p{
+    color:var(--muted);
+    line-height:1.55;
+    font-size:13px;
+    min-height:42px;
+}
+
+.course-meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:18px;
+}
+
+.category-label{
+    font-size:11px;
+    color:#c4b5fd;
+    background:rgba(124,92,255,.1);
+    padding:5px 8px;
+    border-radius:7px;
+}
+
+.topic-count{
+    color:var(--muted);
+    font-size:12px;
+}
+
+.open-course{
+    width:100%;
+    margin-top:16px;
+    border:1px solid var(--border);
+    background:#121d30;
+    color:white;
+    padding:10px;
+    border-radius:9px;
+    font-weight:700;
+}
+
+.open-course:hover{
+    background:var(--primary);
+    border-color:var(--primary);
+}
+
+/* EMPTY */
+
+.empty{
+    display:none;
+    text-align:center;
+    padding:70px 20px;
+    color:var(--muted);
+}
+
+.empty h3{
+    color:white;
+    margin-bottom:8px;
+}
+
+/* LESSON */
+
+.lesson-screen{
+    display:none;
+    min-height:100vh;
+    background:#070b14;
+}
+
+.lesson-screen.active{
+    display:block;
+}
+
+.lesson-top{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(7,11,20,.96);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--border);
+}
+
+.lesson-top-inner{
+    max-width:1450px;
+    margin:auto;
+    min-height:65px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:0 20px;
+}
+
+.back-btn{
+    border:1px solid var(--border);
+    background:#101827;
+    color:white;
+    padding:9px 14px;
+    border-radius:9px;
+}
+
+.back-btn:hover{
+    border-color:var(--primary);
+}
+
+.lesson-course-title{
+    font-weight:800;
+}
+
+.lesson-progress{
+    margin-left:auto;
+    color:var(--muted);
+    font-size:13px;
+}
+
+.lesson-layout{
+    max-width:1450px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:285px 1fr;
+    min-height:calc(100vh - 65px);
+}
+
+/* SIDEBAR */
+
+.lesson-sidebar{
+    border-right:1px solid var(--border);
+    padding:22px 14px;
+    position:sticky;
+    top:65px;
+    height:calc(100vh - 65px);
+    overflow-y:auto;
+}
+
+.sidebar-title{
+    font-size:13px;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:1px;
+    padding:0 9px 12px;
+}
+
+.topic-btn{
+    width:100%;
+    text-align:left;
+    background:transparent;
+    border:1px solid transparent;
+    color:var(--muted);
+    padding:10px;
+    border-radius:8px;
+    margin-bottom:3px;
+    font-size:13px;
+}
+
+.topic-btn:hover{
+    background:#101827;
+    color:white;
+}
+
+.topic-btn.active{
+    background:rgba(124,92,255,.13);
+    border-color:rgba(124,92,255,.25);
+    color:white;
+}
+
+/* LESSON CONTENT */
+
+.lesson-content{
+    padding:45px clamp(20px,5vw,70px) 80px;
+    max-width:1000px;
+}
+
+.welcome{
     background:
-        radial-gradient(
-            circle at top right,
-            rgba(124,58,237,.25),
-            transparent 35%
-        ),
-        linear-gradient(
-            135deg,
-            #151c38,
-            #091522
-        );
-    margin-bottom: 30px;
+        radial-gradient(circle at 90% 10%,rgba(34,211,238,.12),transparent 30%),
+        linear-gradient(135deg,#151d35,#0e1524);
+    border:1px solid #2a3957;
+    border-radius:22px;
+    padding:35px;
+    margin-bottom:30px;
+    overflow:hidden;
 }
 
-.welcome-box::after {
-    content: "";
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    border: 1px solid rgba(34,211,238,.2);
-    right: -50px;
-    bottom: -70px;
-    animation: orbit 5s linear infinite;
+.welcome small{
+    color:#a78bfa;
+    font-weight:800;
+    letter-spacing:2px;
 }
 
-@keyframes orbit {
-    from {
-        transform: rotate(0deg);
+.welcome h1{
+    font-size:clamp(28px,4vw,48px);
+    margin:10px 0;
+}
+
+.welcome p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+.lesson-title{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.lesson-intro{
+    color:var(--muted);
+    line-height:1.8;
+    font-size:17px;
+    margin-bottom:30px;
+}
+
+.lesson-section{
+    margin:30px 0;
+}
+
+.lesson-section h2{
+    font-size:23px;
+    margin-bottom:12px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.lesson-section h2::before{
+    content:"";
+    width:5px;
+    height:23px;
+    border-radius:10px;
+    background:linear-gradient(var(--primary),var(--cyan));
+}
+
+.lesson-section p,
+.lesson-section li{
+    color:#c5cfdd;
+    line-height:1.8;
+}
+
+.lesson-section ul{
+    padding-left:22px;
+}
+
+.code-box{
+    background:#050811;
+    border:1px solid #26334b;
+    border-radius:13px;
+    overflow:auto;
+    margin-top:13px;
+}
+
+.code-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:9px 13px;
+    background:#0c1320;
+    border-bottom:1px solid #202c40;
+    color:var(--muted);
+    font-size:12px;
+}
+
+.copy-btn{
+    border:1px solid var(--border);
+    background:#111b2c;
+    color:white;
+    border-radius:6px;
+    padding:5px 9px;
+    font-size:11px;
+}
+
+pre{
+    padding:18px;
+    color:#dbeafe;
+    line-height:1.7;
+    font-family:"Courier New",monospace;
+    font-size:14px;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+}
+
+.info-card{
+    background:#0d1524;
+    border:1px solid var(--border);
+    border-radius:13px;
+    padding:18px;
+}
+
+.info-card h3{
+    margin-bottom:8px;
+    font-size:15px;
+}
+
+.info-card p{
+    font-size:14px;
+}
+
+.practice-box{
+    background:rgba(34,197,94,.06);
+    border:1px solid rgba(34,197,94,.2);
+    border-radius:15px;
+    padding:20px;
+}
+
+.quiz{
+    background:#0d1524;
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:20px;
+}
+
+.quiz-question{
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.quiz-option{
+    display:block;
+    width:100%;
+    text-align:left;
+    background:#111b2c;
+    border:1px solid var(--border);
+    color:#dbeafe;
+    padding:11px;
+    border-radius:8px;
+    margin:8px 0;
+}
+
+.quiz-option:hover{
+    border-color:var(--primary);
+}
+
+.quiz-result{
+    margin-top:12px;
+    font-weight:700;
+}
+
+.lesson-actions{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    margin-top:40px;
+    padding-top:25px;
+    border-top:1px solid var(--border);
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid var(--border);
+    padding:35px 20px;
+    text-align:center;
+    color:var(--muted);
+}
+
+footer strong{
+    color:white;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1150px){
+    .course-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+@media(max-width:850px){
+    .stats{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    to {
-        transform: rotate(360deg);
+    .course-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .lesson-layout{
+        grid-template-columns:1fr;
+    }
+
+    .lesson-sidebar{
+        position:relative;
+        top:0;
+        height:auto;
+        max-height:250px;
+        border-right:0;
+        border-bottom:1px solid var(--border);
     }
 }
 
-.welcome-small {
-    color: #22d3ee;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-}
-
-.welcome-box h1 {
-    font-size: clamp(30px, 5vw, 52px);
-    margin-bottom: 12px;
-}
-
-.welcome-box p {
-    color: #aab6cd;
-    line-height: 1.7;
-}
-
-.start-button {
-    margin-top: 20px;
-    padding: 13px 20px;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    font-weight: bold;
-    background: linear-gradient(
-        90deg,
-        #7c3aed,
-        #06b6d4
-    );
-}
-
-.lesson-section {
-    margin: 35px 0;
-}
-
-.lesson-section h2 {
-    color: #c4b5fd;
-    margin-bottom: 14px;
-}
-
-.lesson-section p {
-    color: #bdc7d9;
-    line-height: 1.8;
-    margin-bottom: 12px;
-}
-
-.code-box {
-    background: #050811;
-    border: 1px solid #29354d;
-    border-radius: 13px;
-    padding: 20px;
-    overflow-x: auto;
-    color: #dbe7ff;
-    line-height: 1.7;
-    white-space: pre-wrap;
-    font-family: Consolas, monospace;
-}
-
-.info-box {
-    padding: 17px;
-    border-left: 4px solid #22d3ee;
-    border-radius: 8px;
-    background: #0c1a2b;
-    color: #c7d1e2;
-    line-height: 1.7;
-}
-
-.warning-box {
-    padding: 17px;
-    border-left: 4px solid #f59e0b;
-    border-radius: 8px;
-    background: #241b0b;
-    color: #d9c9a7;
-    line-height: 1.7;
-}
-
-.mistakes-list {
-    padding-left: 20px;
-    color: #b9c4d8;
-    line-height: 2;
-}
-
-/* ================= QUIZ ================= */
-
-.quiz-box {
-    background: #0d1526;
-    border: 1px solid #2a3650;
-    border-radius: 15px;
-    padding: 22px;
-}
-
-.quiz-option {
-    display: block;
-    width: 100%;
-    text-align: left;
-    margin-top: 10px;
-    padding: 13px;
-    border-radius: 9px;
-    border: 1px solid #2a3650;
-    background: #141e32;
-    color: white;
-}
-
-.quiz-option:hover {
-    border-color: #8b5cf6;
-}
-
-.quiz-result {
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-/* ================= NEXT ================= */
-
-.next-button {
-    padding: 13px 20px;
-    background: linear-gradient(
-        90deg,
-        #7c3aed,
-        #06b6d4
-    );
-    color: white;
-    border: none;
-    border-radius: 10px;
-    font-weight: bold;
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width: 800px) {
-
-    .nav-container {
-        flex-wrap: wrap;
+@media(max-width:600px){
+    .nav-inner{
+        padding:0 12px;
     }
 
-    .logo {
-        width: 100%;
+    .logo-text{
+        font-size:18px;
     }
 
-    .hero {
-        padding-top: 50px;
+    .main-nav{
+        display:none;
     }
 
-    .lesson-layout {
-        grid-template-columns: 1fr;
+    .mobile-menu{
+        display:block;
+        margin-left:auto;
+        border:1px solid var(--border);
+        background:#101827;
+        color:white;
+        border-radius:8px;
+        padding:8px 11px;
     }
 
-    .lesson-sidebar {
-        position: relative;
-        top: 0;
-        min-height: auto;
-        max-height: 280px;
-        border-right: none;
-        border-bottom: 1px solid #222c42;
+    .main-nav.mobile-open{
+        display:flex;
+        position:absolute;
+        left:0;
+        right:0;
+        top:70px;
+        padding:10px;
+        background:#080d18;
+        border-bottom:1px solid var(--border);
+        flex-direction:column;
+        align-items:stretch;
     }
 
-    .lesson-content {
-        padding: 22px 17px 60px;
+    .hero{
+        min-height:420px;
+        padding-top:55px;
     }
 
-    .lesson-topbar {
-        padding: 10px;
+    .hero h1{
+        letter-spacing:-2px;
     }
 
-    .lesson-title {
-        font-size: 14px;
+    .stats{
+        grid-template-columns:1fr 1fr;
+        padding-left:12px;
+        padding-right:12px;
     }
 
-    .progress-text {
-        display: none;
+    .content{
+        padding-left:12px;
+        padding-right:12px;
     }
 
-    .section-header h2 {
-        font-size: 24px;
+    .course-grid{
+        grid-template-columns:1fr;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .lesson-title{
+        font-size:32px;
+    }
+
+    .welcome{
+        padding:24px;
+    }
+
+    .lesson-progress{
+        display:none;
     }
 }
 </style>
@@ -607,1472 +879,2363 @@ button {
 
 <body>
 
-<!-- =========================================================
-     MAIN NAVIGATION
-========================================================= -->
+<!-- ================= NAVBAR ================= -->
 
 <header class="navbar">
+    <div class="nav-inner">
 
-    <div class="nav-container">
+        <a href="#" class="logo" onclick="goHome();return false;">
+            <img src="favicon.png" alt="Code Orbit Logo">
+            <div class="logo-text">Code <span>Orbit</span></div>
+        </a>
 
-        <div class="logo">
-            🚀 Code <span>Orbit</span>
+        <nav class="main-nav" id="mainNav">
+            <button class="nav-btn active" data-category="All">All</button>
+            <button class="nav-btn" data-category="Programming">Programming</button>
+            <button class="nav-btn" data-category="AI & Data">AI & Data</button>
+            <button class="nav-btn" data-category="Technology">Technology</button>
+            <button class="nav-btn" data-category="Design">Design</button>
+            <button class="nav-btn" data-category="Business">Business</button>
+            <button class="nav-btn" data-category="Career">Career</button>
+        </nav>
+
+        <button class="mobile-menu" onclick="toggleMobileMenu()">☰</button>
+
+    </div>
+</header>
+
+<!-- ================= HOME ================= -->
+
+<main id="homeScreen" class="home">
+
+<section class="hero">
+
+    <div class="badge">🚀 FREE ONLINE LEARNING PLATFORM</div>
+
+    <h1>
+        Learn.
+        <span class="gradient">Practice.</span>
+        Build.
+    </h1>
+
+    <p>
+        Learn programming, Artificial Intelligence, technology, design,
+        business and digital skills through structured courses and practical lessons.
+    </p>
+
+    <div class="hero-buttons">
+        <button class="primary-btn" onclick="scrollToCourses()">
+            Start Learning →
+        </button>
+
+        <button class="secondary-btn" onclick="setCategory('AI & Data')">
+            Explore AI 🤖
+        </button>
+    </div>
+
+</section>
+
+<section class="stats">
+
+    <div class="stat">
+        <strong id="courseStat">0+</strong>
+        <span>Courses</span>
+    </div>
+
+    <div class="stat">
+        <strong id="topicStat">0+</strong>
+        <span>Learning Topics</span>
+    </div>
+
+    <div class="stat">
+        <strong>100%</strong>
+        <span>Free Learning</span>
+    </div>
+
+    <div class="stat">
+        <strong>24/7</strong>
+        <span>Learn Anytime</span>
+    </div>
+
+</section>
+
+<section class="content" id="courses">
+
+    <div class="section-head">
+        <div>
+            <h2>Explore Courses</h2>
+            <p>Choose a subject and start learning step by step.</p>
         </div>
+    </div>
 
-        <div class="course-navigation" id="courseNavigation">
-        </div>
+    <div class="search-box">
+        <span class="search-icon">🔎</span>
+        <input
+            id="searchInput"
+            type="search"
+            placeholder="Search Python, AI, Machine Learning, Cybersecurity, SEO..."
+        >
+    </div>
+
+    <div class="category-bar" id="categoryBar">
+
+        <button class="category-btn active" data-category="All">
+            🌎 All
+        </button>
+
+        <button class="category-btn" data-category="Programming">
+            💻 Programming
+        </button>
+
+        <button class="category-btn" data-category="AI & Data">
+            🤖 AI & Data
+        </button>
+
+        <button class="category-btn" data-category="Technology">
+            ⚙️ Technology
+        </button>
+
+        <button class="category-btn" data-category="Design">
+            🎨 Design
+        </button>
+
+        <button class="category-btn" data-category="Business">
+            💼 Business
+        </button>
+
+        <button class="category-btn" data-category="Career">
+            🎯 Career
+        </button>
 
     </div>
 
-</header>
+    <div id="courseGrid" class="course-grid"></div>
 
+    <div id="emptyState" class="empty">
+        <h3>No courses found</h3>
+        <p>Try another search or category.</p>
+    </div>
 
-<!-- =========================================================
-     HOME
-========================================================= -->
+</section>
 
-<main id="homeScreen">
-
-    <section class="hero">
-
-        <div class="hero-badge">
-            🚀 Free Programming Learning Platform
-        </div>
-
-        <h1>
-            Learn. Code. Build.
-        </h1>
-
-        <p>
-            Learn programming languages step by step with
-            structured lessons, syntax, examples, quizzes,
-            practice and projects.
-        </p>
-
-        <input
-            id="searchInput"
-            class="search-box"
-            type="text"
-            placeholder="Search Python, JavaScript, HTML, C++..."
-        >
-
-    </section>
-
-
-    <section class="container">
-
-        <div class="section-header">
-
-            <h2>
-                Programming Courses
-            </h2>
-
-            <span
-                class="course-count"
-                id="courseCount">
-            </span>
-
-        </div>
-
-        <div
-            class="language-grid"
-            id="languageGrid">
-        </div>
-
-
-        <!-- PRACTICE -->
-
-        <section class="practice-section">
-
-            <div class="section-header">
-                <h2>Practice & Challenges</h2>
-            </div>
-
-            <div class="practice-grid">
-
-                <div class="practice-card">
-                    <h3>🧠 Beginner Challenge</h3>
-                    <p>
-                        Learn variables and write your first
-                        programming statement.
-                    </p>
-
-                    <button
-                        class="small-button"
-                        onclick="openLesson('Python',4)">
-                        Start Challenge
-                    </button>
-                </div>
-
-
-                <div class="practice-card">
-                    <h3>⚡ JavaScript Challenge</h3>
-                    <p>
-                        Practice operators, conditions and
-                        JavaScript logic.
-                    </p>
-
-                    <button
-                        class="small-button"
-                        onclick="openLesson('JavaScript',9)">
-                        Start Challenge
-                    </button>
-                </div>
-
-
-                <div class="practice-card">
-                    <h3>🌐 Web Challenge</h3>
-                    <p>
-                        Learn HTML structure and create your
-                        first web page.
-                    </p>
-
-                    <button
-                        class="small-button"
-                        onclick="openLesson('HTML',2)">
-                        Start Challenge
-                    </button>
-                </div>
-
-            </div>
-
-        </section>
-
-    </section>
+<footer>
+    <strong>Code Orbit</strong> — Learn Programming, AI, Technology & Digital Skills.
+    <br><br>
+    © 2026 Code Orbit. Learn • Practice • Build.
+</footer>
 
 </main>
 
+<!-- ================= LESSON SCREEN ================= -->
 
-<!-- =========================================================
-     LESSON SCREEN
-========================================================= -->
+<section id="lessonScreen" class="lesson-screen">
 
-<section
-    id="lessonScreen"
-    class="lesson-screen">
+    <div class="lesson-top">
 
-    <div class="lesson-topbar">
+        <div class="lesson-top-inner">
 
-        <button
-            class="back-button"
-            onclick="goBack()">
-            ← Back
-        </button>
+            <button class="back-btn" onclick="goBack()">
+                ← Back
+            </button>
 
-        <div
-            class="lesson-title"
-            id="lessonTitle">
-        </div>
+            <div class="lesson-course-title" id="lessonCourseTitle">
+                Course
+            </div>
 
-        <div
-            class="progress-text"
-            id="progressText">
+            <div class="lesson-progress" id="lessonProgress">
+                Topic 1 / 20
+            </div>
+
         </div>
 
     </div>
 
-
     <div class="lesson-layout">
-
-        <!-- SIDEBAR -->
 
         <aside class="lesson-sidebar">
 
-            <h3 id="sidebarTitle">
-                Course
-            </h3>
-
-            <div id="topicList">
+            <div class="sidebar-title">
+                Course Topics
             </div>
+
+            <div id="topicList"></div>
 
         </aside>
 
-
-        <!-- CONTENT -->
-
-        <article
-            class="lesson-content"
-            id="lessonContent">
-        </article>
+        <article class="lesson-content" id="lessonContent"></article>
 
     </div>
 
 </section>
 
-
 <script>
 
-/* =========================================================
+/* ============================================================
    COURSE DATA
-========================================================= */
+============================================================ */
 
-const courses = {
+const courses = {};
 
-    Python: {
-        icon: "🐍",
-        topics: [
-            "Introduction",
-            "Installation & Setup",
-            "Syntax",
-            "Comments",
-            "Variables",
-            "Data Types",
-            "Numbers",
-            "Strings",
-            "Boolean",
-            "Operators",
-            "Lists",
-            "Tuples",
-            "Sets",
-            "Dictionaries",
-            "Conditions",
-            "Loops",
-            "Functions",
-            "Classes & Objects",
-            "Inheritance",
-            "Modules & Libraries"
-        ]
-    },
+/* ------------------------------------------------------------
+   Helper
+------------------------------------------------------------ */
 
-    HTML: {
-        icon: "🌐",
-        topics: [
-            "Introduction",
-            "Editors & Setup",
-            "Basic Structure",
-            "Headings",
-            "Paragraphs",
-            "Links",
-            "Images",
-            "Lists",
-            "Tables",
-            "Forms",
-            "Input Types",
-            "Buttons",
-            "Semantic HTML",
-            "Audio & Video",
-            "Iframes",
-            "Classes & IDs",
-            "Attributes",
-            "Meta Tags",
-            "Accessibility",
-            "HTML Projects"
-        ]
-    },
+function addCourse(id, title, icon, category, description, topics){
+    courses[id] = {
+        title,
+        icon,
+        category,
+        description,
+        topics: topics.map((name,index)=>({
+            name,
+            number:index+1
+        }))
+    };
+}
 
-    CSS: {
-        icon: "🎨",
-        topics: [
-            "Introduction",
-            "Syntax",
-            "Selectors",
-            "Colors",
-            "Backgrounds",
-            "Borders",
-            "Margins",
-            "Padding",
-            "Box Model",
-            "Width & Height",
-            "Text",
-            "Fonts",
-            "Links",
-            "Lists",
-            "Display",
-            "Position",
-            "Flexbox",
-            "Grid",
-            "Responsive Design",
-            "CSS Projects"
-        ]
-    },
+/* ============================================================
+   PROGRAMMING COURSES
+============================================================ */
 
-    JavaScript: {
-        icon: "⚡",
-        topics: [
-            "Introduction",
-            "Setup",
-            "Syntax",
-            "Comments",
-            "Variables",
-            "Data Types",
-            "Strings",
-            "Numbers",
-            "Boolean",
-            "Operators",
-            "Conditions",
-            "Loops",
-            "Functions",
-            "Arrays",
-            "Objects",
-            "DOM",
-            "Events",
-            "Classes",
-            "Async JavaScript",
-            "Projects"
-        ]
-    },
+addCourse("python","Python","🐍","Programming",
+"Learn Python from fundamentals to practical programming.",
+[
+"Introduction to Python",
+"Python Variables",
+"Data Types",
+"Numbers",
+"Strings",
+"Operators",
+"Input and Output",
+"Conditional Statements",
+"For Loops",
+"While Loops",
+"Functions",
+"Lists",
+"Tuples",
+"Sets",
+"Dictionaries",
+"File Handling",
+"Exceptions",
+"Modules",
+"Object Oriented Programming",
+"Python Projects"
+]);
 
-    "C++": {
-        icon: "⚙️",
-        topics: [
-            "Introduction",
-            "Installation & Setup",
-            "Syntax",
-            "Comments",
-            "Variables",
-            "Data Types",
-            "Operators",
-            "Strings",
-            "Conditions",
-            "Loops",
-            "Functions",
-            "Arrays",
-            "Pointers",
-            "References",
-            "Structures",
-            "Classes",
-            "Objects",
-            "Inheritance",
-            "Polymorphism",
-            "STL"
-        ]
-    },
+addCourse("html","HTML","🌐","Programming",
+"Learn how to build the structure of modern websites.",
+[
+"Introduction to HTML",
+"HTML Document Structure",
+"Headings and Paragraphs",
+"Links",
+"Images",
+"Lists",
+"Tables",
+"Forms",
+"Input Elements",
+"Buttons",
+"Semantic HTML",
+"HTML5 Elements",
+"Audio and Video",
+"Iframes",
+"Meta Tags",
+"SEO Basics",
+"Accessibility",
+"HTML Validation",
+"Website Structure",
+"HTML Project"
+]);
 
-    Java: {
-        icon: "☕",
-        topics: [
-            "Introduction",
-            "Installation & Setup",
-            "Syntax",
-            "Variables",
-            "Data Types",
-            "Operators",
-            "Strings",
-            "Conditions",
-            "Loops",
-            "Methods",
-            "Arrays",
-            "Classes",
-            "Objects",
-            "Constructors",
-            "Inheritance",
-            "Polymorphism",
-            "Interfaces",
-            "Exceptions",
-            "Collections",
-            "Packages"
-        ]
-    },
+addCourse("css","CSS","🎨","Programming",
+"Learn how to design beautiful responsive websites.",
+[
+"Introduction to CSS",
+"CSS Syntax",
+"Selectors",
+"Colors",
+"Backgrounds",
+"Borders",
+"Margins",
+"Padding",
+"Box Model",
+"Text Styling",
+"Fonts",
+"Display",
+"Position",
+"Flexbox",
+"CSS Grid",
+"Responsive Design",
+"Transitions",
+"Animations",
+"Media Queries",
+"CSS Project"
+]);
 
-    "C#": {
-        icon: "🔷",
-        topics: [
-            "Introduction",
-            "Setup",
-            "Syntax",
-            "Variables",
-            "Data Types",
-            "Operators",
-            "Strings",
-            "Conditions",
-            "Loops",
-            "Methods",
-            "Arrays",
-            "Classes",
-            "Objects",
-            "Inheritance",
-            "Interfaces",
-            "Exceptions",
-            "Generics",
-            "LINQ",
-            "Collections",
-            "Projects"
-        ]
-    },
+addCourse("javascript","JavaScript","⚡","Programming",
+"Learn JavaScript for interactive websites and web applications.",
+[
+"Introduction to JavaScript",
+"Variables",
+"Data Types",
+"Operators",
+"Strings",
+"Arrays",
+"Objects",
+"Conditions",
+"For Loops",
+"While Loops",
+"Functions",
+"Arrow Functions",
+"DOM Basics",
+"Events",
+"Forms",
+"JSON",
+"Fetch API",
+"Async JavaScript",
+"Error Handling",
+"JavaScript Project"
+]);
 
-    PHP: {
-        icon: "🐘",
-        topics: [
-            "Introduction",
-            "Setup",
-            "Syntax",
-            "Variables",
-            "Data Types",
-            "Strings",
-            "Operators",
-            "Conditions",
-            "Loops",
-            "Functions",
-            "Arrays",
-            "Associative Arrays",
-            "Forms",
-            "Sessions",
-            "Cookies",
-            "Classes",
-            "OOP",
-            "MySQL",
-            "Security",
-            "Projects"
-        ]
-    },
+addCourse("cpp","C++","⚙️","Programming",
+"Learn C++ programming from basics to object oriented programming.",
+[
+"Introduction to C++",
+"Program Structure",
+"Variables",
+"Data Types",
+"Operators",
+"Input and Output",
+"Conditions",
+"Loops",
+"Functions",
+"Arrays",
+"Strings",
+"Pointers",
+"References",
+"Structures",
+"Classes",
+"Objects",
+"Inheritance",
+"Polymorphism",
+"Exception Handling",
+"C++ Project"
+]);
 
-    SQL: {
-        icon: "🗄️",
-        topics: [
-            "Introduction",
-            "Databases",
-            "SELECT",
-            "WHERE",
-            "ORDER BY",
-            "INSERT",
-            "UPDATE",
-            "DELETE",
-            "CREATE TABLE",
-            "ALTER TABLE",
-            "Constraints",
-            "Primary Keys",
-            "Foreign Keys",
-            "JOIN",
-            "GROUP BY",
-            "HAVING",
-            "Subqueries",
-            "Functions",
-            "Indexes",
-            "SQL Projects"
-        ]
-    },
+addCourse("java","Java","☕","Programming",
+"Learn Java programming and object oriented concepts.",
+[
+"Introduction to Java",
+"Java Syntax",
+"Variables",
+"Data Types",
+"Operators",
+"Input and Output",
+"Conditions",
+"Loops",
+"Methods",
+"Arrays",
+"Strings",
+"Classes",
+"Objects",
+"Constructors",
+"Inheritance",
+"Polymorphism",
+"Interfaces",
+"Exception Handling",
+"Collections",
+"Java Project"
+]);
 
-    React: {
-        icon: "⚛️",
-        topics: [
-            "Introduction",
-            "Setup",
-            "Components",
-            "JSX",
-            "Props",
-            "State",
-            "Events",
-            "Conditional Rendering",
-            "Lists",
-            "Forms",
-            "Hooks",
-            "useState",
-            "useEffect",
-            "Context",
-            "Refs",
-            "Routing",
-            "API Calls",
-            "Performance",
-            "Patterns",
-            "Projects"
-        ]
-    },
+addCourse("csharp","C#","🔷","Programming",
+"Learn C# for software, desktop and modern application development.",
+[
+"Introduction to C#",
+"Syntax",
+"Variables",
+"Data Types",
+"Operators",
+"Conditions",
+"Loops",
+"Methods",
+"Arrays",
+"Strings",
+"Classes",
+"Objects",
+"Constructors",
+"Inheritance",
+"Interfaces",
+"Polymorphism",
+"Exception Handling",
+"Collections",
+"LINQ Basics",
+"C# Project"
+]);
 
-    "Node.js": {
-        icon: "🟢",
-        topics: [
-            "Introduction",
-            "Installation",
-            "Modules",
-            "NPM",
-            "File System",
-            "HTTP",
-            "Events",
-            "Streams",
-            "Express",
-            "Routes",
-            "Middleware",
-            "REST APIs",
-            "JSON",
-            "Databases",
-            "Authentication",
-            "Validation",
-            "Error Handling",
-            "Security",
-            "Deployment",
-            "Projects"
-        ]
-    },
+addCourse("php","PHP","🐘","Programming",
+"Learn PHP for dynamic websites and server-side development.",
+[
+"Introduction to PHP",
+"PHP Syntax",
+"Variables",
+"Data Types",
+"Operators",
+"Conditions",
+"Loops",
+"Functions",
+"Arrays",
+"Strings",
+"Forms",
+"GET and POST",
+"Sessions",
+"Cookies",
+"File Handling",
+"MySQL",
+"CRUD",
+"Security",
+"PHP OOP",
+"PHP Project"
+]);
 
-    Go: {
-        icon: "🐹",
-        topics: [
-            "Introduction",
-            "Installation",
-            "Syntax",
-            "Variables",
-            "Data Types",
-            "Operators",
-            "Strings",
-            "Conditions",
-            "Loops",
-            "Functions",
-            "Arrays",
-            "Slices",
-            "Maps",
-            "Structs",
-            "Pointers",
-            "Interfaces",
-            "Goroutines",
-            "Channels",
-            "Packages",
-            "Projects"
-        ]
-    },
+addCourse("sql","SQL","🗄️","Programming",
+"Learn SQL for databases and data management.",
+[
+"Introduction to SQL",
+"Database Concepts",
+"CREATE Database",
+"CREATE Table",
+"INSERT Data",
+"SELECT Data",
+"WHERE Clause",
+"ORDER BY",
+"GROUP BY",
+"Aggregate Functions",
+"UPDATE",
+"DELETE",
+"JOINS",
+"INNER JOIN",
+"LEFT JOIN",
+"Subqueries",
+"Indexes",
+"Constraints",
+"Views",
+"SQL Project"
+]);
 
-    Rust: {
-        icon: "🦀",
-        topics: [
-            "Introduction",
-            "Installation",
-            "Syntax",
-            "Variables",
-            "Data Types",
-            "Ownership",
-            "Borrowing",
-            "References",
-            "Structs",
-            "Enums",
-            "Pattern Matching",
-            "Collections",
-            "Functions",
-            "Traits",
-            "Generics",
-            "Error Handling",
-            "Modules",
-            "Iterators",
-            "Concurrency",
-            "Projects"
-        ]
-    },
+addCourse("react","React","⚛️","Programming",
+"Learn React for modern component-based web development.",
+[
+"Introduction to React",
+"React Setup",
+"Components",
+"JSX",
+"Props",
+"State",
+"Events",
+"Conditional Rendering",
+"Lists",
+"Forms",
+"Hooks",
+"useState",
+"useEffect",
+"Custom Hooks",
+"Context API",
+"React Router",
+"API Requests",
+"Performance",
+"Project Structure",
+"React Project"
+]);
 
-    Kotlin: {
-        icon: "🟣",
-        topics: [
-            "Introduction",
-            "Setup",
-            "Syntax",
-            "Variables",
-            "Data Types",
-            "Operators",
-            "Strings",
-            "Conditions",
-            "Loops",
-            "Functions",
-            "Arrays",
-            "Collections",
-            "Classes",
-            "Objects",
-            "Inheritance",
-            "Interfaces",
-            "Null Safety",
-            "Coroutines",
-            "Generics",
-            "Projects"
-        ]
-    },
+addCourse("node","Node.js","🟢","Programming",
+"Learn server-side JavaScript with Node.js.",
+[
+"Introduction to Node.js",
+"Installation",
+"Modules",
+"NPM",
+"File System",
+"Path Module",
+"HTTP Server",
+"Express.js",
+"Routes",
+"Middleware",
+"Requests",
+"Responses",
+"REST APIs",
+"JSON APIs",
+"Databases",
+"Authentication",
+"Error Handling",
+"Environment Variables",
+"Deployment",
+"Node Project"
+]);
 
-    Swift: {
-        icon: "🍎",
-        topics: [
-            "Introduction",
-            "Setup",
-            "Syntax",
-            "Variables",
-            "Data Types",
-            "Strings",
-            "Conditions",
-            "Loops",
-            "Functions",
-            "Arrays",
-            "Dictionaries",
-            "Optionals",
-            "Structs",
-            "Classes",
-            "Protocols",
-            "Extensions",
-            "Closures",
-            "Error Handling",
-            "Concurrency",
-            "Projects"
-        ]
-    }
+addCourse("go","Go","🐹","Programming",
+"Learn Go programming for fast and scalable software.",
+[
+"Introduction to Go",
+"Go Installation",
+"Variables",
+"Data Types",
+"Operators",
+"Conditions",
+"Loops",
+"Functions",
+"Arrays",
+"Slices",
+"Maps",
+"Structs",
+"Pointers",
+"Methods",
+"Interfaces",
+"Packages",
+"Error Handling",
+"Goroutines",
+"Channels",
+"Go Project"
+]);
 
-};
+addCourse("rust","Rust","🦀","Programming",
+"Learn Rust with a focus on safety and performance.",
+[
+"Introduction to Rust",
+"Installation",
+"Variables",
+"Data Types",
+"Functions",
+"Conditions",
+"Loops",
+"Ownership",
+"Borrowing",
+"References",
+"Structs",
+"Enums",
+"Pattern Matching",
+"Collections",
+"Modules",
+"Traits",
+"Generics",
+"Error Handling",
+"Concurrency",
+"Rust Project"
+]);
 
+addCourse("kotlin","Kotlin","🟣","Programming",
+"Learn Kotlin for modern application and Android development.",
+[
+"Introduction to Kotlin",
+"Syntax",
+"Variables",
+"Data Types",
+"Operators",
+"Conditions",
+"Loops",
+"Functions",
+"Arrays",
+"Collections",
+"Null Safety",
+"Classes",
+"Objects",
+"Constructors",
+"Inheritance",
+"Interfaces",
+"Data Classes",
+"Generics",
+"Coroutines",
+"Kotlin Project"
+]);
 
-/* =========================================================
+addCourse("swift","Swift","🍎","Programming",
+"Learn Swift for Apple application development.",
+[
+"Introduction to Swift",
+"Swift Syntax",
+"Variables",
+"Constants",
+"Data Types",
+"Operators",
+"Strings",
+"Arrays",
+"Dictionaries",
+"Conditions",
+"Loops",
+"Functions",
+"Closures",
+"Optionals",
+"Structures",
+"Classes",
+"Protocols",
+"Generics",
+"Error Handling",
+"Swift Project"
+]);
+
+/* ============================================================
+   AI & DATA COURSES
+============================================================ */
+
+addCourse("ai","Artificial Intelligence","🤖","AI & Data",
+"Understand Artificial Intelligence and how intelligent systems work.",
+[
+"Introduction to Artificial Intelligence",
+"History of AI",
+"AI vs Traditional Software",
+"Intelligent Agents",
+"Problem Solving",
+"Search Algorithms",
+"Knowledge Representation",
+"Reasoning",
+"Machine Learning Basics",
+"Neural Networks",
+"Deep Learning",
+"Computer Vision",
+"Natural Language Processing",
+"Generative AI",
+"AI Assistants",
+"AI Ethics",
+"AI Safety",
+"AI Applications",
+"Building AI Systems",
+"AI Project"
+]);
+
+addCourse("ml","Machine Learning","🧠","AI & Data",
+"Learn the fundamentals of machine learning and predictive models.",
+[
+"Introduction to Machine Learning",
+"Types of Machine Learning",
+"Training Data",
+"Features and Labels",
+"Data Preprocessing",
+"Linear Regression",
+"Logistic Regression",
+"Classification",
+"Decision Trees",
+"Random Forest",
+"K Nearest Neighbors",
+"Support Vector Machines",
+"Clustering",
+"K Means",
+"Model Evaluation",
+"Accuracy and Precision",
+"Overfitting",
+"Underfitting",
+"Model Deployment",
+"Machine Learning Project"
+]);
+
+addCourse("deep-learning","Deep Learning","🧬","AI & Data",
+"Learn neural networks and modern deep learning concepts.",
+[
+"Introduction to Deep Learning",
+"Neural Network Basics",
+"Neurons",
+"Activation Functions",
+"Loss Functions",
+"Gradient Descent",
+"Backpropagation",
+"Training Neural Networks",
+"TensorFlow Basics",
+"PyTorch Basics",
+"Convolutional Neural Networks",
+"Image Classification",
+"Recurrent Neural Networks",
+"Sequence Models",
+"Transformers",
+"Attention Mechanism",
+"Transfer Learning",
+"Model Optimization",
+"GPU Computing",
+"Deep Learning Project"
+]);
+
+addCourse("genai","Generative AI","✨","AI & Data",
+"Learn how modern generative AI systems create text, images, audio and code.",
+[
+"Introduction to Generative AI",
+"How Generative AI Works",
+"Large Language Models",
+"Tokens",
+"Embeddings",
+"Transformers",
+"Text Generation",
+"Image Generation",
+"Audio Generation",
+"Code Generation",
+"AI Agents",
+"Retrieval Augmented Generation",
+"Vector Databases",
+"AI Workflows",
+"AI Automation",
+"Model Limitations",
+"AI Hallucinations",
+"Responsible AI",
+"Generative AI Applications",
+"Generative AI Project"
+]);
+
+addCourse("prompt","Prompt Engineering","💬","AI & Data",
+"Learn how to write effective prompts for AI systems.",
+[
+"Introduction to Prompt Engineering",
+"What Makes a Good Prompt",
+"Prompt Structure",
+"Clear Instructions",
+"Context",
+"Examples in Prompts",
+"Role Prompting",
+"Zero Shot Prompting",
+"Few Shot Prompting",
+"Chain of Thought Concepts",
+"Output Formatting",
+"JSON Prompts",
+"Prompt Templates",
+"AI Writing Prompts",
+"Coding Prompts",
+"Research Prompts",
+"Image Prompts",
+"Prompt Testing",
+"Prompt Optimization",
+"Prompt Engineering Project"
+]);
+
+addCourse("chatgpt","ChatGPT & AI Tools","🗣️","AI & Data",
+"Learn practical ways to use AI assistants for study, coding and productivity.",
+[
+"Introduction to AI Assistants",
+"ChatGPT Basics",
+"Writing Better Prompts",
+"Study with AI",
+"Research with AI",
+"Summarization",
+"Translation",
+"Brainstorming",
+"Writing Emails",
+"Learning with AI",
+"Coding with AI",
+"Debugging with AI",
+"AI for Presentations",
+"AI for Documents",
+"AI for Productivity",
+"AI Image Tools",
+"AI Video Tools",
+"AI Automation",
+"AI Limitations",
+"AI Productivity Project"
+]);
+
+addCourse("datascience","Data Science","📊","AI & Data",
+"Learn how data is collected, analyzed and transformed into useful insights.",
+[
+"Introduction to Data Science",
+"Data Science Workflow",
+"Python for Data Science",
+"NumPy",
+"Pandas",
+"Data Cleaning",
+"Data Types",
+"Exploratory Data Analysis",
+"Statistics Basics",
+"Probability",
+"Data Visualization",
+"Matplotlib",
+"Seaborn Concepts",
+"Feature Engineering",
+"Machine Learning",
+"Model Evaluation",
+"Data Storytelling",
+"Business Analytics",
+"Data Ethics",
+"Data Science Project"
+]);
+
+addCourse("data-analysis","Data Analysis","📈","AI & Data",
+"Learn practical data analysis techniques.",
+[
+"Introduction to Data Analysis",
+"Data Collection",
+"Data Cleaning",
+"Excel Analysis",
+"SQL Analysis",
+"Python Analysis",
+"Pandas",
+"Filtering Data",
+"Sorting Data",
+"Grouping Data",
+"Pivot Tables",
+"Charts",
+"Statistics",
+"Correlation",
+"Trends",
+"Dashboards",
+"Business Metrics",
+"Data Visualization",
+"Reporting",
+"Data Analysis Project"
+]);
+
+addCourse("computer-vision","Computer Vision","👁️","AI & Data",
+"Learn how computers understand images and visual information.",
+[
+"Introduction to Computer Vision",
+"Digital Images",
+"Pixels and Channels",
+"Image Processing",
+"Image Resizing",
+"Image Filtering",
+"Edge Detection",
+"Object Detection",
+"Image Classification",
+"Face Detection",
+"OpenCV",
+"Convolutional Networks",
+"Data Augmentation",
+"Transfer Learning",
+"OCR",
+"Image Segmentation",
+"Pose Detection",
+"Video Analysis",
+"Vision Applications",
+"Computer Vision Project"
+]);
+
+addCourse("nlp","Natural Language Processing","📝","AI & Data",
+"Learn how AI processes and understands human language.",
+[
+"Introduction to NLP",
+"Text Processing",
+"Tokenization",
+"Stop Words",
+"Stemming",
+"Lemmatization",
+"Part of Speech",
+"Named Entity Recognition",
+"Text Classification",
+"Sentiment Analysis",
+"Text Embeddings",
+"Word Vectors",
+"Language Models",
+"Transformers",
+"Attention",
+"Chatbots",
+"Question Answering",
+"Text Summarization",
+"Machine Translation",
+"NLP Project"
+]);
+
+/* ============================================================
+   TECHNOLOGY
+============================================================ */
+
+addCourse("webdev","Web Development","🌍","Technology",
+"Learn how modern websites and web applications are built.",
+[
+"Introduction to Web Development",
+"How Websites Work",
+"Frontend vs Backend",
+"HTML",
+"CSS",
+"JavaScript",
+"Responsive Design",
+"DOM",
+"APIs",
+"HTTP",
+"Web Servers",
+"Databases",
+"Authentication",
+"REST APIs",
+"Git",
+"GitHub",
+"Deployment",
+"Web Security",
+"Performance",
+"Web Development Project"
+]);
+
+addCourse("cybersecurity","Cybersecurity","🔐","Technology",
+"Learn the fundamentals of protecting systems, networks and data.",
+[
+"Introduction to Cybersecurity",
+"Cybersecurity Concepts",
+"Threats and Attacks",
+"Malware",
+"Phishing",
+"Passwords",
+"Authentication",
+"Encryption",
+"Network Security",
+"Firewalls",
+"Web Security",
+"OWASP Basics",
+"Secure Coding",
+"Linux Security",
+"Digital Privacy",
+"Incident Response",
+"Security Monitoring",
+"Risk Management",
+"Cybersecurity Careers",
+"Security Project"
+]);
+
+addCourse("ethical-hacking","Ethical Hacking","🛡️","Technology",
+"Learn ethical security testing concepts responsibly.",
+[
+"Introduction to Ethical Hacking",
+"Legal and Ethical Rules",
+"Reconnaissance",
+"Scanning Concepts",
+"Network Basics",
+"Ports and Services",
+"Web Security",
+"Authentication Testing",
+"Vulnerability Concepts",
+"OWASP Top Risks",
+"Social Engineering Awareness",
+"Password Security",
+"Wireless Security Concepts",
+"Linux for Security",
+"Security Tools",
+"Vulnerability Reports",
+"Defensive Security",
+"Penetration Testing Workflow",
+"Security Career",
+"Ethical Hacking Project"
+]);
+
+addCourse("cloud","Cloud Computing","☁️","Technology",
+"Learn cloud computing concepts and modern infrastructure.",
+[
+"Introduction to Cloud Computing",
+"Cloud Service Models",
+"IaaS",
+"PaaS",
+"SaaS",
+"Virtual Machines",
+"Containers",
+"Storage",
+"Databases",
+"Networking",
+"Identity and Access",
+"Cloud Security",
+"Serverless",
+"Monitoring",
+"Scaling",
+"Load Balancing",
+"Cloud Costs",
+"DevOps",
+"Cloud Deployment",
+"Cloud Project"
+]);
+
+addCourse("devops","DevOps","♾️","Technology",
+"Learn development and operations practices for modern software.",
+[
+"Introduction to DevOps",
+"DevOps Culture",
+"Version Control",
+"Git",
+"GitHub",
+"CI and CD",
+"Build Pipelines",
+"Testing",
+"Linux",
+"Shell Basics",
+"Docker",
+"Containers",
+"Kubernetes Concepts",
+"Infrastructure as Code",
+"Cloud DevOps",
+"Monitoring",
+"Logging",
+"Security",
+"Deployment Strategies",
+"DevOps Project"
+]);
+
+addCourse("git","Git & GitHub","🐙","Technology",
+"Learn version control and collaborative development.",
+[
+"Introduction to Git",
+"Git Installation",
+"Repositories",
+"git init",
+"git status",
+"git add",
+"git commit",
+"Branches",
+"Merging",
+"GitHub",
+"Remote Repositories",
+"Push",
+"Pull",
+"Clone",
+"Pull Requests",
+"Issues",
+"GitHub Pages",
+"Collaboration",
+"Git Best Practices",
+"GitHub Project"
+]);
+
+addCourse("linux","Linux","🐧","Technology",
+"Learn Linux commands, files, permissions and system administration.",
+[
+"Introduction to Linux",
+"Linux Distributions",
+"Terminal Basics",
+"File System",
+"Navigation",
+"Files and Folders",
+"Permissions",
+"Users",
+"Processes",
+"Package Managers",
+"Environment Variables",
+"Networking",
+"SSH",
+"Shell Scripting",
+"Services",
+"Logs",
+"Storage",
+"Security",
+"System Administration",
+"Linux Project"
+]);
+
+addCourse("networking","Computer Networking","🌐","Technology",
+"Learn how computers communicate across networks.",
+[
+"Introduction to Networking",
+"Network Types",
+"OSI Model",
+"TCP/IP",
+"IP Addresses",
+"IPv4",
+"IPv6",
+"MAC Addresses",
+"DNS",
+"DHCP",
+"HTTP and HTTPS",
+"Ports",
+"Routers",
+"Switches",
+"Firewalls",
+"WiFi",
+"VPN",
+"Network Security",
+"Troubleshooting",
+"Networking Project"
+]);
+
+addCourse("databases","Database Management","🗃️","Technology",
+"Learn database concepts, SQL and data management.",
+[
+"Introduction to Databases",
+"Relational Databases",
+"Tables",
+"Rows and Columns",
+"Primary Keys",
+"Foreign Keys",
+"SQL",
+"CRUD",
+"Relationships",
+"Joins",
+"Indexes",
+"Normalization",
+"Transactions",
+"Constraints",
+"Views",
+"Stored Procedures",
+"NoSQL",
+"Database Security",
+"Backup and Recovery",
+"Database Project"
+]);
+
+/* ============================================================
+   DESIGN
+============================================================ */
+
+addCourse("uiux","UI/UX Design","🎯","Design",
+"Learn how to design useful, attractive and user-friendly interfaces.",
+[
+"Introduction to UI/UX",
+"UI vs UX",
+"Design Thinking",
+"User Research",
+"Personas",
+"User Flows",
+"Wireframes",
+"Information Architecture",
+"Visual Hierarchy",
+"Typography",
+"Color Theory",
+"Spacing",
+"Design Systems",
+"Buttons and Forms",
+"Responsive Design",
+"Accessibility",
+"Prototyping",
+"Usability Testing",
+"Portfolio",
+"UI/UX Project"
+]);
+
+addCourse("graphic","Graphic Design","🖌️","Design",
+"Learn fundamental graphic design principles.",
+[
+"Introduction to Graphic Design",
+"Design Principles",
+"Composition",
+"Color Theory",
+"Typography",
+"Branding",
+"Logos",
+"Layouts",
+"Images",
+"Shapes",
+"Icons",
+"Posters",
+"Social Media Design",
+"Presentation Design",
+"Photo Editing",
+"Design Tools",
+"Design Briefs",
+"Client Work",
+"Portfolio",
+"Graphic Design Project"
+]);
+
+addCourse("video","Video Editing","🎬","Design",
+"Learn video editing from basic cuts to professional workflows.",
+[
+"Introduction to Video Editing",
+"Video Formats",
+"Editing Software",
+"Importing Media",
+"Timeline",
+"Cutting Clips",
+"Transitions",
+"Text and Titles",
+"Audio Editing",
+"Music",
+"Color Correction",
+"Color Grading",
+"Effects",
+"Green Screen",
+"Subtitles",
+"Short Form Videos",
+"YouTube Videos",
+"Export Settings",
+"Editing Workflow",
+"Video Project"
+]);
+
+addCourse("canva","Canva Design","✨","Design",
+"Learn Canva for presentations, social media and digital graphics.",
+[
+"Introduction to Canva",
+"Canva Interface",
+"Templates",
+"Elements",
+"Text",
+"Fonts",
+"Colors",
+"Images",
+"Backgrounds",
+"Layouts",
+"Presentations",
+"Social Media Posts",
+"Thumbnails",
+"Posters",
+"Flyers",
+"Logos",
+"Brand Kits",
+"Animations",
+"Exporting",
+"Canva Project"
+]);
+
+addCourse("animation","Animation","🎞️","Design",
+"Learn animation fundamentals and digital motion concepts.",
+[
+"Introduction to Animation",
+"Animation Principles",
+"Frames",
+"Timeline",
+"Keyframes",
+"Motion",
+"Timing",
+"Spacing",
+"Squash and Stretch",
+"Anticipation",
+"Follow Through",
+"Character Movement",
+"2D Animation",
+"3D Animation",
+"Motion Graphics",
+"Visual Effects",
+"Storyboarding",
+"Animation Software",
+"Rendering",
+"Animation Project"
+]);
+
+/* ============================================================
+   BUSINESS
+============================================================ */
+
+addCourse("digital-marketing","Digital Marketing","📣","Business",
+"Learn how businesses attract customers online.",
+[
+"Introduction to Digital Marketing",
+"Marketing Fundamentals",
+"Target Audience",
+"Customer Journey",
+"Branding",
+"Content Marketing",
+"Social Media Marketing",
+"Email Marketing",
+"Search Marketing",
+"SEO",
+"Paid Advertising",
+"Google Ads Concepts",
+"Analytics",
+"Conversion Rate",
+"Lead Generation",
+"Marketing Funnels",
+"Influencer Marketing",
+"Marketing Strategy",
+"Campaign Planning",
+"Marketing Project"
+]);
+
+addCourse("seo","SEO","🔎","Business",
+"Learn how websites can improve their visibility in search engines.",
+[
+"Introduction to SEO",
+"How Search Engines Work",
+"Keywords",
+"Search Intent",
+"On Page SEO",
+"Title Tags",
+"Meta Descriptions",
+"Headings",
+"Internal Links",
+"Images",
+"Technical SEO",
+"Site Speed",
+"Mobile SEO",
+"Sitemaps",
+"Robots.txt",
+"Backlinks",
+"Local SEO",
+"SEO Analytics",
+"SEO Strategy",
+"SEO Project"
+]);
+
+addCourse("freelancing","Freelancing","💻","Business",
+"Learn how to start and grow a professional freelancing career.",
+[
+"Introduction to Freelancing",
+"Choosing a Skill",
+"Building Skills",
+"Portfolio",
+"Personal Branding",
+"Freelance Platforms",
+"Profile Optimization",
+"Writing Proposals",
+"Finding Clients",
+"Client Communication",
+"Project Requirements",
+"Pricing",
+"Negotiation",
+"Contracts",
+"Payments",
+"Meeting Deadlines",
+"Client Reviews",
+"Repeat Clients",
+"Growing Your Business",
+"Freelancing Project"
+]);
+
+addCourse("ecommerce","E-Commerce","🛒","Business",
+"Learn how online stores work and how to build an e-commerce business.",
+[
+"Introduction to E-Commerce",
+"Business Models",
+"Product Research",
+"Market Research",
+"Branding",
+"Store Setup",
+"Product Pages",
+"Pricing",
+"Payments",
+"Shipping",
+"Customer Support",
+"Digital Marketing",
+"SEO for Stores",
+"Social Commerce",
+"Email Marketing",
+"Analytics",
+"Conversion Optimization",
+"Customer Retention",
+"Scaling",
+"E-Commerce Project"
+]);
+
+addCourse("shopify","Shopify","🛍️","Business",
+"Learn the fundamentals of building and managing an online store with Shopify.",
+[
+"Introduction to Shopify",
+"Creating a Store",
+"Store Settings",
+"Choosing a Theme",
+"Customizing Design",
+"Products",
+"Collections",
+"Navigation",
+"Payments",
+"Shipping",
+"Domains",
+"Apps",
+"Product SEO",
+"Store Marketing",
+"Email Marketing",
+"Discounts",
+"Analytics",
+"Customer Management",
+"Store Optimization",
+"Shopify Project"
+]);
+
+addCourse("youtube","YouTube & Content Creation","▶️","Business",
+"Learn how to build a YouTube content strategy.",
+[
+"Introduction to YouTube",
+"Choosing a Niche",
+"Channel Branding",
+"Channel Setup",
+"Content Ideas",
+"Research",
+"Script Writing",
+"Recording",
+"Video Editing",
+"Thumbnails",
+"Titles",
+"Descriptions",
+"YouTube SEO",
+"Shorts",
+"Audience Retention",
+"Analytics",
+"Community",
+"Monetization Basics",
+"Content Strategy",
+"YouTube Project"
+]);
+
+addCourse("affiliate","Affiliate Marketing","🔗","Business",
+"Learn the fundamentals of promoting products through affiliate marketing.",
+[
+"Introduction to Affiliate Marketing",
+"How Affiliate Marketing Works",
+"Choosing a Niche",
+"Audience Research",
+"Affiliate Networks",
+"Product Research",
+"Content Strategy",
+"Blogging",
+"YouTube",
+"Social Media",
+"SEO",
+"Email Marketing",
+"Affiliate Links",
+"Disclosures",
+"Conversion Optimization",
+"Tracking",
+"Analytics",
+"Trust Building",
+"Scaling",
+"Affiliate Project"
+]);
+
+/* ============================================================
+   CAREER
+============================================================ */
+
+addCourse("english","English Communication","🇬🇧","Career",
+"Improve English communication for study, work and professional life.",
+[
+"English Communication Basics",
+"Common Vocabulary",
+"Sentence Structure",
+"Present Tense",
+"Past Tense",
+"Future Tense",
+"Questions",
+"Daily Conversation",
+"Speaking Practice",
+"Listening",
+"Reading",
+"Writing",
+"Email Writing",
+"Professional English",
+"Interview English",
+"Presentation English",
+"Pronunciation",
+"Common Mistakes",
+"Confidence",
+"English Practice Project"
+]);
+
+addCourse("communication","Communication Skills","🗣️","Career",
+"Build better communication skills for professional and personal success.",
+[
+"Introduction to Communication",
+"Verbal Communication",
+"Non Verbal Communication",
+"Active Listening",
+"Clear Speaking",
+"Questioning",
+"Body Language",
+"Confidence",
+"Public Speaking",
+"Presentation Skills",
+"Professional Emails",
+"Meetings",
+"Team Communication",
+"Conflict Resolution",
+"Negotiation",
+"Persuasion",
+"Storytelling",
+"Networking",
+"Leadership Communication",
+"Communication Project"
+]);
+
+addCourse("excel","Microsoft Excel","📊","Career",
+"Learn Excel for study, business, data and office work.",
+[
+"Introduction to Excel",
+"Workbook and Worksheets",
+"Cells and Ranges",
+"Data Entry",
+"Formatting",
+"Formulas",
+"SUM",
+"AVERAGE",
+"COUNT",
+"IF Function",
+"Text Functions",
+"Date Functions",
+"Sorting",
+"Filtering",
+"Tables",
+"Charts",
+"Pivot Tables",
+"Data Validation",
+"Conditional Formatting",
+"Excel Project"
+]);
+
+addCourse("powerpoint","Microsoft PowerPoint","📽️","Career",
+"Learn how to create professional presentations.",
+[
+"Introduction to PowerPoint",
+"Creating Slides",
+"Layouts",
+"Text",
+"Images",
+"Shapes",
+"Icons",
+"Charts",
+"Tables",
+"Themes",
+"Colors",
+"Typography",
+"Animations",
+"Transitions",
+"Speaker Notes",
+"Presentation Structure",
+"Visual Storytelling",
+"Professional Slides",
+"Presenting",
+"PowerPoint Project"
+]);
+
+addCourse("entrepreneurship","Entrepreneurship","🚀","Career",
+"Learn the fundamentals of starting and growing a business.",
+[
+"Introduction to Entrepreneurship",
+"Business Ideas",
+"Problem Solving",
+"Market Research",
+"Target Customers",
+"Value Proposition",
+"Business Models",
+"Competition",
+"Branding",
+"Marketing",
+"Sales",
+"Pricing",
+"Revenue",
+"Costs",
+"Business Planning",
+"Customer Feedback",
+"Product Development",
+"Scaling",
+"Leadership",
+"Business Project"
+]);
+
+addCourse("career","Career Development","🎯","Career",
+"Build skills for education, jobs, freelancing and long-term career growth.",
+[
+"Career Planning",
+"Finding Your Strengths",
+"Choosing a Career",
+"Skill Development",
+"Learning Strategy",
+"Building a Portfolio",
+"Resume Basics",
+"CV Writing",
+"LinkedIn Profile",
+"Job Search",
+"Applications",
+"Cover Letters",
+"Interview Preparation",
+"Technical Interviews",
+"Communication",
+"Networking",
+"Freelancing",
+"Personal Branding",
+"Career Growth",
+"Career Project"
+]);
+
+/* ============================================================
    STATE
-========================================================= */
+============================================================ */
 
-let currentCourse = "";
+let currentCategory = "All";
+let currentCourse = null;
 let currentTopic = 0;
 let previousScroll = 0;
 
+/* ============================================================
+   INITIALIZATION
+============================================================ */
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
+function init(){
 
-function createNavigation() {
+    createCourses();
 
-    const nav = document.getElementById("courseNavigation");
+    document.getElementById("courseStat").textContent =
+        Object.keys(courses).length + "+";
 
-    nav.innerHTML = "";
+    let totalTopics = Object.values(courses)
+        .reduce((sum,course)=>sum + course.topics.length,0);
 
-    Object.keys(courses).forEach(course => {
+    document.getElementById("topicStat").textContent =
+        totalTopics + "+";
 
-        const button = document.createElement("button");
-
-        button.className = "course-btn";
-
-        button.textContent =
-            courses[course].icon + " " + course;
-
-        button.onclick = function() {
-            openLesson(course, 0);
-        };
-
-        nav.appendChild(button);
-
+    document.querySelectorAll("[data-category]").forEach(button=>{
+        button.addEventListener("click",()=>{
+            setCategory(button.dataset.category);
+        });
     });
+
+    document.getElementById("searchInput")
+        .addEventListener("input",filterCourses);
 
 }
 
-
-/* =========================================================
+/* ============================================================
    COURSE CARDS
-========================================================= */
+============================================================ */
 
-function createCourseCards(search = "") {
+function createCourses(){
 
-    const grid =
-        document.getElementById("languageGrid");
-
+    const grid = document.getElementById("courseGrid");
     grid.innerHTML = "";
 
-    const filtered =
-        Object.keys(courses).filter(course =>
-            course.toLowerCase().includes(
-                search.toLowerCase()
-            )
-        );
+    Object.entries(courses).forEach(([id,course])=>{
 
-    document.getElementById("courseCount")
-        .textContent =
-        filtered.length + " courses";
-
-    if (filtered.length === 0) {
-
-        grid.innerHTML = `
-            <div style="
-                grid-column:1/-1;
-                text-align:center;
-                padding:50px;
-                color:#8997b1;">
-                No course found.
-            </div>
-        `;
-
-        return;
-    }
-
-    filtered.forEach(course => {
-
-        const card =
-            document.createElement("div");
-
-        card.className = "language-card";
+        const card = document.createElement("div");
+        card.className = "course-card";
+        card.dataset.category = course.category;
+        card.dataset.search =
+            `${course.title} ${course.category} ${course.description} ${course.topics.join(" ")}`.toLowerCase();
 
         card.innerHTML = `
+            <div class="course-icon">${course.icon}</div>
 
-            <div class="language-icon">
-                ${courses[course].icon}
+            <h3>${course.title}</h3>
+
+            <p>${course.description}</p>
+
+            <div class="course-meta">
+                <span class="category-label">${course.category}</span>
+                <span class="topic-count">${course.topics.length} Topics</span>
             </div>
 
-            <h3>${course}</h3>
-
-            <p>
-                ${courses[course].topics.length}
-                structured topics with explanations,
-                examples, practice and quizzes.
-            </p>
-
-            <button
-                class="card-button"
-                onclick="openLesson('${course}', 0)">
-                Start Learning →
+            <button class="open-course"
+                onclick="openCourse('${id}')">
+                Start Course →
             </button>
-
         `;
 
         grid.appendChild(card);
 
     });
 
+    filterCourses();
+
 }
 
+/* ============================================================
+   CATEGORY
+============================================================ */
 
-/* =========================================================
-   OPEN LESSON
-========================================================= */
+function setCategory(category){
 
-function openLesson(course, topicIndex = 0) {
+    currentCategory = category;
+
+    document.querySelectorAll(".category-btn,.nav-btn")
+        .forEach(btn=>{
+            btn.classList.toggle(
+                "active",
+                btn.dataset.category === category
+            );
+        });
+
+    filterCourses();
+
+    if(category !== "All"){
+        scrollToCourses();
+    }
+}
+
+function filterCourses(){
+
+    const query =
+        document.getElementById("searchInput").value
+        .trim()
+        .toLowerCase();
+
+    let visible = 0;
+
+    document.querySelectorAll(".course-card").forEach(card=>{
+
+        const matchesCategory =
+            currentCategory === "All" ||
+            card.dataset.category === currentCategory;
+
+        const matchesSearch =
+            !query ||
+            card.dataset.search.includes(query);
+
+        const show =
+            matchesCategory && matchesSearch;
+
+        card.style.display = show ? "block" : "none";
+
+        if(show) visible++;
+
+    });
+
+    document.getElementById("emptyState").style.display =
+        visible === 0 ? "block" : "none";
+}
+
+/* ============================================================
+   OPEN COURSE
+============================================================ */
+
+function openCourse(courseId){
+
+    currentCourse = courseId;
+    currentTopic = 0;
 
     previousScroll = window.scrollY;
 
-    currentCourse = course;
-    currentTopic = topicIndex;
+    document.getElementById("homeScreen").style.display = "none";
+    document.getElementById("lessonScreen").classList.add("active");
 
-    document
-        .getElementById("homeScreen")
-        .style.display = "none";
+    document.body.style.overflow = "auto";
 
-    document
-        .getElementById("lessonScreen")
-        .classList.add("active");
-
-    renderTopics();
+    renderTopicList();
     renderLesson();
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
+    window.scrollTo(0,0);
 }
 
-
-/* =========================================================
+/* ============================================================
    TOPIC SIDEBAR
-========================================================= */
+============================================================ */
 
-function renderTopics() {
+function renderTopicList(){
 
-    const list =
-        document.getElementById("topicList");
-
-    document.getElementById("sidebarTitle")
-        .textContent =
-        currentCourse + " Course";
+    const list = document.getElementById("topicList");
+    const course = courses[currentCourse];
 
     list.innerHTML = "";
 
-    courses[currentCourse].topics.forEach(
-        (topic, index) => {
+    course.topics.forEach((topic,index)=>{
 
-            const button =
-                document.createElement("button");
+        const button = document.createElement("button");
 
-            button.className =
-                "topic-button" +
-                (index === currentTopic
-                    ? " active"
-                    : "");
+        button.className =
+            "topic-btn" +
+            (index === currentTopic ? " active" : "");
 
-            button.textContent =
-                (index + 1) + ". " + topic;
+        button.innerHTML =
+            `${index+1}. ${topic.name}`;
 
-            button.onclick = function() {
+        button.onclick = ()=>{
+            currentTopic = index;
+            renderTopicList();
+            renderLesson();
+            window.scrollTo(0,0);
+        };
 
-                currentTopic = index;
-
-                renderTopics();
-                renderLesson();
-
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
-
-            };
-
-            list.appendChild(button);
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   CODE EXAMPLES
-========================================================= */
-
-function getExample(course, topic) {
-
-    const examples = {
-
-        Python: `
-name = "Code Orbit"
-age = 18
-
-print(name)
-print(age)
-`,
-
-        HTML: `
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>Code Orbit</title>
-</head>
-
-<body>
-
-    <h1>Welcome to Code Orbit</h1>
-    <p>Learn HTML step by step.</p>
-
-</body>
-</html>
-`,
-
-        CSS: `
-body {
-    background: #070b14;
-    color: white;
-}
-
-h1 {
-    color: #8b5cf6;
-}
-`,
-
-        JavaScript: `
-const name = "Code Orbit";
-
-console.log(name);
-
-let age = 18;
-
-console.log(age);
-`,
-
-        "C++": `
-#include <iostream>
-
-using namespace std;
-
-int main() {
-
-    cout << "Hello Code Orbit";
-
-    return 0;
-}
-`,
-
-        Java: `
-public class Main {
-
-    public static void main(String[] args) {
-
-        System.out.println("Hello Code Orbit");
-
-    }
-}
-`,
-
-        "C#": `
-using System;
-
-class Program {
-
-    static void Main() {
-
-        Console.WriteLine("Hello Code Orbit");
-
-    }
-}
-`,
-
-        PHP: `
-<?php
-
-echo "Hello Code Orbit";
-
-?>
-`,
-
-        SQL: `
-SELECT *
-FROM students
-WHERE age >= 18;
-`,
-
-        React: `
-function App() {
-
-    return (
-        <h1>
-            Hello Code Orbit
-        </h1>
-    );
-
-}
-`,
-
-        "Node.js": `
-const http = require("http");
-
-const server =
-    http.createServer((req, res) => {
-
-        res.end("Hello Code Orbit");
+        list.appendChild(button);
 
     });
-
-server.listen(3000);
-`,
-
-        Go: `
-package main
-
-import "fmt"
-
-func main() {
-
-    fmt.Println("Hello Code Orbit")
-
-}
-`,
-
-        Rust: `
-fn main() {
-
-    println!("Hello Code Orbit");
-
-}
-`,
-
-        Kotlin: `
-fun main() {
-
-    println("Hello Code Orbit")
-
-}
-`,
-
-        Swift: `
-import Foundation
-
-print("Hello Code Orbit")
-`
-
-    };
-
-    return examples[course] ||
-`// ${course} example
-
-// Topic: ${topic}
-
-// Write your code here`;
-
 }
 
-
-/* =========================================================
+/* ============================================================
    LESSON CONTENT
-========================================================= */
+============================================================ */
 
-function renderLesson() {
+function renderLesson(){
 
-    const topics =
-        courses[currentCourse].topics;
+    const course = courses[currentCourse];
+    const topic = course.topics[currentTopic];
 
-    const topic =
-        topics[currentTopic];
+    document.getElementById("lessonCourseTitle").textContent =
+        `${course.icon} ${course.title}`;
 
-    const nextTopic =
-        topics[
-            (currentTopic + 1) %
-            topics.length
-        ];
+    document.getElementById("lessonProgress").textContent =
+        `Topic ${currentTopic+1} / ${course.topics.length}`;
 
-    document.getElementById("lessonTitle")
-        .textContent =
-        currentCourse + " — " + topic;
+    const isProgramming =
+        course.category === "Programming";
 
-    document.getElementById("progressText")
-        .textContent =
-        "Topic " +
-        (currentTopic + 1) +
-        " of " +
-        topics.length;
+    const syntaxTitle =
+        isProgramming ? "Syntax" : "Steps / Workflow";
 
+    const example = getExample(course.title,topic.name);
 
-    const example =
-        getExample(currentCourse, topic);
+    document.getElementById("lessonContent").innerHTML = `
 
+        <div class="welcome">
 
-    document.getElementById("lessonContent")
-        .innerHTML = `
-
-        <!-- WELCOME -->
-
-        <div class="welcome-box">
-
-            <div class="welcome-small">
-                WELCOME TO CODE ORBIT
-            </div>
+            <small>WELCOME TO CODE ORBIT</small>
 
             <h1>
-                Welcome to ${currentCourse}
-                — ${topic}
+                ${course.icon}
+                Welcome to ${escapeHTML(course.title)}
+                — ${escapeHTML(topic.name)}
             </h1>
 
             <p>
                 Learn → Practice → Build
             </p>
 
-            <button
-                class="start-button"
-                onclick="
-                    document
-                    .getElementById('introSection')
-                    .scrollIntoView({
-                        behavior:'smooth'
-                    })
-                ">
-                Start Learning
-            </button>
+        </div>
+
+        <h1 class="lesson-title">
+            ${escapeHTML(topic.name)}
+        </h1>
+
+        <p class="lesson-intro">
+            ${getIntroduction(course.title,topic.name)}
+        </p>
+
+        <div class="lesson-section">
+
+            <h2>Introduction</h2>
+
+            <p>
+                In this topic, you will learn the important concepts,
+                terminology and practical ideas related to
+                <strong>${escapeHTML(topic.name)}</strong>.
+                The goal is to understand the concept clearly and then
+                use it in real projects.
+            </p>
 
         </div>
 
+        <div class="lesson-section">
 
-        <!-- INTRODUCTION -->
-
-        <section
-            class="lesson-section"
-            id="introSection">
-
-            <h2>
-                1. Introduction
-            </h2>
+            <h2>${syntaxTitle}</h2>
 
             <p>
-                In this lesson you will learn
-                <strong>${topic}</strong>
-                in ${currentCourse}.
+                The basic structure or workflow for this topic can be
+                understood using the following example.
             </p>
 
-            <p>
-                We will first understand the
-                concept, then study its syntax,
-                examine practical examples,
-                identify common mistakes and
-                finally complete a practice
-                exercise and quiz.
-            </p>
+            <div class="code-box">
 
-        </section>
+                <div class="code-head">
+                    <span>${isProgramming ? course.title + " Example" : "Practical Example"}</span>
 
+                    <button class="copy-btn"
+                        onclick="copyCode(this)">
+                        Copy
+                    </button>
+                </div>
 
-        <!-- SYNTAX -->
-
-        <section class="lesson-section">
-
-            <h2>
-                2. Syntax
-            </h2>
-
-            <pre class="code-box">${escapeHTML(example)}</pre>
-
-        </section>
-
-
-        <!-- SYNTAX EXPLANATION -->
-
-        <section class="lesson-section">
-
-            <h2>
-                3. Syntax Explanation
-            </h2>
-
-            <p>
-                Programming syntax is the set
-                of rules used to write valid
-                code. Every programming language
-                has its own keywords, symbols,
-                structures and conventions.
-            </p>
-
-            <div class="info-box">
-
-                <strong>Remember:</strong>
-
-                Read the example from top to
-                bottom. Identify the keywords,
-                values, functions, variables,
-                brackets and punctuation before
-                changing the code.
+                <pre><code>${escapeHTML(example)}</code></pre>
 
             </div>
 
-        </section>
+        </div>
 
+        <div class="lesson-section">
 
-        <!-- EXAMPLE 1 -->
+            <h2>Understanding the Example</h2>
 
-        <section class="lesson-section">
+            <div class="info-grid">
 
-            <h2>
-                4. Example 1
-            </h2>
+                <div class="info-card">
+                    <h3>1. Understand</h3>
+                    <p>
+                        First understand what the concept is and
+                        why it is useful.
+                    </p>
+                </div>
 
-            <pre class="code-box">${escapeHTML(example)}</pre>
+                <div class="info-card">
+                    <h3>2. Practice</h3>
+                    <p>
+                        Try changing the example and observe what happens.
+                    </p>
+                </div>
 
-            <p>
-                This example demonstrates a basic
-                ${currentCourse} pattern. Try
-                changing one value and predict
-                what the output will be before
-                running the program.
-            </p>
+                <div class="info-card">
+                    <h3>3. Experiment</h3>
+                    <p>
+                        Test different values, ideas and approaches.
+                    </p>
+                </div>
 
-        </section>
-
-
-        <!-- EXAMPLE 2 -->
-
-        <section class="lesson-section">
-
-            <h2>
-                5. Example 2
-            </h2>
-
-            <pre class="code-box">
-${escapeHTML(
-`// Practice example
-
-// Change the values
-// and test your own version
-
-// Topic: ${topic}`
-)}
-            </pre>
-
-            <p>
-                Experiment with the code.
-                Change names, numbers, text or
-                other values and observe the
-                result.
-            </p>
-
-        </section>
-
-
-        <!-- IMPORTANT NOTES -->
-
-        <section class="lesson-section">
-
-            <h2>
-                6. Important Notes
-            </h2>
-
-            <div class="info-box">
-
-                <strong>Code Orbit Tip:</strong>
-
-                Do not only read code. Type it,
-                run it, change it and break it.
-                Debugging your own mistakes is an
-                important part of becoming a
-                programmer.
-
-            </div>
-
-        </section>
-
-
-        <!-- COMMON MISTAKES -->
-
-        <section class="lesson-section">
-
-            <h2>
-                7. Common Mistakes
-            </h2>
-
-            <ul class="mistakes-list">
-
-                <li>
-                    Missing brackets, quotes or
-                    punctuation.
-                </li>
-
-                <li>
-                    Spelling keywords incorrectly.
-                </li>
-
-                <li>
-                    Using the wrong capitalization.
-                </li>
-
-                <li>
-                    Copying code without
-                    understanding it.
-                </li>
-
-                <li>
-                    Changing too many lines at
-                    the same time when debugging.
-                </li>
-
-            </ul>
-
-        </section>
-
-
-        <!-- PRACTICE -->
-
-        <section class="lesson-section">
-
-            <h2>
-                8. Practice Exercise
-            </h2>
-
-            <p>
-                Create your own small
-                ${currentCourse} program using
-                the concept
-                <strong>${topic}</strong>.
-            </p>
-
-            <div class="warning-box">
-
-                <strong>Challenge:</strong>
-
-                Change at least two values from
-                the example and predict the result
-                before testing it.
-
-            </div>
-
-            <button
-                class="start-button"
-                onclick="
-                    alert(
-                    'Great! Now write your own solution and test it.'
-                    )
-                ">
-
-                I'm Ready to Practice
-
-            </button>
-
-        </section>
-
-
-        <!-- QUIZ -->
-
-        <section class="lesson-section">
-
-            <h2>
-                9. Quick Quiz
-            </h2>
-
-            <div class="quiz-box">
-
-                <p>
-                    <strong>
-                        What is the best way to
-                        learn ${topic}?
-                    </strong>
-                </p>
-
-                <button
-                    class="quiz-option"
-                    onclick="checkQuiz(this,false)">
-                    A. Memorize everything without
-                    writing code
-                </button>
-
-                <button
-                    class="quiz-option"
-                    onclick="checkQuiz(this,true)">
-                    B. Understand the concept,
-                    write code and practice it
-                </button>
-
-                <button
-                    class="quiz-option"
-                    onclick="checkQuiz(this,false)">
-                    C. Never test your code
-                </button>
-
-                <div
-                    id="quizResult"
-                    class="quiz-result">
+                <div class="info-card">
+                    <h3>4. Build</h3>
+                    <p>
+                        Use the concept inside a small real-world project.
+                    </p>
                 </div>
 
             </div>
 
-        </section>
+        </div>
 
+        <div class="lesson-section">
 
-        <!-- NEXT -->
+            <h2>Important Notes</h2>
 
-        <section class="lesson-section">
+            <ul>
+                <li>Focus on understanding instead of memorizing.</li>
+                <li>Practice the concept yourself.</li>
+                <li>Try different examples.</li>
+                <li>Read error messages carefully.</li>
+                <li>Use small projects to strengthen your skills.</li>
+            </ul>
 
-            <h2>
-                10. Continue Learning
-            </h2>
+        </div>
 
-            <p>
-                Your next topic is:
-                <strong>${nextTopic}</strong>
-            </p>
+        <div class="lesson-section">
 
-            <button
-                class="next-button"
-                onclick="
-                    nextLesson()
-                ">
+            <h2>Common Mistakes</h2>
 
-                Next Topic →
+            <div class="info-grid">
 
+                <div class="info-card">
+                    <h3>❌ Skipping Practice</h3>
+                    <p>
+                        Reading alone is not enough. Write and test
+                        your own examples.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>❌ Copy Without Understanding</h3>
+                    <p>
+                        Try to understand what every important part
+                        of an example does.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>❌ Ignoring Errors</h3>
+                    <p>
+                        Errors are useful feedback. Read them and
+                        debug your work.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h3>❌ Learning Too Fast</h3>
+                    <p>
+                        Master one topic before moving to the next.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="lesson-section">
+
+            <h2>Practice Exercise</h2>
+
+            <div class="practice-box">
+
+                <p>
+                    <strong>Your task:</strong>
+                    Create your own small example using
+                    <strong>${escapeHTML(topic.name)}</strong>.
+                </p>
+
+                <br>
+
+                <p>
+                    Change at least one part of the example,
+                    run/test it, and explain what changed.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="lesson-section">
+
+            <h2>Quick Quiz</h2>
+
+            <div class="quiz">
+
+                <div class="quiz-question">
+                    What is the best way to learn this topic?
+                </div>
+
+                <button class="quiz-option"
+                    onclick="quizAnswer(this,false)">
+                    Only read the lesson
+                </button>
+
+                <button class="quiz-option"
+                    onclick="quizAnswer(this,true)">
+                    Understand, practice and build
+                </button>
+
+                <button class="quiz-option"
+                    onclick="quizAnswer(this,false)">
+                    Memorize everything without practice
+                </button>
+
+                <div class="quiz-result" id="quizResult"></div>
+
+            </div>
+
+        </div>
+
+        <div class="lesson-actions">
+
+            <button class="secondary-btn"
+                onclick="previousTopic()"
+                ${currentTopic === 0 ? "disabled" : ""}>
+                ← Previous
             </button>
 
-        </section>
+            <button class="primary-btn"
+                onclick="nextTopic()">
+                ${currentTopic === course.topics.length-1
+                    ? "Finish Course ✓"
+                    : "Next Topic →"}
+            </button>
 
-        `;
+        </div>
+
+    `;
 
 }
 
+/* ============================================================
+   INTRODUCTION GENERATOR
+============================================================ */
 
-/* =========================================================
+function getIntroduction(course,topic){
+
+    const intros = {
+
+        "Python":
+            `${topic} is an important part of Python programming. Understanding this concept will help you write cleaner programs and solve practical programming problems.`,
+
+        "JavaScript":
+            `${topic} is an important JavaScript concept used when building interactive websites and modern web applications.`,
+
+        "HTML":
+            `${topic} is an important part of HTML and helps you create well-structured web pages.`,
+
+        "CSS":
+            `${topic} is an important CSS concept that helps you create attractive, responsive and professional interfaces.`,
+
+        "Machine Learning":
+            `${topic} is an important machine learning concept. It helps you understand how data can be used to build predictive systems.`,
+
+        "Artificial Intelligence":
+            `${topic} is connected to the broader field of Artificial Intelligence, where computer systems are designed to perform tasks that normally require intelligent decision making.`,
+
+        "Generative AI":
+            `${topic} is part of the rapidly growing Generative AI field, where AI systems can generate useful content such as text, images, audio and code.`
+
+    };
+
+    return intros[course] ||
+        `${topic} is an important concept in ${course}. Learning this topic gives you practical knowledge that can be used in real projects, study and professional work.`;
+
+}
+
+/* ============================================================
+   EXAMPLES
+============================================================ */
+
+function getExample(course,topic){
+
+    const examples = {
+
+        "Python":{
+            "Python Variables":
+`name = "Code Orbit"
+age = 18
+
+print(name)
+print(age)`,
+
+            "Conditional Statements":
+`age = 18
+
+if age >= 18:
+    print("Adult")
+else:
+    print("Under 18")`,
+
+            "Functions":
+`def greet(name):
+    return "Hello " + name
+
+message = greet("Code Orbit")
+print(message)`,
+
+            "Lists":
+`languages = ["Python", "JavaScript", "C++"]
+
+for language in languages:
+    print(language)`
+        },
+
+        "JavaScript":{
+            "Variables":
+`const name = "Code Orbit";
+let age = 18;
+
+console.log(name);
+console.log(age);`,
+
+            "Functions":
+`function greet(name) {
+    return "Hello " + name;
+}
+
+console.log(greet("Code Orbit"));`,
+
+            "DOM Basics":
+`const title = document.querySelector("h1");
+
+title.textContent = "Welcome to Code Orbit";`
+        },
+
+        "HTML":{
+            "Introduction to HTML":
+`<!DOCTYPE html>
+<html>
+<head>
+    <title>Code Orbit</title>
+</head>
+<body>
+
+    <h1>Welcome to Code Orbit</h1>
+    <p>Learn programming.</p>
+
+</body>
+</html>`,
+
+            "Links":
+`<a href="https://example.com">
+    Visit Website
+</a>`,
+
+            "Images":
+`<img
+    src="image.jpg"
+    alt="Example image"
+>`
+        },
+
+        "CSS":{
+            "CSS Syntax":
+`body {
+    background: #070b14;
+    color: white;
+}
+
+h1 {
+    color: #8b5cf6;
+}`,
+
+            "Flexbox":
+`.container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}`,
+
+            "Responsive Design":
+`@media (max-width: 600px) {
+    .container {
+        display: block;
+    }
+}`
+        },
+
+        "SQL":{
+            "SELECT Data":
+`SELECT name, email
+FROM students;`,
+
+            "WHERE Clause":
+`SELECT *
+FROM students
+WHERE age >= 18;`,
+
+            "INSERT Data":
+`INSERT INTO students
+(name, age)
+VALUES
+('Ali', 18);`
+        },
+
+        "Machine Learning":{
+            "Linear Regression":
+`from sklearn.linear_model import LinearRegression
+
+model = LinearRegression()
+
+model.fit(X_train, y_train)
+
+prediction = model.predict(X_test)`
+        },
+
+        "Generative AI":{
+            "Prompt Engineering":
+`Role:
+You are an expert programming teacher.
+
+Task:
+Explain Python variables to a beginner.
+
+Requirements:
+- Simple language
+- Examples
+- Practice exercise`
+        }
+
+    };
+
+    if(examples[course] && examples[course][topic]){
+        return examples[course][topic];
+    }
+
+    return `// ${course} — ${topic}
+
+// Learn the concept
+// Practice the idea
+// Build a small project
+
+console.log("Learn → Practice → Build");`;
+
+}
+
+/* ============================================================
+   COPY
+============================================================ */
+
+function copyCode(button){
+
+    const code =
+        button.closest(".code-box")
+        .querySelector("code")
+        .innerText;
+
+    navigator.clipboard.writeText(code);
+
+    const old = button.textContent;
+
+    button.textContent = "Copied!";
+
+    setTimeout(()=>{
+        button.textContent = old;
+    },1200);
+
+}
+
+/* ============================================================
    QUIZ
-========================================================= */
+============================================================ */
 
-function checkQuiz(button, correct) {
+function quizAnswer(button,correct){
 
     const result =
-        document.getElementById(
-            "quizResult"
-        );
+        document.getElementById("quizResult");
 
-    if (correct) {
-
-        button.style.borderColor =
-            "#22c55e";
-
-        result.style.color =
-            "#22c55e";
+    if(correct){
 
         result.textContent =
-            "✓ Correct! Excellent work.";
+            "✓ Correct! Practice is the key to learning.";
 
-    } else {
+        result.style.color = "#22c55e";
 
-        button.style.borderColor =
-            "#ef4444";
-
-        result.style.color =
-            "#ef4444";
+    }else{
 
         result.textContent =
-            "✕ Not quite. Try again.";
+            "Try again. Think about learning by doing.";
+
+        result.style.color = "#fb7185";
 
     }
 
 }
 
+/* ============================================================
+   NEXT / PREVIOUS
+============================================================ */
 
-/* =========================================================
-   NEXT LESSON
-========================================================= */
+function nextTopic(){
 
-function nextLesson() {
+    const course = courses[currentCourse];
 
-    if (
-        currentTopic <
-        courses[currentCourse].topics.length - 1
-    ) {
+    if(currentTopic < course.topics.length - 1){
 
         currentTopic++;
 
-    } else {
+        renderTopicList();
+        renderLesson();
 
-        currentTopic = 0;
+        window.scrollTo(0,0);
+
+    }else{
+
+        alert(
+            "🎉 Congratulations!\n\n" +
+            "You completed all 20 topics of " +
+            course.title +
+            "!"
+        );
 
     }
 
-    renderTopics();
-    renderLesson();
+}
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+function previousTopic(){
+
+    if(currentTopic > 0){
+
+        currentTopic--;
+
+        renderTopicList();
+        renderLesson();
+
+        window.scrollTo(0,0);
+
+    }
 
 }
 
+/* ============================================================
+   BACK
+============================================================ */
 
-/* =========================================================
-   BACK BUTTON
-========================================================= */
+function goBack(){
 
-function goBack() {
-
-    document
-        .getElementById("lessonScreen")
+    document.getElementById("lessonScreen")
         .classList.remove("active");
 
-    document
-        .getElementById("homeScreen")
+    document.getElementById("homeScreen")
         .style.display = "block";
 
-    setTimeout(() => {
+    window.scrollTo(0,previousScroll);
 
-        window.scrollTo({
-            top: previousScroll,
-            behavior: "smooth"
+}
+
+/* ============================================================
+   HOME
+============================================================ */
+
+function goHome(){
+
+    document.getElementById("lessonScreen")
+        .classList.remove("active");
+
+    document.getElementById("homeScreen")
+        .style.display = "block";
+
+    window.scrollTo(0,0);
+
+}
+
+function scrollToCourses(){
+
+    document.getElementById("courses")
+        .scrollIntoView({
+            behavior:"smooth"
         });
 
-    }, 100);
+}
+
+function toggleMobileMenu(){
+
+    document.getElementById("mainNav")
+        .classList.toggle("mobile-open");
 
 }
 
+/* ============================================================
+   UTILITIES
+============================================================ */
 
-/* =========================================================
-   HTML ESCAPE
-========================================================= */
+function escapeHTML(value){
 
-function escapeHTML(text) {
-
-    return text
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;");
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
 }
 
+/* ============================================================
+   START
+============================================================ */
 
-/* =========================================================
-   SEARCH
-========================================================= */
-
-document
-    .getElementById("searchInput")
-    .addEventListener(
-        "input",
-        function() {
-
-            createCourseCards(
-                this.value
-            );
-
-        }
-    );
-
-
-/* =========================================================
-   INITIALIZE
-========================================================= */
-
-createNavigation();
-
-createCourseCards();
+init();
 
 </script>
 
